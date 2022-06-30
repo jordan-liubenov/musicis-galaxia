@@ -1,0 +1,77 @@
+.navBar {
+  position: fixed;
+  width: 100%;
+  align-items: center;
+  /* background-color: rgba(173, 132, 193, 0.543); */
+  background-color: rgba(112, 94, 121, 0.791);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bolder;
+}
+
+.navBar ul {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  /* background-color: rgba(240, 195, 243, 0.096); */
+}
+
+.navBar ul li {
+  font-size: 25px;
+  margin: 0 5rem;
+  padding: 5px;
+}
+
+nav a {
+  color: rgb(53, 51, 51);
+  text-decoration: none;
+  transition: all .2s ease-in-out;
+}
+
+nav a:hover {
+  color: rgba(235, 195, 221, 0.548);
+  background-color: rgba(235, 195, 221, 0.077);
+  border-radius: 25%;
+  background-size: 510px;
+  transition: all .2s ease-in-out;
+}
+
+.links li {
+  list-style: none;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.logoDiv {
+  float: left;
+  flex-direction: column;
+}
+
+/* 
+header ul {
+  margin: 0;
+}
+
+header {
+  list-style-type: none;
+  margin: auto;
+  padding: 0;
+}
+
+header ul li {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+header ul li a {
+  text-decoration: none;
+  text-transform: uppercase;
+  color: white;
+  font-weight: bold;
+  margin: 0 1em;
+}
+
+header ul li a:hover {
+  cursor: pointer;
+  text-decoration: underline;
+} */
