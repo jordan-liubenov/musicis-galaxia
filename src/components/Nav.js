@@ -3,15 +3,6 @@ import "../styles/Nav.css";
 import logoImg from "../img/note.png";
 
 const Nav = (props) => {
-  return (
-    <nav></nav>
-  );
-};
-
-export default Nav;
-
-/*
-
 	return (
 		<header>
 			<nav className="navBar">
@@ -31,9 +22,17 @@ export default Nav;
 					<li>
 						<a href="/login">Login</a>
 					</li>
+					<div className="navRight">
+						<li>
+							<a href="/logout">
+								Logout/Welcome, Guest(or Username if logged in)
+							</a>
+						</li>
+					</div>
 				</ul>
 			</nav>
 		</header>
 	);
+};
 
-*/
+export default Nav;
