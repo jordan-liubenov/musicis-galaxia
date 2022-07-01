@@ -1,27 +1,28 @@
 import "../styles/Home.css";
 
 import { useState } from "react";
+import { displayUnderscore } from "../utils/homeUtil";
 
 const Home = (props) => {
 	const [underscore, setUnderscore] = useState(false);
 
-	setTimeout(() => {
-		if (underscore) {
-			setUnderscore(false);
-		} else {
-			setUnderscore(true);
-		}
-	}, 800);
+	displayUnderscore(underscore, setUnderscore);
 
 	return (
 		<div className="homeContainer">
-			<h3 className="welcome">Welcome to...</h3>
 			<div className="title">
 				{underscore ? (
-					<h1 className="titleH1">Musicis Galaxia</h1>
+					<span className="titleSpan">Musicis Galaxia</span>
 				) : (
-					<h1 className="titleH1">Musicis Galaxia_</h1>
+					<span className="titleSpan">Musicis Galaxia_</span>
 				)}
+			</div>
+			<div className="welcomeMsg">
+				<p className="">
+					Welcome to Musicis Galaxia, an online marketplace<br></br>
+					where everyone is free to post and browse different<br></br>
+					offers on instruments and musical accessories.
+				</p>
 			</div>
 		</div>
 	);

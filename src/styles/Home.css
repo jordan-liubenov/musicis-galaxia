@@ -2,19 +2,31 @@
   position: fixed;
   height: 100vh;
   width: 100vw;
-  background: -webkit-linear-gradient(70deg, #78747ade 60%, #664d7398 40%);
-  background: -o-linear-gradient(70deg, #78747ade 40% 60%, #664d7398 40%);
-  background: -moz-linear-gradient(70deg, #78747ade 60%, #664d7398 40%);
-  background: linear-gradient(70deg, #78747ade 60%, #664d7398 40%);
+
+  background: -webkit-linear-gradient(70deg, #78747a 50%, #664d7398 50%);
+  background: -o-linear-gradient(70deg, #78747a 40% 50%, #664d7398 50%);
+  background: -moz-linear-gradient(70deg, #78747a 50%, #664d7398 50%);
+  background: linear-gradient(70deg, #78747a 50%, #664d7398 50%);
 }
 
-.welcome {
-  color: #ecdef4f2;
-  font-size: 200%;
-  font-family: 'JetBrains Mono';
+.title {
+  justify-content: flex-start;
+  display: flex;
+  margin-left: 120px;
+  margin-top: 220px;
 }
 
-.titleH1 {
+.titleSpan {
+  color: rgb(241, 220, 220);
   font-size: 400%;
   font-family: 'JetBrains Mono';
+}
+
+.welcomeMsg {
+  color: rgb(241, 220, 220);
+  font-size: 150%;
+  font-family: 'JetBrains Mono';
+  text-align: start;
+  padding: 50px;
+  margin-left: 20px;
 }
