@@ -1,11 +1,14 @@
-.navBar {
+.navBar, .links {
   position: fixed;
   width: 100%;
+  height: 60px;
+  display: flex;
   align-items: center;
   /* background-color: rgba(173, 132, 193, 0.543); */
-  background-color: rgba(112, 94, 121, 0.791);
-  font-family: 'Montserrat', sans-serif;
-  font-weight: bolder;
+  background-color: rgba(78, 73, 80, 0.984);
+  font-family: 'JetBrains Mono';
+  font-weight: bold;
+  box-sizing: border-box;
 }
 
 .navBar ul {
@@ -16,33 +19,37 @@
 }
 
 .navBar ul li {
-  font-size: 25px;
-  margin: 0 5rem;
+  font-size: 120%;
+  margin: 0 28px;
 }
 
 nav a {
-  color: rgb(53, 51, 51);
+  color: rgb(207, 189, 189);
   text-decoration: none;
   transition: all .2s ease-in-out;
 }
 
 nav a:hover {
   color: rgba(235, 195, 221, 0.548);
-  background-color: rgba(235, 195, 221, 0.077);
+  background-color: rgba(235, 195, 221, 0.297);
   border-radius: 15%;
   background-size: cover;
   transition: all .2s ease-in-out;
 }
 
 .links li {
-  list-style: none;
   display: inline-block;
-  vertical-align: middle;
+  list-style: none;
+  height: 60px;
+  /* should be the same as line-height */
+  line-height: 60px;
+  /* should be the same as height */
+  padding: 0 40px;
 }
 
 .logoDiv {
   float: left;
-  flex-direction: column;
+  margin-top: 3px;
 }
 
 .navRight {

@@ -1,3 +1,5 @@
+import "./styles/App.css";
+
 import Nav from "./components/Nav.js";
 
 const App = () => {

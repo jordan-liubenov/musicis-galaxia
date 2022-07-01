@@ -8,7 +8,7 @@ const Nav = (props) => {
 			<nav className="navBar">
 				<ul className="links">
 					<div className="logoDiv">
-						<img className="logo" src={logoImg} width={50} height={70}></img>
+						<img className="logo" src={logoImg} width={60} height={60}></img>
 					</div>
 					<li>
 						<a href="/">Home</a>
@@ -24,9 +24,7 @@ const Nav = (props) => {
 					</li>
 					<div className="navRight">
 						<li>
-							<a href="/logout">
-								Logout/Welcome, Guest(or Username if logged in)
-							</a>
+							<a href="/logout">Welcome [Guest], Logout</a>
 						</li>
 					</div>
 				</ul>
