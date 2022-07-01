@@ -8,7 +8,9 @@ const Nav = (props) => {
 			<nav className="navBar">
 				<ul className="links">
 					<div className="logoDiv">
-						<img className="logo" src={logoImg} width={60} height={60}></img>
+						<a href="/">
+							<img className="logo" src={logoImg} width={60} height={60}></img>
+						</a>
 					</div>
 					<li>
 						<a href="/">Home</a>

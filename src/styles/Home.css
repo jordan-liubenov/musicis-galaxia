@@ -1,0 +1,20 @@
+.homeContainer {
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  background: -webkit-linear-gradient(70deg, #78747ade 60%, #664d7398 40%);
+  background: -o-linear-gradient(70deg, #78747ade 40% 60%, #664d7398 40%);
+  background: -moz-linear-gradient(70deg, #78747ade 60%, #664d7398 40%);
+  background: linear-gradient(70deg, #78747ade 60%, #664d7398 40%);
+}
+
+.welcome {
+  color: #ecdef4f2;
+  font-size: 200%;
+  font-family: 'JetBrains Mono';
+}
+
+.titleH1 {
+  font-size: 400%;
+  font-family: 'JetBrains Mono';
+}

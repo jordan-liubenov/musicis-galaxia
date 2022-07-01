@@ -1,5 +1,5 @@
 .navBar, .links {
-  position: fixed;
+
   width: 100%;
   height: 60px;
   display: flex;
@@ -20,7 +20,6 @@
 
 .navBar ul li {
   font-size: 120%;
-  margin: 0 28px;
 }
 
 nav a {
@@ -29,10 +28,9 @@ nav a {
   transition: all .2s ease-in-out;
 }
 
-nav a:hover {
-  color: rgba(235, 195, 221, 0.548);
-  background-color: rgba(235, 195, 221, 0.297);
-  border-radius: 15%;
+nav li:hover {
+  color: rgba(240, 224, 234, 0.548);
+  background-color: rgba(230, 215, 224, 0.155);
   background-size: cover;
   transition: all .2s ease-in-out;
 }
@@ -41,15 +39,14 @@ nav a:hover {
   display: inline-block;
   list-style: none;
   height: 60px;
-  /* should be the same as line-height */
   line-height: 60px;
-  /* should be the same as height */
   padding: 0 40px;
 }
 
 .logoDiv {
   float: left;
   margin-top: 3px;
+  margin-right: 10px;
 }
 
 .navRight {
@@ -62,32 +59,3 @@ nav a:hover {
   height: 100%;
   display: flex;
 }
-
-/* 
-header ul {
-  margin: 0;
-}
-
-header {
-  list-style-type: none;
-  margin: auto;
-  padding: 0;
-}
-
-header ul li {
-  display: inline-block;
-  vertical-align: middle;
-}
-
-header ul li a {
-  text-decoration: none;
-  text-transform: uppercase;
-  color: white;
-  font-weight: bold;
-  margin: 0 1em;
-}
-
-header ul li a:hover {
-  cursor: pointer;
-  text-decoration: underline;
-} */
