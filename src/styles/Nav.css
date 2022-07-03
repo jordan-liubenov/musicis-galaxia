@@ -1,66 +1,66 @@
 .navBar, .links {
-	width: 100%;
-	height: 60px;
-	display: flex;
-	align-items: center;
-	/* background-color: rgba(173, 132, 193, 0.543); */
-	background-color: rgba(78, 73, 80, 0.984);
-	font-family: 'JetBrains Mono';
-	font-weight: bold;
-	box-sizing: border-box;
+  width: 100%;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  /* background-color: rgba(173, 132, 193, 0.543); */
+  background-color: rgba(78, 73, 80, 0.984);
+  font-family: 'JetBrains Mono';
+  font-weight: bold;
+  box-sizing: border-box;
 }
 
 .navBar ul {
-	display: flex;
-	align-items: center;
-	width: 100%;
-	/* background-color: rgba(240, 195, 243, 0.096); */
+  display: flex;
+  align-items: center;
+  width: 100%;
+  /* background-color: rgba(240, 195, 243, 0.096); */
 }
 
 .navBar ul li {
-	font-size: 140%;
+  font-size: 140%;
 }
 
 nav a {
-	color: #cfbdbd;
-	text-decoration: none;
-	transition: all .2s ease-in-out;
+  color: #cfbdbd;
+  text-decoration: none;
+  transition: all .2s ease-in-out;
 }
 
 nav li:hover {
-	color: rgba(240, 224, 234, 0.548);
-	background-color: rgba(230, 215, 224, 0.155);
-	background-size: cover;
-	transition: all .2s ease-in-out;
+  color: rgba(240, 224, 234, 0.548);
+  background-color: rgba(230, 215, 224, 0.155);
+  background-size: cover;
+  transition: all .2s ease-in-out;
 }
 
 .links li {
-	display: inline-block;
-	list-style: none;
-	height: 60px;
-	line-height: 60px;
-	padding: 0 40px;
+  display: inline-block;
+  list-style: none;
+  height: 60px;
+  line-height: 60px;
+  padding: 0 40px;
 }
 
 .logoDiv {
-	float: left;
-	margin-top: 3px;
-	margin-right: 10px;
+  float: left;
+  margin-top: 3px;
+  margin-right: 10px;
 }
 
 .logoDiv:hover {
-	background-color: rgba(230, 215, 224, 0.155);
-	border-radius: 20%;
-	transition: all .2s ease-in-out;
+  background-color: rgba(230, 215, 224, 0.155);
+  border-radius: 20%;
+  transition: all .2s ease-in-out;
 }
 
 .navRight {
-	width: 10%;
-	min-width: 138px;
-	justify-content: flex-end;
-	padding-right: 10px;
+  width: 10%;
+  min-width: 138px;
+  justify-content: flex-end;
+  padding-right: 10px;
 
-	width: 90%;
-	height: 100%;
-	display: flex;
+  width: 90%;
+  height: 100%;
+  display: flex;
 }

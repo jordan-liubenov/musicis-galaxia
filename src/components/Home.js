@@ -2,13 +2,12 @@ import "../styles/Home.css";
 
 import { useState } from "react";
 import { displayUnderscore } from "../utils/homeUtil";
+import Footer from "./Footer";
 
-const Home = (props) => {
+const Home = () => {
   const [underscore, setUnderscore] = useState(false);
 
   displayUnderscore(underscore, setUnderscore);
-
-  //TO-DO: possibly abstract some parts of this component by splitting it into 1 or 2 smaller components
 
   return (
     <div className="homeContainer">
@@ -49,9 +48,7 @@ const Home = (props) => {
           <br></br>
         </div>
       </div>
-      <div className="footer">
-        <footer>Copyright Musicis Galaxia © 2022</footer>
-      </div>
+      <Footer />
     </div>
   );
 };

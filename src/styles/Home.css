@@ -60,17 +60,6 @@
 
 .catalogRef:hover {
 	background-color: #78747a;
-	border-radius: 10%;
 	transition: all .2s ease-in-out;
 }
 
-.footer {
-	position: fixed;
-	background-color: #664d7398;
-	width: 100%;
-	font-family: 'JetBrains Mono';
-	color: rgb(241, 220, 220);
-	flex-direction: column;
-	text-align: center;
-	margin-top: 162px;
-}
