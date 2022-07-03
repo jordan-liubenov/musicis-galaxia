@@ -1,0 +1,6 @@
+.footer {
+  position: fixed;
+  display: flex;
+  
+  font-family: 'JetBrains Mono';
+}
