@@ -1,65 +1,64 @@
 .homeContainer {
-	position: fixed;
-	height: 100vh;
-	width: 100vw;
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
 
-	background: -webkit-linear-gradient(70deg, #78747a 50%, #664d7398 50%);
-	background: -o-linear-gradient(70deg, #78747a 40% 50%, #664d7398 50%);
-	background: -moz-linear-gradient(70deg, #78747a 50%, #664d7398 50%);
-	background: linear-gradient(70deg, #78747a 50%, #664d7398 50%);
+  background: -webkit-linear-gradient(70deg, #78747a 50%, #664d7398 50%);
+  background: -o-linear-gradient(70deg, #78747a 40% 50%, #664d7398 50%);
+  background: -moz-linear-gradient(70deg, #78747a 50%, #664d7398 50%);
+  background: linear-gradient(70deg, #78747a 50%, #664d7398 50%);
 }
 
 .title {
-	justify-content: flex-start;
-	display: flex;
-	margin-left: 120px;
-	margin-top: 190px;
+  justify-content: flex-start;
+  display: flex;
+  margin-left: 120px;
+  margin-top: 190px;
 }
 
 .titleSpan {
-	color: rgb(241, 220, 220);
-	font-size: 450%;
-	font-family: 'JetBrains Mono';
-	background-color: #664d7345;
-	border-radius: 10px;
+  color: rgb(241, 220, 220);
+  font-size: 450%;
+  font-family: 'JetBrains Mono';
+  background-color: #664d7345;
+  border-radius: 10px;
 
 }
 
 .welcomeMsg {
-	width: 30%;
-	color: rgb(241, 220, 220);
-	font-size: 180%;
-	font-family: 'JetBrains Mono';
-	text-align: start;
-	margin-left: 150px;
-	margin-top: 90px;
+  width: 30%;
+  color: rgb(241, 220, 220);
+  font-size: 180%;
+  font-family: 'JetBrains Mono';
+  text-align: start;
+  margin-left: 150px;
+  margin-top: 90px;
 }
 
 .instructContainer {
-	justify-content: flex-end;
-	display: flex;
-	/* margin-left: 150px;
+  justify-content: flex-end;
+  display: flex;
+  /* margin-left: 150px;
 	margin-top: -180px; */
 }
 
 .instructMsg {
-	width: 30%;
-	color: rgb(241, 220, 220);
-	font-size: 180%;
-	font-family: 'JetBrains Mono';
-	text-align: start;
-	margin-right: 200px;
-	margin-top: -450px;
+  width: 30%;
+  color: rgb(241, 220, 220);
+  font-size: 180%;
+  font-family: 'JetBrains Mono';
+  text-align: start;
+  margin-right: 200px;
+  margin-top: -450px;
 
 }
 
 .catalogRef {
-	text-decoration: none;
-	color: #664d73aa;
+  text-decoration: none;
+  color: #664d73aa;
 }
 
 .catalogRef:hover {
-	background-color: #78747a;
-	transition: all .2s ease-in-out;
+  background-color: #78747a;
+  transition: all .2s ease-in-out;
 }
-

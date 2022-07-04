@@ -1,17 +1,29 @@
 import { useState } from "react";
 import "../styles/Register.css";
+import { displayUnderscore } from "../utils/homeUtil";
 
-import { infoStatus } from "../utils/registerUtil";
+import { infoStatus, toggleState } from "../utils/registerUtil";
 
 import Footer from "./Footer.js";
 import RegisterInfo from "./RegisterInfo.js";
 
 const Register = () => {
-  const [info, showInfo] = useState(false); //will be hidden by default
+  const [info, showInfo] = useState(false); //info box will be hidden by default
+
+  const [underscore, setUnderscore] = useState(false);
+
+  displayUnderscore(underscore, setUnderscore);
 
   return (
     <div className="registerContainer">
-      <div className="formDiv">
+      <div className="regTitleDiv">
+        {underscore ? (
+          <span className="regTitleSpan">Register_</span>
+        ) : (
+          <span className="regTitleSpan">Register</span>
+        )}
+      </div>
+      <div className="registerFormDiv">
         <form method="POST">
           <label htmlFor="email">Email:</label>
           <input
@@ -31,7 +43,7 @@ const Register = () => {
             required
           ></input>
           <br></br>
-          <label htmlFor="password">Password:</label>
+          <label htmlFor="pass">Password:</label>
           <input
             type="password"
             placeholder="******"
@@ -40,7 +52,7 @@ const Register = () => {
             required
           ></input>
           <br></br>
-          <label htmlFor="password">Repeat Password:</label>
+          <label htmlFor="rePass">Repeat Password:</label>
           <input
             type="password"
             placeholder="******"
@@ -57,7 +69,7 @@ const Register = () => {
         <div className="infoBtnDiv">
           <button
             className="infoBtn"
-            onClick={() => infoStatus(info, showInfo)}
+            onClick={() => toggleState(info, showInfo)}
           >
             ?
           </button>

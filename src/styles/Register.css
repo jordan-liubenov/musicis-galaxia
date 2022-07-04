@@ -8,25 +8,48 @@
   height: 100vh;
   width: 100vw;
 
-  background: -webkit-linear-gradient(70deg, #664d7398 20%, #78747a 50%);
+
+  background: -webkit-linear-gradient(150deg, #664d7398 45%, #78747a 20%);
+  background: -o-linear-gradient(150deg, #664d7398 45%, #78747a 20%);
+  background: -moz-linear-gradient(150deg, #664d7398 45%, #78747a 20%);
+  background: linear-gradient(150deg, #664d7398 45%, #78747a 20%);
+
+  /* background: -webkit-linear-gradient(70deg, #664d7398 20%, #78747a 50%);
   background: -o-linear-gradient(70deg, #664d7398 40% 50%, #78747a 50%);
   background: -moz-linear-gradient(70deg, #664d7398 50%, #78747a 50%);
-  background: linear-gradient(70deg, #664d7398 50%, #78747a 50%);
+  background: linear-gradient(70deg, #664d7398 50%, #78747a 50%); */
 }
 
-.formDiv {
+.registerFormDiv {
   display: flex;
   justify-content: center;
   text-align: center;
 
   margin: 0 auto;
   background-color: rgba(78, 73, 80, 0.984);
-  margin-top: 130px;
-  padding: 40.3px;
+  border-radius: 10px;
+  margin-top: 10px;
+  padding: 5.3px;
   width: 50%;
-  font-size: 140%;
 
   font-family: 'JetBrains Mono';
+  font-size: 140%;
+}
+
+.regTitleDiv {
+  justify-content: center;
+  display: flex;
+  margin-bottom: 105px;
+}
+
+
+.regTitleSpan {
+  align-items: center;
+  color: rgb(241, 220, 220);
+  font-size: 450%;
+  font-family: 'JetBrains Mono';
+  background-color: #664d7359;
+  border-radius: 10px;
 }
 
 label {
@@ -40,6 +63,7 @@ input[type=text], input[type=password] {
   display: inline-block;
   border: none;
   background: #f1f1f1;
+  border-radius: 10px;
 }
 
 input[type=text]:focus, input[type=password]:focus {
@@ -48,6 +72,7 @@ input[type=text]:focus, input[type=password]:focus {
 
 .submitBtn {
   background-color: #9e9aa0bb;
+  border-radius: 10px;
   color: white;
   padding: 16px 20px;
   margin: 8px 0;
@@ -60,7 +85,6 @@ input[type=text]:focus, input[type=password]:focus {
 
 .infoBtnDiv {
   position: fixed;
-  margin-top: -30px;
   margin-left: 920px;
   /* margin-left: 90vh;
   margin-bottom: 10vh; */

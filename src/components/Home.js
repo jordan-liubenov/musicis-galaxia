@@ -2,6 +2,7 @@ import "../styles/Home.css";
 
 import { useState } from "react";
 import { displayUnderscore } from "../utils/homeUtil";
+
 import Footer from "./Footer";
 
 const Home = () => {

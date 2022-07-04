@@ -1,4 +1,3 @@
-export const infoStatus = (info, showInfo) => {
-  if (info) showInfo(false);
-  if (!info) showInfo(true);
+export const toggleState = (state, stateFunc) => {
+  stateFunc((state) => !state); //take the current value of state and set is as its opossite
 };
