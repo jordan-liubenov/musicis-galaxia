@@ -1,7 +1,14 @@
+import { useState } from "react";
 import "../styles/Register.css";
-import Footer from "./Footer";
+
+import { infoStatus } from "../utils/registerUtil";
+
+import Footer from "./Footer.js";
+import RegisterInfo from "./RegisterInfo.js";
 
 const Register = () => {
+  const [info, showInfo] = useState(false); //will be hidden by default
+
   return (
     <div className="registerContainer">
       <div className="formDiv">
@@ -42,10 +49,19 @@ const Register = () => {
             required
           ></input>
           <br></br>
-          <button type="submit" class="submitBtn">
+          <button type="submit" className="submitBtn">
             Register
           </button>
         </form>
+        {info ? <RegisterInfo /> : <br></br>}
+        <div className="infoBtnDiv">
+          <button
+            className="infoBtn"
+            onClick={() => infoStatus(info, showInfo)}
+          >
+            ?
+          </button>
+        </div>
       </div>
       <Footer />
     </div>

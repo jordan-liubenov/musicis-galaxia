@@ -8,7 +8,7 @@
   height: 100vh;
   width: 100vw;
 
-  background: -webkit-linear-gradient(70deg, #664d7398 50%, #78747a 50%);
+  background: -webkit-linear-gradient(70deg, #664d7398 20%, #78747a 50%);
   background: -o-linear-gradient(70deg, #664d7398 40% 50%, #78747a 50%);
   background: -moz-linear-gradient(70deg, #664d7398 50%, #78747a 50%);
   background: linear-gradient(70deg, #664d7398 50%, #78747a 50%);
@@ -56,4 +56,28 @@ input[type=text]:focus, input[type=password]:focus {
   width: 100%;
   font-family: 'JetBrains Mono';
   font-size: 90%;
+}
+
+.infoBtnDiv {
+  position: fixed;
+  margin-top: -30px;
+  margin-left: 920px;
+  /* margin-left: 90vh;
+  margin-bottom: 10vh; */
+  background: #78747a;
+  border-radius: 10%;
+}
+
+.infoBtn {
+  font-family: 'JetBrains Mono';
+  background: none;
+  border: none;
+  color: #cfbdbd;
+  font-size: 100%;
+  cursor: pointer;
+}
+
+.infoBtn:active {
+  color: #cfbdbd94;
+  border: #f1f1f1;
 }
