@@ -3,7 +3,7 @@ import "../styles/Register.css";
 import { displayUnderscore } from "../utils/homeUtil";
 
 import {
-  setValue,
+  handleValue,
   submitRegister,
   toggleState,
   validateUsername,
@@ -18,10 +18,17 @@ const Register = () => {
   const [underscore, setUnderscore] = useState(false);
   displayUnderscore(underscore, setUnderscore);
 
+  //form input field values
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPass] = useState("");
   const [rePassword, setRePass] = useState("");
+
+  //error message which will be displaid upon validation
+  const [emailError, showEmailErr] = useState("");
+  const [usernameError, showUsernameErr] = useState("");
+  const [passError, showPassErr] = useState("");
+  const [rePassError, showrePassErr] = useState("");
 
   return (
     <div className="registerContainer">
@@ -36,6 +43,7 @@ const Register = () => {
         <form method="POST" action="http://localhost:5000/register">
           <label htmlFor="email" id="email">
             Email:
+            {emailError}
           </label>
           <input
             type="text"
@@ -43,13 +51,22 @@ const Register = () => {
             name="email"
             id="email"
             value={email}
-            onChange={(e) => setValue(e, setEmail)}
+            onChange={(e) =>
+              handleValue(
+                e,
+                setEmail,
+                showEmailErr,
+                showUsernameErr,
+                showPassErr,
+                showrePassErr
+              )
+            }
             required
           ></input>
           <br></br>
           <label htmlFor="username" id="username">
             Username:
-            <div className="errorDiv">Username error</div>
+            {usernameError}
           </label>
           <input
             minLength={6}
@@ -58,12 +75,22 @@ const Register = () => {
             name="user"
             id="user"
             value={username}
-            onChange={(e) => setValue(e, setUsername)}
+            onChange={(e) =>
+              handleValue(
+                e,
+                setUsername,
+                showEmailErr,
+                showUsernameErr,
+                showPassErr,
+                showrePassErr
+              )
+            }
             required
           ></input>
           <br></br>
           <label htmlFor="pass" id="password">
             Password:
+            {passError}
           </label>
           <input
             type="password"
@@ -71,12 +98,22 @@ const Register = () => {
             name="pass"
             id="pass"
             value={password}
-            onChange={(e) => setValue(e, setPass)}
+            onChange={(e) =>
+              handleValue(
+                e,
+                setPass,
+                showEmailErr,
+                showUsernameErr,
+                showPassErr,
+                showrePassErr
+              )
+            }
             required
           ></input>
           <br></br>
           <label htmlFor="rePass" id="rePass">
             Repeat Password:
+            {rePassError}
           </label>
           <input
             type="password"
@@ -84,7 +121,17 @@ const Register = () => {
             name="rePass"
             id="rePass"
             value={rePassword}
-            onChange={(e) => setValue(e, setRePass)}
+            onChange={(e) =>
+              handleValue(
+                e,
+                setRePass,
+                showEmailErr,
+                showUsernameErr,
+                showPassErr,
+                showrePassErr,
+                password
+              )
+            }
             required
           ></input>
           <br></br>
