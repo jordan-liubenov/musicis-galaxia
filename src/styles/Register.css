@@ -29,7 +29,7 @@
   background-color: rgba(78, 73, 80, 0.984);
   border-radius: 10px;
   margin-top: 10px;
-  padding: 5.3px;
+  padding: 30px;
   width: 50%;
 
   font-family: 'JetBrains Mono';
@@ -41,7 +41,6 @@
   display: flex;
   margin-bottom: 105px;
 }
-
 
 .regTitleSpan {
   align-items: center;
@@ -104,4 +103,15 @@ input[type=text]:focus, input[type=password]:focus {
 .infoBtn:active {
   color: #cfbdbd94;
   border: #f1f1f1;
+}
+
+.errorDiv {
+  border-style: solid;
+  border-width: thin;
+  border-color: #FFFFFF;
+  width: 50%;
+  margin: 0 auto;
+  border-radius: 10px;
+  color: rgba(230, 94, 94, 0.609);
+  background-color: #78747a70;
 }
