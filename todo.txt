@@ -1,0 +1,5 @@
+Important:
+  -Fix component folder architecture (divide each component in its own folder)
+
+Secondary:
+  -Make little typing animation of Title on Home page similar to the one on JetBrains' website  

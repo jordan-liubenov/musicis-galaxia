@@ -1,10 +1,10 @@
 const ERROR_MSGS = {
   email: <div className="errorDiv">Email invalid.</div>,
-  user: <div className="errorDiv">Shorter than 6 characters.</div>,
-  pass: <div className="errorDiv">Password less than 8 characters.</div>,
+  user: <div className="errorDiv">Should be atleast 6 characters long.</div>,
+  pass: <div className="errorDiv">Should be atleast 8 characters long.</div>,
   passUpper: <div className="errorDiv">No uppercase character.</div>,
   passNumber: <div className="errorDiv">No number/s.</div>,
-  rePass: <div className="errorDiv">Passwords don't match.</div>,
+  rePass: <div className="errorDiv">Password does not match!</div>,
 };
 
 export const toggleState = (state, stateFunc) => {
@@ -12,11 +12,11 @@ export const toggleState = (state, stateFunc) => {
 };
 
 const checkForUppercase = (string) => {
-  //checks for uppercase chars in password
+  //checks if password has atleast 1 uppercase char
   let hasUpper = false;
   for (let i = 0; i < string.length; i++) {
     if (string.charAt(i) == string.charAt(i).toUpperCase()) {
-      return true;
+      hasUpper = true;
     }
   }
   return hasUpper;
@@ -35,20 +35,25 @@ const checkForNumber = (string) => {
 };
 
 const validateEmail = (email) => {
+  let isValid = false;
   if (email.length > 0) {
     if (!email.includes("@") || !email.includes(".")) {
-      return false;
+      return isValid;
     }
   }
   return true;
 };
 
 const validateUsername = (username, setUser) => {
+  let isValid = false;
   if (username.length < 6 && username.length > 0) {
     setUser(ERROR_MSGS.user);
-    return;
+    isValid = false;
+    return isValid;
   } else {
     setUser("");
+    isValid = true;
+    return isValid;
   }
 };
 
@@ -78,20 +83,22 @@ const validatePassword = (password, passErr) => {
   }
 };
 
-const validateRePass = (value, initialPassword, setRePass) => {
+const validateRePass = (value, initialPassword, passErr) => {
   if (value.length > 0) {
     if (value != initialPassword) {
-      setRePass(ERROR_MSGS.rePass);
+      passErr(ERROR_MSGS.rePass);
       return;
     } else {
-      setRePass("");
+      passErr("");
       return;
     }
   } else {
-    setRePass("");
+    passErr("");
   }
 };
 
+//handle, validate & set each field's value before it gets sent in request
+//TO-DO: Disable button unless all fields have been successfully validated
 export const handleValue = (
   e,
   setFunc,
@@ -103,7 +110,8 @@ export const handleValue = (
 ) => {
   const { id, value } = e.target;
 
-  //find which element this function is being run on
+  //find which element this function is being run on and run validation function
+
   switch (id) {
     case "email":
       if (!validateEmail(value)) {
@@ -122,20 +130,9 @@ export const handleValue = (
       break;
 
     case "rePass":
-      validateRePass(value, passwordValue, rePassErr);
+      validateRePass(value, passwordValue, passErr);
       break;
   }
 
   setFunc(value);
-};
-
-export const submitRegister = async (e, email, username, password, rePass) => {
-  try {
-    const req = await fetch("http://localhost:5000/register", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-    });
-  } catch (error) {
-    console.log(error);
-  }
 };

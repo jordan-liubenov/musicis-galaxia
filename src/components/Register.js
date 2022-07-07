@@ -1,16 +1,12 @@
 import { useEffect, useState } from "react";
 import "../styles/Register.css";
+
 import { displayUnderscore } from "../utils/homeUtil";
+import { submitRegister } from "../services/userService";
+import { handleValue, toggleState } from "../utils/registerUtil";
 
-import {
-  handleValue,
-  submitRegister,
-  toggleState,
-  validateUsername,
-} from "../utils/registerUtil";
-
-import Footer from "./Footer.js";
 import RegisterInfo from "./RegisterInfo.js";
+import RegisterBtn from "./RegisterBtn";
 
 const Register = () => {
   const [info, showInfo] = useState(true); //info box will be displayed by default
@@ -115,6 +111,7 @@ const Register = () => {
             Repeat Password:
             {rePassError}
           </label>
+
           <input
             type="password"
             placeholder="******"
@@ -135,16 +132,20 @@ const Register = () => {
             required
           ></input>
           <br></br>
-          <button
-            type="submit"
-            className="submitBtn"
-            onClick={(e) =>
-              submitRegister(e, email, username, password, rePassword)
+
+          <RegisterBtn
+            submitRegister={(e) =>
+              submitRegister(
+                e,
+                email,
+                username,
+                password,
+                rePassword,
+              )
             }
-          >
-            Register
-          </button>
+          />
         </form>
+
         {info ? <RegisterInfo /> : <br></br>}
         <div className="infoBtnDiv">
           <button
@@ -158,8 +159,15 @@ const Register = () => {
     </div>
   );
 };
-{
-  /* <Footer /> */
-}
 
 export default Register;
+
+// <button
+//             type="submit"
+//             className="submitBtn"
+//             onClick={(e) =>
+//               submitRegister(e, email, username, password, rePassword)
+//             }
+//           >
+//             Register
+//           </button>

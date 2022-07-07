@@ -18,9 +18,9 @@
   margin: 0 auto;
   background-color: rgba(78, 73, 80, 0.984);
   border-radius: 10px;
-  margin-top: 10px;
+  margin-top: 80px;
   padding: 56.3px;
-  width: 50%;
+  width: 35%;
 
   font-family: 'JetBrains Mono';
   font-size: 140%;
@@ -42,15 +42,15 @@
 .loginTitleDiv {
   justify-content: center;
   display: flex;
-  margin-bottom: 105px;
+  padding: 30px;
+  margin-top: 30px;
 }
-
 
 .loginTitleSpan {
   align-items: center;
   color: rgb(241, 220, 220);
   font-size: 450%;
   font-family: 'JetBrains Mono';
-  background-color: #664d7359;
+  background-color: #664d7398;
   border-radius: 10px;
 }

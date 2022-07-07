@@ -8,10 +8,12 @@ import Login from "./components/Login";
 const App = () => {
   return (
     <div className="App">
-      <Nav />
-      <Register />
-      {/* <Home /> */}
-      {/* <Login /> */}
+      <main>
+        <Nav />
+        {/* <Register /> */}
+        {/* <Home /> */}
+        <Login />
+      </main>
     </div>
   );
 };

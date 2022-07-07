@@ -6,8 +6,10 @@ import { useState } from "react";
 
 const Login = () => {
   const [underscore, setUnderscore] = useState(false);
-
   displayUnderscore(underscore, setUnderscore);
+
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
 
   return (
     <div className="loginContainer">
@@ -26,6 +28,7 @@ const Login = () => {
             placeholder="Username123"
             name="user"
             id="user"
+            value={username}
             required
           ></input>
           <br></br>
@@ -35,15 +38,7 @@ const Login = () => {
             placeholder="******"
             name="pass"
             id="pass"
-            required
-          ></input>
-          <br></br>
-          <label htmlFor="rePass">Repeat Password:</label>
-          <input
-            type="password"
-            placeholder="******"
-            name="rePass"
-            id="rePass"
+            value={password}
             required
           ></input>
           <br></br>
@@ -52,7 +47,6 @@ const Login = () => {
           </button>
         </form>
       </div>
-      <Footer />
     </div>
   );
 };

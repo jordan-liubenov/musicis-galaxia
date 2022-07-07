@@ -51,7 +51,6 @@
   border-radius: 10px;
 }
 
-
 label {
   color: #cfbdbd;
 }
@@ -84,7 +83,7 @@ input[type=text]:focus, input[type=password]:focus {
 }
 
 .infoBtnDiv {
-  position: fixed;
+  position: absolute;
   margin-left: 920px;
   margin-top: -20px;
   /* margin-left: 90vh;
@@ -116,5 +115,5 @@ input[type=text]:focus, input[type=password]:focus {
   border-radius: 10px;
   color: rgba(253, 77, 77, 0.609);
   background-color: #78747a70;
-  font-size: 85%;
+  font-size: 75%;
 }
