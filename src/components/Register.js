@@ -132,18 +132,20 @@ const Register = () => {
             required
           ></input>
           <br></br>
-
-          <RegisterBtn
-            submitRegister={(e) =>
-              submitRegister(
-                e,
-                email,
-                username,
-                password,
-                rePassword,
-              )
+          {/* <RegisterBtn
+            onClick={(e) =>
+              submitRegister(e, email, username, password, rePassword)
             }
-          />
+          /> */}
+          <button
+            type="submit"
+            className="submitBtn"
+            onClick={(e) =>
+              submitRegister(e, email, username, password, rePassword)
+            }
+          >
+            Register
+          </button>
         </form>
 
         {info ? <RegisterInfo /> : <br></br>}

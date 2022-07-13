@@ -11,7 +11,7 @@ export const toggleState = (state, stateFunc) => {
   stateFunc((state) => !state); //take the current value of state and set is as its opossite
 };
 
-const checkForUppercase = (string) => {
+export const checkForUppercase = (string) => {
   //checks if password has atleast 1 uppercase char
   let hasUpper = false;
   for (let i = 0; i < string.length; i++) {
@@ -22,7 +22,7 @@ const checkForUppercase = (string) => {
   return hasUpper;
 };
 
-const checkForNumber = (string) => {
+export const checkForNumber = (string) => {
   //check if password has atleast 1 number
   let hasNum = false;
   for (let i = 0; i < string.length; i++) {
@@ -34,14 +34,20 @@ const checkForNumber = (string) => {
   return hasNum;
 };
 
-const validateEmail = (email) => {
+export const validateEmail = (email) => {
   let isValid = false;
+
+  let reg = /^[A-Za-z\d]+[@][A-Za-z]+.[a-z]+$/g;
   if (email.length > 0) {
-    if (!email.includes("@") || !email.includes(".")) {
-      return isValid;
+    if (reg.test(email)) {
+      isValid = true;
+    } else {
+      isValid = false;
     }
+  } else {
+    isValid = true;
   }
-  return true;
+  return isValid;
 };
 
 const validateUsername = (username, setUser) => {
@@ -97,8 +103,6 @@ const validateRePass = (value, initialPassword, passErr) => {
   }
 };
 
-//handle, validate & set each field's value before it gets sent in request
-//TO-DO: Disable button unless all fields have been successfully validated
 export const handleValue = (
   e,
   setFunc,
@@ -110,7 +114,7 @@ export const handleValue = (
 ) => {
   const { id, value } = e.target;
 
-  //find which element this function is being run on and run validation function
+  //find which input element this function is being run on and run validation function
 
   switch (id) {
     case "email":
