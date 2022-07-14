@@ -1,0 +1,15 @@
+-Check if there is a logged-in user and render nav-bar accordingly (guest/user)
+
+-Create "Create" Form
+  -will be able to either create offer for a musical instrument or a musical accessory
+  -needs to be a way to declare what type of offer it will be (instrument/accessory)
+  -choices: dropdown menu, radio button or checkbox
+-form will have a title (model of the product), price (numbers need to be > 0), description, image, date of manufactoring
+
+
+-Maybes:
+Cart system, add to cart, remove from cart, etc
+
+
+
+-Fix footer

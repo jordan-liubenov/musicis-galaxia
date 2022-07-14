@@ -26,7 +26,7 @@ const Home = () => {
       <div className="instructContainer">
         <InstructMsg />
       </div>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };
