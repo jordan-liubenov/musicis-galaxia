@@ -3,12 +3,18 @@ import "../Register/Register.css";
 
 import { displayUnderscore } from "../../utils/homeUtil";
 import { submitRegister } from "../../services/userService";
-import { handleValue, toggleState } from "../../utils/registerUtil";
+import {
+  handleEmail,
+  handlePassword,
+  handleRePass,
+  handleUsername,
+  toggleState,
+} from "../../utils/registerUtil";
 
 import RegisterInfo from "./RegisterInfo";
 import RegisterBtn from "./RegisterBtn";
 
-//TODO abstract component
+//TODO abstract component and see if there is a better way to controll input values
 
 const Register = () => {
   const [info, showInfo] = useState(true); //info box will be displayed by default
@@ -46,16 +52,7 @@ const Register = () => {
             name="email"
             id="email"
             value={email}
-            onChange={(e) =>
-              handleValue(
-                e,
-                setEmail,
-                showEmailErr,
-                showUsernameErr,
-                showPassErr,
-                showrePassErr
-              )
-            }
+            onChange={(e) => handleEmail(e, setEmail, showEmailErr)}
             required
           ></input>
           <br></br>
@@ -70,16 +67,7 @@ const Register = () => {
             name="user"
             id="user"
             value={username}
-            onChange={(e) =>
-              handleValue(
-                e,
-                setUsername,
-                showEmailErr,
-                showUsernameErr,
-                showPassErr,
-                showrePassErr
-              )
-            }
+            onChange={(e) => handleUsername(e, setUsername, showUsernameErr)}
             required
           ></input>
           <br></br>
@@ -93,16 +81,7 @@ const Register = () => {
             name="pass"
             id="pass"
             value={password}
-            onChange={(e) =>
-              handleValue(
-                e,
-                setPass,
-                showEmailErr,
-                showUsernameErr,
-                showPassErr,
-                showrePassErr
-              )
-            }
+            onChange={(e) => handlePassword(e, setPass, showPassErr)}
             required
           ></input>
           <br></br>
@@ -117,25 +96,10 @@ const Register = () => {
             name="rePass"
             id="rePass"
             value={rePassword}
-            onChange={(e) =>
-              handleValue(
-                e,
-                setRePass,
-                showEmailErr,
-                showUsernameErr,
-                showPassErr,
-                showrePassErr,
-                password
-              )
-            }
+            onChange={(e) => handleRePass(e, setRePass, showPassErr, password)}
             required
           ></input>
           <br></br>
-          {/* <RegisterBtn
-            onClick={(e) =>
-              submitRegister(e, email, username, password, rePassword)
-            }
-          /> */}
           <button
             type="submit"
             className="submitBtn"

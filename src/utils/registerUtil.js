@@ -103,40 +103,33 @@ const validateRePass = (value, initialPassword, passErr) => {
   }
 };
 
-export const handleValue = (
-  e,
-  setFunc,
-  emailErr,
-  usernameErr,
-  passErr,
-  rePassErr,
-  passwordValue
-) => {
-  const { id, value } = e.target;
+//field value and error handlers:
 
-  //find which input element this function is being run on and run validation function
-
-  switch (id) {
-    case "email":
-      if (!validateEmail(value)) {
-        emailErr(ERROR_MSGS.email);
-      } else {
-        emailErr("");
-      }
-      break;
-
-    case "user":
-      validateUsername(value, usernameErr);
-      break;
-
-    case "pass":
-      validatePassword(value, passErr);
-      break;
-
-    case "rePass":
-      validateRePass(value, passwordValue, passErr);
-      break;
+export const handleEmail = (e, setFunc, emailErr) => {
+  const { value } = e.target;
+  if (!validateEmail(value)) {
+    emailErr(ERROR_MSGS.email);
+  } else {
+    emailErr("");
   }
 
+  setFunc(value);
+};
+
+export const handleUsername = (e, setFunc, usernameErr) => {
+  const { value } = e.target;
+  validateUsername(value, usernameErr);
+  setFunc(value);
+};
+
+export const handlePassword = (e, setFunc, passErr) => {
+  const { value } = e.target;
+  validatePassword(value, passErr);
+  setFunc(value);
+};
+
+export const handleRePass = (e, setFunc, showrePassErr, initialPass) => {
+  const { value } = e.target;
+  validateRePass(value, initialPass, showrePassErr);
   setFunc(value);
 };
