@@ -1,5 +1,7 @@
 import "../Nav/Nav.css";
 
+import { Link } from "react-router-dom";
+
 import logoImg from "../../img/note.png";
 
 const Nav = (props) => {
@@ -10,21 +12,21 @@ const Nav = (props) => {
       <nav className="navBar">
         <ul className="links">
           <div className="logoDiv">
-            <a href="/">
+            <Link to={"/"}>
               <img className="logo" src={logoImg} width={60} height={60}></img>
-            </a>
+            </Link>
           </div>
           <li>
-            <a href="/">Home</a>
+            <Link to={"/"}>Home</Link>
           </li>
           <li>
-            <a href="/catalog">Catalog</a>
+            <Link to={"/catalog"}>Catalog</Link>
           </li>
           <li>
-            <a href="/register">Register</a>
+            <Link to={"/register"}>Register</Link>
           </li>
           <li>
-            <a href="/login">Login</a>
+            <Link to={"/login"}>Login</Link>
           </li>
           <div className="navRight">
             <li>

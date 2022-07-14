@@ -15,6 +15,7 @@ import RegisterInfo from "./RegisterInfo";
 import RegisterBtn from "./RegisterBtn";
 
 //TODO abstract component and see if there is a better way to controll input values
+//TODO add "already registered?-login redirect button on form"
 
 const Register = () => {
   const [info, showInfo] = useState(true); //info box will be displayed by default

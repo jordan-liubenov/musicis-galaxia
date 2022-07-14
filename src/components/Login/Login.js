@@ -5,6 +5,8 @@ import { useState } from "react";
 import { handleValue } from "../../utils/loginUtil";
 import { submitLogin } from "../../services/userService";
 
+//TODO add "not registered yet? redirect button to bottom of form"
+
 const Login = () => {
   const [underscore, setUnderscore] = useState(false);
   displayUnderscore(underscore, setUnderscore);
