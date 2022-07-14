@@ -11,10 +11,14 @@ import {
   toggleState,
 } from "../../utils/registerUtil";
 
+//child component imports
 import RegisterInfo from "./RegisterInfo";
 import RegisterBtn from "./RegisterBtn";
+import EmailField from "./EmailField";
+import UsernameField from "./UsernameField";
+import PasswordField from "./PasswordField";
+import RePassField from "./RePassField";
 
-//TODO abstract component and see if there is a better way to controll input values
 //TODO add "already registered?-login redirect button on form"
 
 const Register = () => {
@@ -30,11 +34,10 @@ const Register = () => {
   const [password, setPass] = useState("");
   const [rePassword, setRePass] = useState("");
 
-  //error message which will be displayed upon validation
+  //error messages which will be displayed upon validation
   const [emailError, showEmailErr] = useState("");
   const [usernameError, showUsernameErr] = useState("");
   const [passError, showPassErr] = useState("");
-  const [rePassError, showrePassErr] = useState("");
 
   return (
     <div className="registerContainer">
@@ -43,73 +46,35 @@ const Register = () => {
       </div>
       <div className="registerFormDiv">
         <form method="POST" action="http://localhost:5000/register">
-          <label htmlFor="email" id="email">
-            Email:
-            {emailError}
-          </label>
-          <input
-            type="text"
-            placeholder="example@domain.com"
-            name="email"
-            id="email"
-            value={email}
-            onChange={(e) => handleEmail(e, setEmail, showEmailErr)}
-            required
-          ></input>
+          <EmailField
+            handleEmail={(e) => handleEmail(e, setEmail, showEmailErr)}
+            emailError={emailError}
+          />
           <br></br>
-          <label htmlFor="username" id="username">
-            Username:
-            {usernameError}
-          </label>
-          <input
-            minLength={6}
-            type="text"
-            placeholder="Username123"
-            name="user"
-            id="user"
-            value={username}
-            onChange={(e) => handleUsername(e, setUsername, showUsernameErr)}
-            required
-          ></input>
+          <UsernameField
+            handleUsername={(e) =>
+              handleUsername(e, setUsername, showUsernameErr)
+            }
+            usernameError={usernameError}
+          />
           <br></br>
-          <label htmlFor="pass" id="password">
-            Password:
-            {passError}
-          </label>
-          <input
-            type="password"
-            placeholder="******"
-            name="pass"
-            id="pass"
-            value={password}
-            onChange={(e) => handlePassword(e, setPass, showPassErr)}
-            required
-          ></input>
+          <PasswordField
+            handlePassword={(e) => handlePassword(e, setPass, showPassErr)}
+            passError={passError}
+          />
           <br></br>
-          <label htmlFor="rePass" id="rePass">
-            Repeat Password:
-            {rePassError}
-          </label>
-
-          <input
-            type="password"
-            placeholder="******"
-            name="rePass"
-            id="rePass"
-            value={rePassword}
-            onChange={(e) => handleRePass(e, setRePass, showPassErr, password)}
-            required
-          ></input>
+          <RePassField
+            handleRePass={(e) =>
+              handleRePass(e, setRePass, showPassErr, password)
+            }
+            passError={passError}
+          />
           <br></br>
-          <button
-            type="submit"
-            className="submitBtn"
-            onClick={(e) =>
+          <RegisterBtn
+            submitRegister={(e) =>
               submitRegister(e, email, username, password, rePassword)
             }
-          >
-            Register
-          </button>
+          />
         </form>
 
         {info ? <RegisterInfo /> : <br></br>}

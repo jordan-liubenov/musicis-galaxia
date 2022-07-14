@@ -37,16 +37,14 @@ export const checkForNumber = (string) => {
 export const validateEmail = (email) => {
   let isValid = false;
 
-  let reg = /^[A-Za-z\d]+[@][A-Za-z]+.[a-z]+$/g;
+  let reg = /^[A-Za-z\d]+[@][A-Za-z]+\.[a-z]+$/g;
   if (email.length > 0) {
     if (reg.test(email)) {
       isValid = true;
     } else {
       isValid = false;
     }
-  } else {
-    isValid = true;
-  }
+  } else if (email.length == 0) isValid = true;
   return isValid;
 };
 

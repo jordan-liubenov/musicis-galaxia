@@ -6,6 +6,7 @@ import Nav from "./components/Nav/Nav.js";
 import Home from "./components/Home/Home";
 import Register from "./components/Register/Register";
 import Login from "./components/Login/Login";
+import Footer from "./components/Footer/Footer";
 
 const App = () => {
   return (

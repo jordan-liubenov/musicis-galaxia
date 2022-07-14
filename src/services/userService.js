@@ -69,6 +69,8 @@ const validatePassword = (str) => {
   if (str.length >= 8) {
     if (checkForNumber(str) && checkForUppercase(str)) {
       isValid = true;
+    } else {
+      isValid = false;
     }
   }
 

@@ -1,6 +1,6 @@
-const RegisterBtn = () => {
+const RegisterBtn = (props) => {
   return (
-    <button type="submit" className="submitBtn">
+    <button type="submit" className="submitBtn" onClick={props.submitRegister}>
       Register
     </button>
   );
