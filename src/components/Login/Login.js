@@ -5,7 +5,10 @@ import { useState } from "react";
 import { handleValue } from "../../utils/loginUtil";
 import { submitLogin } from "../../services/userService";
 
-//TODO add "not registered yet? redirect button to bottom of form"
+import UsernameField from "./UsernameField";
+import PasswordField from "./PasswordField";
+import LoginBtn from "./LoginBtn";
+
 
 const Login = () => {
   const [underscore, setUnderscore] = useState(false);
@@ -22,35 +25,21 @@ const Login = () => {
       </div>
       <div className="loginFormDiv">
         <form>
-          <label htmlFor="username">Username:</label>
-          <input
-            type="text"
-            placeholder="Username123"
-            name="user"
-            id="user"
-            value={username}
-            onChange={(e) => handleValue(e, setUsername)}
-            required
-          ></input>
+          <UsernameField
+            username={username}
+            handleValue={(e) => handleValue(e, setUsername)}
+          />
           <br></br>
-          <label htmlFor="pass">Password:</label>
-          <input
-            type="password"
-            placeholder="******"
-            name="pass"
-            id="pass"
-            value={password}
-            onChange={(e) => handleValue(e, setPassword)}
-            required
-          ></input>
+          <PasswordField
+            password={password}
+            handleValue={(e) => handleValue(e, setPassword)}
+          />
           <br></br>
-          <button
-            type="submit"
-            className="loginBtn"
-            onClick={(e) => submitLogin(e, username, password)}
-          >
-            Login
-          </button>
+          <LoginBtn
+            submitLogin={(e) => {
+              submitLogin(e, username, password);
+            }}
+          />
         </form>
       </div>
     </div>

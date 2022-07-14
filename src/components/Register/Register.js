@@ -19,8 +19,6 @@ import UsernameField from "./UsernameField";
 import PasswordField from "./PasswordField";
 import RePassField from "./RePassField";
 
-//TODO add "already registered?-login redirect button on form"
-
 const Register = () => {
   const [info, showInfo] = useState(true); //info box will be displayed by default
 
@@ -76,7 +74,6 @@ const Register = () => {
             }
           />
         </form>
-
         {info ? <RegisterInfo /> : <br></br>}
         <div className="infoBtnDiv">
           <button
@@ -92,13 +89,3 @@ const Register = () => {
 };
 
 export default Register;
-
-// <button
-//             type="submit"
-//             className="submitBtn"
-//             onClick={(e) =>
-//               submitRegister(e, email, username, password, rePassword)
-//             }
-//           >
-//             Register
-//           </button>
