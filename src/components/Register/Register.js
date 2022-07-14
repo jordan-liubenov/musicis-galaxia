@@ -1,18 +1,21 @@
 import { useEffect, useState } from "react";
-import "../styles/Register.css";
+import "../Register/Register.css";
 
-import { displayUnderscore } from "../utils/homeUtil";
-import { submitRegister } from "../services/userService";
-import { handleValue, toggleState } from "../utils/registerUtil";
+import { displayUnderscore } from "../../utils/homeUtil";
+import { submitRegister } from "../../services/userService";
+import { handleValue, toggleState } from "../../utils/registerUtil";
 
-import RegisterInfo from "./RegisterInfo.js";
+import RegisterInfo from "./RegisterInfo";
 import RegisterBtn from "./RegisterBtn";
+
+//TODO abstract component
 
 const Register = () => {
   const [info, showInfo] = useState(true); //info box will be displayed by default
 
   const [underscore, setUnderscore] = useState(false);
   displayUnderscore(underscore, setUnderscore);
+  let title = underscore ? "Register_" : "Register";
 
   //form input field values
   const [email, setEmail] = useState("");
@@ -20,7 +23,7 @@ const Register = () => {
   const [password, setPass] = useState("");
   const [rePassword, setRePass] = useState("");
 
-  //error message which will be displaid upon validation
+  //error message which will be displayed upon validation
   const [emailError, showEmailErr] = useState("");
   const [usernameError, showUsernameErr] = useState("");
   const [passError, showPassErr] = useState("");
@@ -29,11 +32,7 @@ const Register = () => {
   return (
     <div className="registerContainer">
       <div className="regTitleDiv">
-        {underscore ? (
-          <span className="regTitleSpan">Register_</span>
-        ) : (
-          <span className="regTitleSpan">Register</span>
-        )}
+        <span className="regTitleSpan">{title}</span>
       </div>
       <div className="registerFormDiv">
         <form method="POST" action="http://localhost:5000/register">

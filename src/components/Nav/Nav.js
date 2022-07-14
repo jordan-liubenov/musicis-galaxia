@@ -1,8 +1,10 @@
-import "../styles/Nav.css";
+import "../Nav/Nav.css";
 
-import logoImg from "../img/note.png";
+import logoImg from "../../img/note.png";
 
 const Nav = (props) => {
+  //TODO Check if there is a logged-in user and render navbar  accordingly
+
   return (
     <header>
       <nav className="navBar">

@@ -1,14 +1,14 @@
-import "../styles/Login.css";
-import Footer from "./Footer";
+import "../Login/Login.css";
 
-import { displayUnderscore } from "../utils/homeUtil";
+import { displayUnderscore } from "../../utils/homeUtil";
 import { useState } from "react";
-import { handleValue } from "../utils/loginUtil";
-import { submitLogin } from "../services/userService";
+import { handleValue } from "../../utils/loginUtil";
+import { submitLogin } from "../../services/userService";
 
 const Login = () => {
   const [underscore, setUnderscore] = useState(false);
   displayUnderscore(underscore, setUnderscore);
+  let title = underscore ? "Login_" : "Login";
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -16,11 +16,7 @@ const Login = () => {
   return (
     <div className="loginContainer">
       <div className="loginTitleDiv">
-        {underscore ? (
-          <span className="loginTitleSpan">Login_</span>
-        ) : (
-          <span className="loginTitleSpan">Login</span>
-        )}
+        <span className="loginTitleSpan">{title}</span>
       </div>
       <div className="loginFormDiv">
         <form>

@@ -1,4 +1,4 @@
-import "../styles/RegisterInfo.css";
+import "../Register/RegisterInfo.css";
 
 const RegisterInfo = () => {
   return (
