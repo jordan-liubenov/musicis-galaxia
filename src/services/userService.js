@@ -25,6 +25,8 @@ export const submitRegister = async (e, email, user, pass, rePass) => {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(userObj),
     });
+    const res = await req.json();
+    console.log(res);
   } catch (error) {
     console.log(error);
   }
@@ -38,7 +40,6 @@ export const submitLogin = async (e, user, pass) => {
     pass,
   };
 
-  console.log(userObj);
   try {
     const req = await fetch("http://localhost:5000/login", {
       method: "POST",
@@ -46,7 +47,7 @@ export const submitLogin = async (e, user, pass) => {
       body: JSON.stringify(userObj),
     });
     const res = await req.json();
-    console.log(res);
+    sessionStorage.setItem("token", res.token);
   } catch (error) {
     console.log(error);
   }
