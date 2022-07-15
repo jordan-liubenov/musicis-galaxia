@@ -3,7 +3,7 @@
   height: 100vh;
   width: 100vw;
 
-  background: linear-gradient(-70deg, #78747aed 50%, #664d73d5 50%), url('../../img/geets.jpg');
+  background: linear-gradient(-70deg, #78747aed 20%, #664d73d5 80%), url('../../img/geets.jpg');
 
   /* background: -webkit-linear-gradient(70deg, #78747a 50%, #664d7398 50%,);
   background: -o-linear-gradient(70deg, #78747a 40% 50%, #664d7398 50%);
@@ -57,7 +57,7 @@
 
 .catalogRef {
   text-decoration: none;
-  color: #5d30769c;
+  color: #e5bdfac8;
 }
 
 .catalogRef:hover {
