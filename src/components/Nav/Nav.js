@@ -1,8 +1,10 @@
 import "../Nav/Nav.css";
 
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 import logoImg from "../../img/note.png";
+
+import { activeClassName } from "../../utils/navUtil";
 
 const Nav = (props) => {
   //TODO Check if there is a logged-in user and render navbar  accordingly
@@ -17,16 +19,54 @@ const Nav = (props) => {
             </Link>
           </div>
           <li>
-            <Link to={"/"}>Home</Link>
+            <NavLink
+              to={"/"}
+              className={({ isActive }) =>
+                isActive ? activeClassName : undefined
+              }
+            >
+              Home
+            </NavLink>
           </li>
           <li>
-            <Link to={"/catalog"}>Catalog</Link>
+            <NavLink
+              to={"/catalog"}
+              className={({ isActive }) =>
+                isActive ? activeClassName : undefined
+              }
+            >
+              Catalog
+            </NavLink>
           </li>
           <li>
-            <Link to={"/register"}>Register</Link>
+            <NavLink
+              to={"/register"}
+              className={({ isActive }) =>
+                isActive ? activeClassName : undefined
+              }
+            >
+              Register
+            </NavLink>
           </li>
           <li>
-            <Link to={"/login"}>Login</Link>
+            <NavLink
+              to={"/login"}
+              className={({ isActive }) =>
+                isActive ? activeClassName : undefined
+              }
+            >
+              Login
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to={"/post"}
+              className={({ isActive }) =>
+                isActive ? activeClassName : undefined
+              }
+            >
+              Post
+            </NavLink>
           </li>
           <div className="navRight">
             <li>

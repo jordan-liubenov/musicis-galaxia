@@ -1,0 +1,14 @@
+* {
+  box-sizing: border-box;
+}
+
+.postContainer {
+  background-color: #78747a;
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+
+  background: linear-gradient(-70deg, #664d73d7 50%, rgba(175, 162, 162, 0) 30%), url('../../img/geets.jpg');
+  filter: blur(3px);
+  filter: brightness(0.42);
+}

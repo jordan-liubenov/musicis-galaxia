@@ -3,10 +3,12 @@
   height: 100vh;
   width: 100vw;
 
-  background: -webkit-linear-gradient(70deg, #78747a 50%, #664d7398 50%);
+  background: linear-gradient(-70deg, #78747aed 50%, #664d73d5 50%), url('../../img/geets.jpg');
+
+  /* background: -webkit-linear-gradient(70deg, #78747a 50%, #664d7398 50%,);
   background: -o-linear-gradient(70deg, #78747a 40% 50%, #664d7398 50%);
   background: -moz-linear-gradient(70deg, #78747a 50%, #664d7398 50%);
-  background: linear-gradient(70deg, #78747a 50%, #664d7398 50%);
+  background: linear-gradient(70deg, #78747a 50%, #664d7398 50%); */
 }
 
 .title {
@@ -55,10 +57,10 @@
 
 .catalogRef {
   text-decoration: none;
-  color: #664d73aa;
+  color: #5d30769c;
 }
 
 .catalogRef:hover {
-  background-color: #78747a;
+  background-color: #664d73d5;
   transition: all .2s ease-in-out;
 }

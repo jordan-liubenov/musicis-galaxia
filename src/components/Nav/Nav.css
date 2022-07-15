@@ -64,3 +64,8 @@ nav li:hover {
   height: 100%;
   display: flex;
 }
+
+.isActive {
+  background-color: rgba(230, 215, 224, 0.155);
+  border-radius: 10px;
+}

@@ -4,18 +4,7 @@ footer {
   width: 100%;
   font-family: 'JetBrains Mono';
   color: rgb(241, 220, 220);
-  flex-direction: column;
   text-align: center;
   margin: auto;
   bottom: 0;
 }
-
-/* position: fixed;
-background-color: #664d7398;
-width: 100%;
-font-family: 'JetBrains Mono';
-color: rgb(241, 220, 220);
-flex-direction: column;
-text-align: center;
-margin-top: 162px;
-} */
