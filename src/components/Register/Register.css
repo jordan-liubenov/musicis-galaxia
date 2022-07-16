@@ -69,19 +69,6 @@ input[type=text]:focus, input[type=password]:focus {
   outline: none;
 }
 
-.submitBtn {
-  background-color: #9e9aa0bb;
-  border-radius: 10px;
-  color: white;
-  padding: 16px 20px;
-  margin: 8px 0;
-  border: none;
-  cursor: pointer;
-  width: 100%;
-  font-family: 'JetBrains Mono';
-  font-size: 90%;
-}
-
 .infoBtnDiv {
   position: absolute;
   margin-left: 920px;
@@ -116,22 +103,4 @@ input[type=text]:focus, input[type=password]:focus {
   color: rgba(253, 77, 77, 0.609);
   background-color: #78747a70;
   font-size: 75%;
-}
-
-.logRedirect {
-  background-color: #9671aa68;
-  color: #cfbdbd;
-  font-size: 85%;
-  border-radius: 20px;
-  padding: 5px;
-}
-
-.logLink {
-  text-decoration: none;
-  color: #978b8b;
-}
-
-.logLink:hover {
-  background-color: #78747a;
-  transition: all .2s ease-in-out;
 }

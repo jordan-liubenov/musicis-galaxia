@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
 
+import "../RegisterBtn/RegisterBtn.css";
+
 const RegisterBtn = (props) => {
   return (
     <div>

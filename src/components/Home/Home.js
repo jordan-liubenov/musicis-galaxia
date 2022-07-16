@@ -3,7 +3,6 @@ import "../Home/Home.css";
 import { useState } from "react";
 import { displayUnderscore } from "../../utils/homeUtil";
 
-import Footer from "../Footer/Footer";
 import InstructMsg from "./InstructMsg";
 
 const Home = () => {
@@ -20,13 +19,12 @@ const Home = () => {
         <p>
           Welcome to Musicis Galaxia, an online marketplace<br></br>
           where everyone is free to post and browse different<br></br>
-          offers on instruments and musical accessories.
+          offers on musical instruments and accessories.
         </p>
       </div>
       <div className="instructContainer">
         <InstructMsg />
       </div>
-      {/* <Footer /> */}
     </div>
   );
 };

@@ -12,4 +12,3 @@ Cart system, add to cart, remove from cart, etc
 
 
 
--Fix footer

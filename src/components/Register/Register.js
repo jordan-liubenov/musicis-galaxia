@@ -12,12 +12,12 @@ import {
 } from "../../utils/registerUtil";
 
 //child component imports
-import RegisterInfo from "./RegisterInfo";
-import RegisterBtn from "./RegisterBtn";
-import EmailField from "./EmailField";
-import UsernameField from "./UsernameField";
-import PasswordField from "./PasswordField";
-import RePassField from "./RePassField";
+import RegisterInfo from "./RegisterInfo/RegisterInfo";
+import RegisterBtn from "./RegisterBtn/RegisterBtn";
+import EmailField from "./EmailField/EmailField";
+import UsernameField from "./UsernameField/UsernameField";
+import PasswordField from "./PasswordField/PasswordField";
+import RePassField from "./RePassField/RePassField";
 
 const Register = () => {
   const [info, showInfo] = useState(true); //info box will be displayed by default
