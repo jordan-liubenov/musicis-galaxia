@@ -1,4 +1,4 @@
-import "../RegisterInfo/RegisterInfo.css"
+import "../RegisterInfo/RegisterInfo.css";
 
 const RegisterInfo = () => {
   return (

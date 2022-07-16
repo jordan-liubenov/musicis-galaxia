@@ -32,8 +32,21 @@ export const submitRegister = async (e, email, user, pass, rePass) => {
   }
 };
 
-export const submitLogin = async (e, user, pass) => {
+export const submitLogin = async (
+  e,
+  user,
+  pass,
+  navigate,
+  showPassErr,
+  showUserErr
+) => {
   e.preventDefault();
+
+  if (user.length == 0 || pass.length == 0) {
+    showUserErr(true);
+    showPassErr(true);
+    return;
+  }
 
   let userObj = {
     user,
@@ -46,10 +59,28 @@ export const submitLogin = async (e, user, pass) => {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(userObj),
     });
+
     const res = await req.json();
-    sessionStorage.setItem("token", res.token);
+
+    //validate errors if there are any
+    if (res.error) {
+      if (res.error.usernameErr) {
+        showUserErr(true);
+        return;
+      } else if (res.error.passwordErr) {
+        showUserErr(false);
+        showPassErr(true);
+        return;
+      }
+    }
+
+    localStorage.setItem("token", res.result);
+    localStorage.setItem("user", res.username);
+
+    navigate("/");
   } catch (error) {
     console.log(error);
+    //TODO add redirect to 404 incase of something going wrong
   }
 };
 

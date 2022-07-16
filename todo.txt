@@ -6,9 +6,13 @@
   -choices: dropdown menu, radio button or checkbox
 -form will have a title (model of the product), price (numbers need to be > 0), description, image, date of manufactoring
 
+-Add 404 view component
 
 -Maybes:
 Cart system, add to cart, remove from cart, etc
 
 
 
+
+Thinking cap:
+Need to check if there is a logged-in user, and re-render the nav bar accordingly

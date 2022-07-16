@@ -8,6 +8,7 @@ import Register from "./components/Register/Register.js";
 import Login from "./components/Login/Login.js";
 import Footer from "./components/Footer/Footer.js";
 import PostOffer from "./components/PostOffer/PostOffer.js";
+import { checkIfLoggedIn } from "./services/userService";
 
 const App = () => {
   return (
