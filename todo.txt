@@ -1,4 +1,9 @@
--Check if there is a logged-in user and render nav-bar accordingly (guest/user)
+-Add server-side error handling to register form (Maybe)
+
+Main objectives:
+-Refactor file structure on Login and Nav components (split into children components)
+
+-Add 404 view component
 
 -Create "Create" Form
   -will be able to either create offer for a musical instrument or a musical accessory
@@ -6,13 +11,9 @@
   -choices: dropdown menu, radio button or checkbox
 -form will have a title (model of the product), price (numbers need to be > 0), description, image, date of manufactoring
 
--Add 404 view component
-
--Maybes:
+Maybes:
+Find way to disable text as part of <a> tag, in "Welcome" message when user is logged in
 Cart system, add to cart, remove from cart, etc
 
 
-
-
 Thinking cap:
-Need to check if there is a logged-in user, and re-render the nav bar accordingly
