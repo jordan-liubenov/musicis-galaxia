@@ -10,6 +10,12 @@ import { useEffect, useState } from "react";
 
 import { checkIfLoggedIn, logOut } from "../../utils/loginUtil";
 
+import HomeLink from "./HomeLink/HomeLink";
+import CatalogLink from "./CatalogLink/CatalogLink";
+import RegisterLink from "./RegisterLink/RegisterLink";
+import LoginLink from "./LoginLink/LoginLink";
+import PostLink from "./PostLink/PostLink";
+
 const Nav = () => {
   const navigate = useNavigate();
 
@@ -33,67 +39,19 @@ const Nav = () => {
             </Link>
           </div>
 
-          <li>
-            {" "}
-            <NavLink
-              to={"/"}
-              className={({ isActive }) =>
-                isActive ? activeClassName : undefined
-              }
-            >
-              Home
-            </NavLink>
-          </li>
+          <HomeLink activeClassName={activeClassName} />
 
-          <li>
-            <NavLink
-              to={"/catalog"}
-              className={({ isActive }) =>
-                isActive ? activeClassName : undefined
-              }
-            >
-              Catalog
-            </NavLink>
-          </li>
-          {loggedIn ? (
-            <></>
-          ) : (
-            <li>
-              <NavLink
-                to={"/register"}
-                className={({ isActive }) =>
-                  isActive ? activeClassName : undefined
-                }
-              >
-                Register
-              </NavLink>
-            </li>
-          )}
+          <CatalogLink activeClassName={activeClassName} />
 
           {loggedIn ? (
             <></>
           ) : (
-            <li>
-              <NavLink
-                to={"/login"}
-                className={({ isActive }) =>
-                  isActive ? activeClassName : undefined
-                }
-              >
-                Login
-              </NavLink>
-            </li>
+            <RegisterLink activeClassName={activeClassName} />
           )}
-          <li>
-            <NavLink
-              to={"/post"}
-              className={({ isActive }) =>
-                isActive ? activeClassName : undefined
-              }
-            >
-              Post
-            </NavLink>
-          </li>
+          {loggedIn ? <></> : <LoginLink activeClassName={activeClassName} />}
+
+          {loggedIn ? <PostLink activeClassName={activeClassName} /> : <></>}
+
           <div className="navRight">
             <li>
               {loggedIn ? (

@@ -4,7 +4,14 @@ import {
   validateEmail,
 } from "../utils/registerUtil";
 
-export const submitRegister = async (e, email, user, pass, rePass) => {
+export const submitRegister = async (
+  e,
+  email,
+  user,
+  pass,
+  rePass,
+  navigation
+) => {
   e.preventDefault();
 
   const isValid = validator(email, user, pass, rePass);
@@ -26,7 +33,8 @@ export const submitRegister = async (e, email, user, pass, rePass) => {
       body: JSON.stringify(userObj),
     });
     const res = await req.json();
-    console.log(res);
+
+    navigation("/login");
   } catch (error) {
     console.log(error);
   }

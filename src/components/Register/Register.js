@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import "../Register/Register.css";
 
@@ -20,6 +21,8 @@ import PasswordField from "./PasswordField/PasswordField";
 import RePassField from "./RePassField/RePassField";
 
 const Register = () => {
+  const navigation = useNavigate();
+
   const [info, showInfo] = useState(true); //info box will be displayed by default
 
   const [underscore, setUnderscore] = useState(false);
@@ -70,7 +73,14 @@ const Register = () => {
           <br></br>
           <RegisterBtn
             submitRegister={(e) =>
-              submitRegister(e, email, username, password, rePassword)
+              submitRegister(
+                e,
+                email,
+                username,
+                password,
+                rePassword,
+                navigation
+              )
             }
           />
         </form>

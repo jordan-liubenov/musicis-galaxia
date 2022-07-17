@@ -5,6 +5,8 @@ Main objectives:
 
 -Add 404 view component
 
+-Add route-guards 
+
 -Create "Create" Form
   -will be able to either create offer for a musical instrument or a musical accessory
   -needs to be a way to declare what type of offer it will be (instrument/accessory)
