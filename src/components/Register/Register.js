@@ -19,6 +19,7 @@ import EmailField from "./EmailField/EmailField";
 import UsernameField from "./UsernameField/UsernameField";
 import PasswordField from "./PasswordField/PasswordField";
 import RePassField from "./RePassField/RePassField";
+import RegisterTitle from "./RegisterTitle/RegisterTitle";
 
 const Register = () => {
   const navigation = useNavigate();
@@ -42,9 +43,7 @@ const Register = () => {
 
   return (
     <div className="registerContainer">
-      <div className="regTitleDiv">
-        <span className="regTitleSpan">{title}</span>
-      </div>
+      <RegisterTitle title={title}/>
       <div className="registerFormDiv">
         <form method="POST" action="http://localhost:5000/register">
           <EmailField

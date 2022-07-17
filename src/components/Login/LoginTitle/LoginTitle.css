@@ -1,0 +1,15 @@
+.loginTitleDiv {
+  justify-content: center;
+  display: flex;
+  padding: 30px;
+  margin-top: 30px;
+}
+
+.loginTitleSpan {
+  align-items: center;
+  color: rgb(241, 220, 220);
+  font-size: 450%;
+  font-family: 'JetBrains Mono';
+  background-color: #664d7398;
+  border-radius: 10px;
+}

@@ -5,10 +5,12 @@ import { useState } from "react";
 import { ERROR_MSGS, handleValue } from "../../utils/loginUtil";
 import { submitLogin } from "../../services/userService";
 
-import UsernameField from "./UsernameField";
-import PasswordField from "./PasswordField";
-import LoginBtn from "./LoginBtn";
+//child component imports
+import UsernameField from "./UsernameField/UsernameField";
+import PasswordField from "./PasswordField/PasswordField";
+import LoginBtn from "./LoginBtn/LoginBtn";
 import { useNavigate } from "react-router-dom";
+import LoginTitle from "./LoginTitle/LoginTitle";
 
 const Login = () => {
   const [underscore, setUnderscore] = useState(false);
@@ -24,12 +26,9 @@ const Login = () => {
   const [passErr, showPassErr] = useState(false);
 
   const navigate = useNavigate();
-
   return (
     <div className="loginContainer">
-      <div className="loginTitleDiv">
-        <span className="loginTitleSpan">{title}</span>
-      </div>
+      <LoginTitle title={title} />
       <div className="loginFormDiv">
         <form method="POST" action="http://localhost:5000/login">
           {userErr ? ERROR_MSGS.username : <></>}
@@ -38,6 +37,7 @@ const Login = () => {
             handleValue={(e) => handleValue(e, setUsername)}
           />
           <br></br>
+
           {passErr ? ERROR_MSGS.password : <></>}
           <PasswordField
             password={password}

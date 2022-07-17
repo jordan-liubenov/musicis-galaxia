@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
 
+import "../LoginBtn/LoginBtn.css";
+
 const LoginBtn = (props) => {
   return (
     <div>

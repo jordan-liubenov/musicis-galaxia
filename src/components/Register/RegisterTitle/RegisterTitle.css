@@ -1,0 +1,14 @@
+.regTitleDiv {
+  justify-content: center;
+  display: flex;
+  padding: 40px;
+}
+
+.regTitleSpan {
+  align-items: center;
+  color: rgb(241, 220, 220);
+  font-size: 450%;
+  font-family: 'JetBrains Mono';
+  background-color: #664d7359;
+  border-radius: 10px;
+}
