@@ -53,12 +53,11 @@ const validateUsername = (username, setUser) => {
   if (username.length < 6 && username.length > 0) {
     setUser(ERROR_MSGS.user);
     isValid = false;
-    return isValid;
   } else {
     setUser("");
     isValid = true;
-    return isValid;
   }
+  return isValid;
 };
 
 const validatePassword = (password, passErr) => {
