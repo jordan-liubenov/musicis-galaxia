@@ -1,0 +1,9 @@
+.radioDiv {
+  background-color: rgba(131, 122, 134, 0.984);
+  border-radius: 20px;
+  padding: 5px;
+}
+
+.typeLabel {
+  margin-left: 20px;
+}

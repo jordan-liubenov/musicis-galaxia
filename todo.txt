@@ -1,11 +1,8 @@
--Add server-side error handling to register form (Maybe)
 
-Main objectives:
--Refactor file structure on Login and Nav components (split into children components)
+TODO   -Add 404 view component
 
--Add 404 view component
 
--Add route-guards 
+TODO  -Add route-guards 
 
 -Create "Create" Form
   -will be able to either create offer for a musical instrument or a musical accessory
@@ -14,8 +11,36 @@ Main objectives:
 -form will have a title (model of the product), price (numbers need to be > 0), description, image, date of manufactoring
 
 Maybes:
+-Add server-side error handling to register form (Maybe)
 Find way to disable text as part of <a> tag, in "Welcome" message when user is logged in
 Cart system, add to cart, remove from cart, etc
 
 
-Thinking cap:
+TODO add field validation for fields in POST component
+/*
+  Instrument fields will be:
+  -Model/Name
+  -Condition(dropdown menu with multiple levels of usage (Barely Used - Heavily Used))
+  -Description
+  -Image URL
+  -Price
+*/
+
+/*
+  Amplifier fields will be:
+  -Model/Name
+  -Wattage(input=type[number])
+  -Condition(dropdown menu with multiple levels of usage (Barely Used - Heavily Used))
+  -Valves (Yes/No)
+  -Image
+  -Price
+*/
+
+/*
+  Other fields will be:
+  -Name of product
+  -Description of product
+  -Condition(dropdown menu with multiple levels of usage (Barely Used - Heavily Used))
+  -Image
+  -Price 
+*/

@@ -1,6 +1,6 @@
 import "../Nav/Nav.css";
 
-import { Link, NavLink, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import logoImg from "../../img/note.png";
 
@@ -21,13 +21,15 @@ const Nav = () => {
 
   const [loggedIn, setStatus] = useState(false);
 
+  let loggedInCheck = checkIfLoggedIn();
+
   useEffect(() => {
     if (checkIfLoggedIn()) {
       setStatus(true);
     } else {
       setStatus(false);
     }
-  }, [checkIfLoggedIn()]);
+  }, [loggedInCheck]);
 
   return (
     <header>
@@ -35,7 +37,13 @@ const Nav = () => {
         <ul className="links">
           <div className="logoDiv">
             <Link to={"/"}>
-              <img className="logo" src={logoImg} width={60} height={60}></img>
+              <img
+                className="logo"
+                src={logoImg}
+                width={60}
+                height={60}
+                alt="Something seems to be missing..."
+              ></img>
             </Link>
           </div>
 
@@ -56,7 +64,7 @@ const Nav = () => {
             <li>
               {loggedIn ? (
                 <a href="/logout" onClick={(e) => logOut(e, navigate)}>
-                  Logged in as [{getUsername()}], Logout
+                  Logged in as [{getUsername()}], (Logout)
                 </a>
               ) : (
                 <a>Welcome, Guest</a>
