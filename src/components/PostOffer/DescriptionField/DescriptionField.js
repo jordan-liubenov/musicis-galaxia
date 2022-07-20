@@ -3,9 +3,7 @@ import "../DescriptionField/DescriptionField.css";
 const DescriptionField = (props) => {
   return (
     <>
-      <label htmlFor="description" id="description">
-        Description:
-      </label>
+      <label htmlFor="description">Description:</label>
       <div>
         <textarea
           className="description"
@@ -16,6 +14,7 @@ const DescriptionField = (props) => {
           id="description"
           value={props.description}
           onChange={(e) => props.handleDescriptionField(e)}
+          placeholder="My product description..."
           required
         ></textarea>
       </div>

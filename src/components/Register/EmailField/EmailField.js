@@ -1,7 +1,7 @@
 const EmailField = (props) => {
   return (
     <>
-      <label htmlFor="email" id="email">
+      <label htmlFor="email">
         Email:
         {props.emailError}
       </label>

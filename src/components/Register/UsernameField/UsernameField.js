@@ -1,7 +1,7 @@
 const UsernameField = (props) => {
   return (
     <>
-      <label htmlFor="username" id="username">
+      <label htmlFor="username">
         Username:
         {props.usernameError}
       </label>

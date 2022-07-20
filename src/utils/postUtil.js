@@ -14,13 +14,25 @@ export const handleRadio = (setFunc, str) => {
 
 export const handleNameField = (e, setFunc) => {
   const { value } = e.target;
-  //add validation function if current field is NameField or Description field or Image field
+  //TODO add field validation
   setFunc(value);
 };
 
 export const handleDescriptionField = (e, setFunc) => {
   const { value } = e.target;
-  //add validation function if current field is NameField or Description field or Image field
+  //TODO add field validation
+  setFunc(value);
+};
+
+export const handlePriceField = (e, setFunc) => {
+  const { value } = e.target;
+  //TODO add field validation
+  setFunc(value);
+};
+
+export const handleImageUrlField = (e, setFunc) => {
+  const { value } = e.target;
+  //TODO add field validation
   setFunc(value);
 };
 

@@ -5,15 +5,15 @@ const PriceField = (props) => {
 
   return (
     <>
-      <label htmlFor="priceField" id="priceField">
-        Price(in dollars):
-      </label>
+      <label htmlFor="priceField">Price(in dollars):</label>
       <div>
         <input
           type="number"
           name="priceField"
           id="priceField"
           className="priceField"
+          valie={props.price}
+          onChange={props.handlePriceField}
           required
         ></input>
       </div>

@@ -1,7 +1,7 @@
 const PasswordField = (props) => {
   return (
     <>
-      <label htmlFor="pass" id="password">
+      <label htmlFor="pass">
         Password:
         {props.passError}
       </label>

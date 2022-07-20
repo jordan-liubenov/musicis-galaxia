@@ -3,9 +3,7 @@ import "../NameField/NameField.css";
 const NameField = (props) => {
   return (
     <>
-      <label htmlFor="productName" id="productName">
-        Product Name:
-      </label>
+      <label htmlFor="productName">Product Name:</label>
       <input
         className="nameField"
         type="text"

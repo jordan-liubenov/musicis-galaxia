@@ -1,0 +1,13 @@
+.postOfferButton {
+  background-color: #9e9aa0bb;
+  border-style: solid;
+  border-color: #ffffffb7;
+  border-radius: 10px;
+  color: white;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+  width: 70%;
+  font-family: 'JetBrains Mono';
+  font-size: 90%;
+}
