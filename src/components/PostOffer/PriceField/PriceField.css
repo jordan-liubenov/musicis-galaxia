@@ -1,12 +1,13 @@
-.description {
+.priceField {
   border-radius: 15px;
   padding: 5px;
   resize: none;
   font-size: 80%;
   margin-bottom: 10px;
-  font-family: "Jetbrains Mono"
+  font-family: "Jetbrains Mono";
+  border-style: none;
 }
 
-.description:focus {
+.priceField:focus {
   outline: none;
 }

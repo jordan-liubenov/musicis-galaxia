@@ -1,6 +1,8 @@
-const ConditionDropdown = (props) => {
+import "../ConditionRadio/ConditionRadio.css";
+
+const ConditionRadio = (props) => {
   return (
-    <>
+    <div className="conditionContainer">
       <label htmlFor="condition" id="condition">
         Condition:
       </label>
@@ -29,8 +31,7 @@ const ConditionDropdown = (props) => {
         onChange={() => props.handleRadio(props.setCondition, "heavy")}
       ></input>
       <label htmlFor="heavyUse">Heavy use</label>
-    </>
+    </div>
   );
 };
-//   onChange={() => props.handleRadio(props.setProductType, "amp")}
-export default ConditionDropdown;
+export default ConditionRadio;

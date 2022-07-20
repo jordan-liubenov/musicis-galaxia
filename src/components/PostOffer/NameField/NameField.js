@@ -1,3 +1,5 @@
+import "../NameField/NameField.css";
+
 const NameField = (props) => {
   return (
     <>
@@ -5,6 +7,7 @@ const NameField = (props) => {
         Product Name:
       </label>
       <input
+        className="nameField"
         type="text"
         placeholder="i.e. Gibson Les Paul, 1978"
         name="productName"

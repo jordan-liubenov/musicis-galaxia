@@ -38,7 +38,6 @@
   font-size: 140%;
 }
 
-
 label {
   color: #cfbdbd;
 }
@@ -51,6 +50,7 @@ input[type=text], input[type=password] {
   border: none;
   background: #f1f1f1;
   border-radius: 10px;
+  font-family: "Jetbrains Mono";
 }
 
 input[type=text]:focus, input[type=password]:focus {

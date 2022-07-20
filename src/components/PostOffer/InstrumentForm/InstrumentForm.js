@@ -7,8 +7,9 @@ import {
 
 //child component imports
 import NameField from "../NameField/NameField";
-import ConditionDropdown from "../ConditionDropdown/ConditionDropdown";
+import ConditionRadio from "../ConditionRadio/ConditionRadio";
 import DescriptionField from "../DescriptionField/DescriptionField";
+import PriceField from "../PriceField/PriceField";
 
 const InstrumentForm = () => {
   const [productName, setProductName] = useState("");
@@ -23,18 +24,17 @@ const InstrumentForm = () => {
         productName={productName}
         handleNameField={(e) => handleNameField(e, setProductName)}
       />
-
+      <br></br>
       <DescriptionField
         description={description}
         handleDescriptionField={(e) =>
           handleDescriptionField(e, setDescription)
         }
       />
-
-      <ConditionDropdown
-        handleRadio={handleRadio}
-        setCondition={setCondition}
-      />
+      <br></br>
+      <ConditionRadio handleRadio={handleRadio} setCondition={setCondition} />
+      <br></br>
+      <PriceField />
     </form>
   );
 };
