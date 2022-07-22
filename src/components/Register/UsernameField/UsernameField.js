@@ -1,10 +1,7 @@
 const UsernameField = (props) => {
   return (
     <>
-      <label htmlFor="username">
-        Username:
-        {props.usernameError}
-      </label>
+      <label htmlFor="username">Username: {props.usernameError}</label>
       <input
         minLength={6}
         type="text"

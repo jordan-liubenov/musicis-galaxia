@@ -1,24 +1,16 @@
 
 TODO   -Add 404 view component
 
+TODO Create Instrument schema in backend
+
 TODO Add "Profile" View which displays the currently logged in-user's offer posts
 
 TODO  -Add route-guards 
 
-FIXME Register form getting elongated when all errors are on screen
-
--Create "Create" Form
-  -will be able to either create offer for a musical instrument or a musical accessory
-  -needs to be a way to declare what type of offer it will be (instrument/accessory)
-  -choices: dropdown menu, radio button or checkbox
--form will have a title (model of the product), price (numbers need to be > 0), description, image, date of manufactoring
-TODO use dropbox api for file storage
 Maybes:
 -Add server-side error handling to register form (Maybe)
 Find way to disable text as part of <a> tag, in "Welcome" message when user is logged in
 Cart system, add to cart, remove from cart, etc
-
-TODO add field validation for fields in POST component
 
 /*
   Instrument fields will be:

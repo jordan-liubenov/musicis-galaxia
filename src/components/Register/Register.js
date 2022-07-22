@@ -43,7 +43,7 @@ const Register = () => {
 
   return (
     <div className="registerContainer">
-      <RegisterTitle title={title}/>
+      <RegisterTitle title={title} />
       <div className="registerFormDiv">
         <form method="POST" action="http://localhost:5000/register">
           <EmailField

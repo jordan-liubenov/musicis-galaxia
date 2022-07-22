@@ -2,6 +2,7 @@ const ImageField = (props) => {
   return (
     <>
       <label htmlFor="imageField">Image URL:</label>
+      {props.imageErr}
       <input
         type="text"
         id="imageField"

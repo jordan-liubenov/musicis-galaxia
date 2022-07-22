@@ -4,6 +4,7 @@ const DescriptionField = (props) => {
   return (
     <>
       <label htmlFor="description">Description:</label>
+      {props.descriptionErr}
       <div>
         <textarea
           className="description"

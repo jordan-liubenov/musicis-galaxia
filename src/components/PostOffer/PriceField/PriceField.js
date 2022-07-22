@@ -6,6 +6,7 @@ const PriceField = (props) => {
   return (
     <>
       <label htmlFor="priceField">Price(in dollars):</label>
+      {props.priceErr}
       <div>
         <input
           type="number"

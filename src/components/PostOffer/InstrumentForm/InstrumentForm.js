@@ -19,15 +19,19 @@ import ImageField from "../ImageField/ImageField";
 import PostButton from "../PostButton/PostButton";
 
 const InstrumentForm = () => {
+  //fields
   const [productName, setProductName] = useState("");
-
   const [condition, setCondition] = useState("regular");
-
   const [description, setDescription] = useState("");
-
   const [price, setPrice] = useState("");
-
   const [imageUrl, setImageUrl] = useState("");
+
+  //field errors
+  const [nameErr, setNameErr] = useState("");
+  const [descriptionErr, setDescriptionErr] = useState("");
+  const [imageErr, setImageErr] = useState("");
+  const [priceErr, setPriceErr] = useState("");
+
   return (
     <form
       method="POST"
@@ -36,23 +40,29 @@ const InstrumentForm = () => {
     >
       <NameField
         productName={productName}
-        handleNameField={(e) => handleNameField(e, setProductName)}
+        handleNameField={(e) => handleNameField(e, setProductName, setNameErr)}
+        nameErr={nameErr}
       />
       <DescriptionField
         description={description}
         handleDescriptionField={(e) =>
-          handleDescriptionField(e, setDescription)
+          handleDescriptionField(e, setDescription, setDescriptionErr)
         }
+        descriptionErr={descriptionErr}
       />
       <ConditionRadio handleRadio={handleRadio} setCondition={setCondition} />
       <br></br>
       <ImageField
         imageUrl={imageUrl}
-        handleImageUrlField={(e) => handleImageUrlField(e, setImageUrl)}
+        handleImageUrlField={(e) =>
+          handleImageUrlField(e, setImageUrl, setImageErr)
+        }
+        imageErr={imageErr}
       />
       <PriceField
         price={price}
-        handlePriceField={(e) => handlePriceField(e, setPrice)}
+        handlePriceField={(e) => handlePriceField(e, setPrice, setPriceErr)}
+        priceErr={priceErr}
       />
       <PostButton />
     </form>

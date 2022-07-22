@@ -4,6 +4,7 @@ const NameField = (props) => {
   return (
     <>
       <label htmlFor="productName">Product Name:</label>
+      {props.nameErr}
       <input
         className="nameField"
         type="text"
