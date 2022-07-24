@@ -1,60 +1,62 @@
 import { useState } from "react";
-
-import "../InstrumentForm/InstrumentForm.css";
-
 import {
-  handleDescriptionField,
   handleImageUrlField,
   handleNameField,
   handlePriceField,
   handleRadio,
+  handleWattageField,
 } from "../../../utils/postUtil";
+import ConditionRadio from "../ConditionRadio/ConditionRadio";
+import ImageField from "../ImageField/ImageField";
 
 //child component imports
 import NameField from "../NameField/NameField";
-import ConditionRadio from "../ConditionRadio/ConditionRadio";
-import DescriptionField from "../DescriptionField/DescriptionField";
-import PriceField from "../PriceField/PriceField";
-import ImageField from "../ImageField/ImageField";
 import PostButton from "../PostButton/PostButton";
+import PriceField from "../PriceField/PriceField";
+import ValveRadio from "./ValveField/ValveRadio";
+import WattageField from "./WattageField/WattageField";
 
-const InstrumentForm = () => {
+const AmplifierForm = () => {
   //fields
   const [productName, setProductName] = useState("");
+  const [wattage, setWattage] = useState("");
   const [condition, setCondition] = useState("regular");
-  const [description, setDescription] = useState("");
-  const [price, setPrice] = useState("");
+  const [valves, setValves] = useState("yes");
   const [imageUrl, setImageUrl] = useState("");
+  const [price, setPrice] = useState("");
 
   //field errors
   const [nameErr, setNameErr] = useState("");
-  const [descriptionErr, setDescriptionErr] = useState("");
-  const [imageErr, setImageErr] = useState("");
+  const [wattageErr, setWattageErr] = useState("");
   const [priceErr, setPriceErr] = useState("");
+  const [imageErr, setImageErr] = useState("");
 
   return (
-    <form
-      method="POST"
-      action="http://localhost:5000/post"
-      className="instrumentForm"
-    >
+    <form method="POST" action="http://localhost:5000/post">
       <NameField
         productName={productName}
         handleNameField={(e) => handleNameField(e, setProductName, setNameErr)}
         nameErr={nameErr}
       />
       <br></br>
-      <DescriptionField
-        description={description}
-        handleDescriptionField={(e) =>
-          handleDescriptionField(e, setDescription, setDescriptionErr)
+      <WattageField
+        wattage={wattage}
+        handleWattageField={(e) =>
+          handleWattageField(e, setWattage, setWattageErr)
         }
-        descriptionErr={descriptionErr}
+        wattageErr={wattageErr}
       />
+      <br></br>
       <ConditionRadio
         condition={condition}
         handleRadio={handleRadio}
         setCondition={setCondition}
+      />
+      <br></br>
+      <ValveRadio
+        valves={valves}
+        handleRadio={handleRadio}
+        setValves={setValves}
       />
       <br></br>
       <ImageField
@@ -65,7 +67,6 @@ const InstrumentForm = () => {
         imageErr={imageErr}
       />
       <br></br>
-
       <PriceField
         price={price}
         handlePriceField={(e) => handlePriceField(e, setPrice, setPriceErr)}
@@ -75,14 +76,14 @@ const InstrumentForm = () => {
     </form>
   );
 };
-
-export default InstrumentForm;
+export default AmplifierForm;
 
 /*
 === Structure ===
-  -Name,
-  -Description
-  -Condition,
+  -Model/Name
+  -Wattage
+  -Condition
+  -Valves 
   -Image
   -Price
 */

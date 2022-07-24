@@ -1,3 +1,4 @@
+import AmplifierForm from "../components/PostOffer/AmplifierForm/AmplifierForm";
 import InstrumentForm from "../components/PostOffer/InstrumentForm/InstrumentForm";
 
 const POST_ERROR_MSGS = {
@@ -7,12 +8,18 @@ const POST_ERROR_MSGS = {
   ),
   imgErr: <div className="errorDiv">Image URL needs to start with http/s.</div>,
   priceErr: <div className="errorDiv">Price must be a positive number.</div>,
+  wattageErr: (
+    <div className="errorDiv">Wattage must be a positive number.</div>
+  ),
 };
 
+//radio button handler
 export const handleRadio = (setFunc, str) => {
+  console.log(str);
   setFunc(str);
 };
 
+//input field handlers
 const validateName = (str, setError) => {
   if (str.length < 5 && str.length > 0) {
     setError(POST_ERROR_MSGS.nameErr);
@@ -68,12 +75,26 @@ const validateImageField = (str, setError) => {
 };
 export const handleImageUrlField = (e, setFunc, setError) => {
   const { value } = e.target;
-  validateImageField(value, setError)
+  validateImageField(value, setError);
+  setFunc(value);
+};
+
+const validateWattage = (num, setError) => {
+  num = Number(num);
+  if (num < 0) {
+    setError(POST_ERROR_MSGS.wattageErr);
+  } else {
+    setError("");
+  }
+};
+export const handleWattageField = (e, setFunc, setError) => {
+  const { value } = e.target;
+  validateWattage(value, setError);
   setFunc(value);
 };
 
 export const setFormType = (type) => {
   if (type == "instrument") return <InstrumentForm />;
-  if (type == "amp") return <>AmpForm</>;
+  if (type == "amp") return <AmplifierForm />;
   if (type == "other") return <>Other</>;
 };

@@ -11,6 +11,7 @@ const ConditionRadio = (props) => {
         type="radio"
         id="lightUse"
         name="select_condition"
+        value={props.condition}
         onChange={() => props.handleRadio(props.setCondition, "light")}
       ></input>
       <label htmlFor="lightUse">Light use</label>
@@ -19,6 +20,7 @@ const ConditionRadio = (props) => {
         type="radio"
         id="regularUse"
         name="select_condition"
+        value={props.condition}
         onChange={() => props.handleRadio(props.setCondition, "regular")}
         defaultChecked={true}
       ></input>
@@ -28,6 +30,7 @@ const ConditionRadio = (props) => {
         type="radio"
         id="heavyUse"
         name="select_condition"
+        value={props.condition}
         onChange={() => props.handleRadio(props.setCondition, "heavy")}
       ></input>
       <label htmlFor="heavyUse">Heavy use</label>

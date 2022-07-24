@@ -22,11 +22,10 @@ Cart system, add to cart, remove from cart, etc
 */
 
 /*
-  Amplifier fields will be:
   -Model/Name
-  -Wattage(input=type[number])
-  -Condition(dropdown menu with multiple levels of usage (Barely Used - Heavily Used))
-  -Valves (Yes/No)
+  -Wattage
+  -Condition
+  -Valves 
   -Image
   -Price
 */
