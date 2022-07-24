@@ -31,6 +31,17 @@ const AmplifierForm = () => {
   const [priceErr, setPriceErr] = useState("");
   const [imageErr, setImageErr] = useState("");
 
+  const toPost = {
+    //ownerId
+    ampForm: true,
+    productName,
+    wattage,
+    condition,
+    valves,
+    imageUrl,
+    price,
+  };
+
   return (
     <form method="POST" action="http://localhost:5000/post">
       <NameField
@@ -72,7 +83,7 @@ const AmplifierForm = () => {
         handlePriceField={(e) => handlePriceField(e, setPrice, setPriceErr)}
         priceErr={priceErr}
       />
-      <PostButton />
+      <PostButton toPost={toPost} />
     </form>
   );
 };

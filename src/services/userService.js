@@ -4,19 +4,26 @@ import {
   validateEmail,
 } from "../utils/registerUtil";
 
+const REGISTER_ERRORS = {
+  usernameErr: <div className="errorDiv">Username taken.</div>,
+  emailErr: <div className="errorDiv">Email taken.</div>,
+};
+
 export const submitRegister = async (
   e,
   email,
   user,
   pass,
   rePass,
+  showEmailErr,
+  showUsernameErr,
   navigation
 ) => {
   e.preventDefault();
 
   const isValid = validator(email, user, pass, rePass);
   if (!isValid) {
-    return; //guard clause incase any of the fields are invalid
+    return;
   }
 
   let userObj = {
@@ -33,7 +40,13 @@ export const submitRegister = async (
       body: JSON.stringify(userObj),
     });
     const res = await req.json();
-
+    if (res.error.usernameTaken) {
+      showUsernameErr(REGISTER_ERRORS.usernameErr);
+      return;
+    } else if (res.error.emailTaken) {
+      showEmailErr(REGISTER_ERRORS.emailErr);
+      return;
+    }
     navigation("/login");
   } catch (error) {
     console.log(error);
@@ -82,8 +95,11 @@ export const submitLogin = async (
       }
     }
 
+    console.log(res);
+
     localStorage.setItem("token", res.result);
     localStorage.setItem("user", res.username);
+    localStorage.setItem("id", res.id);
 
     navigate("/");
   } catch (error) {
@@ -138,11 +154,3 @@ function validator(email, username, password, rePass) {
 
   return isValid;
 }
-
-// useEffect(() => {  request testing
-//   fetch(`http://localhost:5000`)
-//     .then((res) => res.text())
-//     .then((result) => {
-//       console.log(result);
-//     });
-// }, []);

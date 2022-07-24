@@ -1,30 +1,24 @@
 import { useState } from "react";
-
-import "../InstrumentForm/InstrumentForm.css";
-
 import {
   handleDescriptionField,
   handleImageUrlField,
   handleNameField,
   handlePriceField,
-  handleRadio,
 } from "../../../utils/postUtil";
 
 //child component imports
-import NameField from "../NameField/NameField";
-import ConditionRadio from "../ConditionRadio/ConditionRadio";
-import DescriptionField from "../DescriptionField/DescriptionField";
-import PriceField from "../PriceField/PriceField";
 import ImageField from "../ImageField/ImageField";
+import NameField from "../NameField/NameField";
+import PriceField from "../PriceField/PriceField";
+import DescriptionField from "../DescriptionField/DescriptionField";
 import PostButton from "../PostButton/PostButton";
 
-const InstrumentForm = () => {
+const OtherForm = () => {
   //fields
   const [productName, setProductName] = useState("");
-  const [condition, setCondition] = useState("regular");
   const [description, setDescription] = useState("");
-  const [price, setPrice] = useState("");
   const [imageUrl, setImageUrl] = useState("");
+  const [price, setPrice] = useState("");
 
   //field errors
   const [nameErr, setNameErr] = useState("");
@@ -33,20 +27,15 @@ const InstrumentForm = () => {
   const [priceErr, setPriceErr] = useState("");
 
   const toPost = {
-    instrumentForm: true,
+    otherForm: true,
     productName,
     description,
-    condition,
     imageUrl,
     price,
   };
 
   return (
-    <form
-      method="POST"
-      action="http://localhost:5000/post"
-      className="instrumentForm"
-    >
+    <form method="POST" action="http://localhost:5000/post">
       <NameField
         productName={productName}
         handleNameField={(e) => handleNameField(e, setProductName, setNameErr)}
@@ -60,12 +49,6 @@ const InstrumentForm = () => {
         }
         descriptionErr={descriptionErr}
       />
-      <ConditionRadio
-        condition={condition}
-        handleRadio={handleRadio}
-        setCondition={setCondition}
-      />
-      <br></br>
       <ImageField
         imageUrl={imageUrl}
         handleImageUrlField={(e) =>
@@ -73,25 +56,22 @@ const InstrumentForm = () => {
         }
         imageErr={imageErr}
       />
-      <br></br>
 
       <PriceField
         price={price}
         handlePriceField={(e) => handlePriceField(e, setPrice, setPriceErr)}
         priceErr={priceErr}
       />
+      <br></br>
       <PostButton toPost={toPost} />
     </form>
   );
 };
-
-export default InstrumentForm;
-
+export default OtherForm;
 /*
-=== Structure ===
-  -Name,
-  -Description
-  -Condition,
+=== Structure ===  
+  -Name of product
+  -Description of product
   -Image
-  -Price
+  -Price 
 */

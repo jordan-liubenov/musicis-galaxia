@@ -78,6 +78,8 @@ const Register = () => {
                 username,
                 password,
                 rePassword,
+                showEmailErr,
+                showUsernameErr,
                 navigation
               )
             }
