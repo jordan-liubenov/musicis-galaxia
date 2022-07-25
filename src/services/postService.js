@@ -62,7 +62,7 @@ export const createPost = async (e, data) => {
       body: JSON.stringify(objBody),
     });
     const res = await req.json();
-    console.log(res);
+    // console.log(res);
   } catch (error) {
     console.log(error);
   }
@@ -128,10 +128,11 @@ function setObjBody(objBody, data, currentUserId) {
   } else if (data.toPost.ampForm) {
     objBody.ampForm = true;
     objBody.productName = data.toPost.productName;
-    objBody.description = data.toPost.description;
     objBody.imageUrl = data.toPost.imageUrl;
     objBody.price = data.toPost.price;
     objBody.wattage = data.toPost.wattage;
+    objBody.valves = data.toPost.valves;
+    objBody.condition = data.toPost.condition;
   } else {
     objBody.otherForm = true;
     objBody.productName = data.toPost.productName;
