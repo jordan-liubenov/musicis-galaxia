@@ -101,6 +101,8 @@ export const submitLogin = async (
     localStorage.setItem("user", res.username);
     localStorage.setItem("id", res.id);
 
+    document.cookie = "token=" + res.result;
+    
     navigate("/");
   } catch (error) {
     console.log(error);

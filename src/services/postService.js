@@ -1,4 +1,5 @@
 const validator = (formType) => {
+  //validator function that validates fields before sending requests
   let isValid = true;
 
   if (formType.otherForm) {
@@ -40,29 +41,32 @@ export const createPost = async (e, data) => {
 
   const url = "http://localhost:5000/post";
 
+  const currentUserId = localStorage.getItem("id");
+  const token = getCurrentToken();
+
   const validate = validator(data.toPost);
   if (!validate) {
     return;
   }
 
   let objBody = {}; //will be body of request
-  setObjBody(objBody, data); //sets body of data based on what form is currently selected
+  setObjBody(objBody, data, currentUserId); //sets body of data based on what form is currently selected
 
-
-  // console.log(JSON.stringify(objBody));
-
-  // try {
-  //   const req = await fetch(url, {
-  //     method: "POST",
-  //     headers: {},
-  //   });
-  // } catch (error) {
-  //   console.log(error);
-  // }
+  try {
+    const req = await fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "X-Auth-Token": token,
+      },
+      body: JSON.stringify(objBody),
+    });
+    const res = await req.json();
+    console.log(res);
+  } catch (error) {
+    console.log(error);
+  }
 };
-
-//TODO, create function to fetch current user's ID
-//TODO dont send request if any of the fields are invalid
 
 function validateName(str) {
   if (str.length < 5 && str.length > 0) {
@@ -112,23 +116,31 @@ function validateWattage(num) {
   }
 }
 
-function setObjBody(objBody, data) {
+function setObjBody(objBody, data, currentUserId) {
+  objBody.ownerId = currentUserId;
   if (data.toPost.instrumentForm) {
+    objBody.instrumentForm = true;
     objBody.productName = data.toPost.productName;
     objBody.description = data.toPost.description;
     objBody.condition = data.toPost.condition;
     objBody.imageUrl = data.toPost.imageUrl;
     objBody.price = data.toPost.price;
   } else if (data.toPost.ampForm) {
+    objBody.ampForm = true;
     objBody.productName = data.toPost.productName;
     objBody.description = data.toPost.description;
     objBody.imageUrl = data.toPost.imageUrl;
     objBody.price = data.toPost.price;
     objBody.wattage = data.toPost.wattage;
   } else {
+    objBody.otherForm = true;
     objBody.productName = data.toPost.productName;
     objBody.description = data.toPost.description;
     objBody.imageUrl = data.toPost.imageUrl;
     objBody.price = data.toPost.price;
   }
+}
+
+function getCurrentToken() {
+  return document.cookie.split("token=")[1];
 }
