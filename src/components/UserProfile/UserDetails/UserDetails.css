@@ -1,0 +1,27 @@
+.userDetailBox {
+  display: flex;
+
+  margin: 0 auto;
+  width: 43%;
+
+  border-radius: 8px;
+  backdrop-filter: blur(20px);
+  background-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 1px 12px rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+
+  font-family: "Jetbrains Mono";
+  font-size: 25px;
+
+  margin-top: 20px;
+  padding: 5px;
+}
+
+.userDetails {
+  margin: auto;
+  padding: 5px;
+}
+
+.profilePicture {
+  border: 3px solid #555;
+}

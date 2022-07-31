@@ -1,0 +1,52 @@
+.errContainer {
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+
+  background-color: #664d7398;
+}
+
+.errorMessage {
+  border-radius: 10px;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  text-shadow: #8f8484;
+  width: 40%;
+  margin: 0 auto;
+  margin-top: 80px;
+  font-family: "Jetbrains Mono";
+  font-size: 25px;
+  color: rgb(241, 220, 220);
+  background-color: #8f8484;
+}
+
+.errorMessage>p {
+  text-align: center;
+  align-items: center;
+  text-shadow: #8f8484;
+}
+
+.redirectHomeBtn {
+  display: flex;
+  border-radius: 10px;
+  margin: 0 auto;
+  margin-top: 80px;
+}
+
+.homeRedirect {
+  font-family: 'JetBrains Mono';
+  font-size: 35px;
+  border: none;
+  background: #664d7398;
+  cursor: pointer;
+  border-radius: 10px;
+  margin: 0 auto;
+  color: rgb(241, 220, 220);
+  width: 30%;
+
+}
+
+.homeRedirect:hover {
+  background: #48375198;
+}

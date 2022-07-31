@@ -9,6 +9,7 @@ import Login from "./components/Login/Login.js";
 import Footer from "./components/Footer/Footer.js";
 import PostOffer from "./components/PostOffer/PostOffer.js";
 import UserProfile from "./components/UserProfile/UserProfile";
+import ErrorPage from "./components/ErrorPage/ErrorPage";
 
 const App = () => {
   return (
@@ -21,6 +22,7 @@ const App = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/post" element={<PostOffer />} />
         <Route path="/profile" element={<UserProfile />} />
+        <Route path="/404" element={<ErrorPage />} />
       </Routes>
 
       <Footer />

@@ -7,3 +7,6 @@ export const displayUnderscore = (underscore, setUnderscore) => {
     }
   }, 800);
 };
+export const redirectHome = (navigator) => {
+  navigator("/");
+};

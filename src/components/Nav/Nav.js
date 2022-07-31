@@ -68,13 +68,13 @@ const Nav = () => {
                   <ProfileLink
                     getUsername={getUsername()}
                     activeClassName={activeClassName}
-                  />
+                  />{" "}
                   <a
                     href="/logout"
                     className="logoutAnchor"
                     onClick={(e) => logOut(e, navigate)}
                   >
-                    {" "}
+                    {"| "}
                     Logout
                   </a>
                 </>

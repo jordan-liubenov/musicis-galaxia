@@ -1,5 +1,7 @@
 import { NavLink } from "react-router-dom";
 
+import "../ProfileLink/ProfileLink.css";
+
 const ProfileLink = (props) => {
   return (
     <>
@@ -9,7 +11,7 @@ const ProfileLink = (props) => {
           isActive ? props.activeClassName : undefined
         }
       >
-        Logged in as [{props.getUsername}],
+        [{props.getUsername}]
       </NavLink>
     </>
   );

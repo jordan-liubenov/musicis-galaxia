@@ -2,25 +2,24 @@ import "../UserProfile/UserProfile.css";
 
 import note from "../../img/eight.jpg";
 import UserDetails from "./UserDetails/UserDetails";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { getAllByCurrentUser } from "../../services/postService";
+import PostEntry from "./PostEntry/PostEntry";
 
 const UserProfile = () => {
-  //useEffect which fetches all of the current user's posts
+  const [userPosts, setUserPosts] = useState([]);
+
   useEffect(() => {
-    getAllByCurrentUser().then((data) => console.log(data));
+    //TODO add functionality that checks if the current user has NO created entries in the DB yet and render accordingly
+
+    getAllByCurrentUser().then((data) => setUserPosts(data)); //data - array of objects
   }, []);
   return (
     <>
       <div className="profileContainer">
         <UserDetails note={note} />
         <div className="userPosts">
-          <div className="postEntry">
-            <p>
-              Gibson 8 string <strong>[Instrument]</strong>
-            </p>
-            <p>Price: 50$</p>
-          </div>
+          <PostEntry userPosts={userPosts} />
         </div>
       </div>
     </>
