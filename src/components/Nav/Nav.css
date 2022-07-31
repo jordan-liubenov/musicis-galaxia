@@ -27,6 +27,13 @@ nav a {
   transition: all .2s ease-in-out;
 }
 
+.logoutAnchor:hover {
+  color: rgba(239, 135, 199, 0.548);
+  background-color: rgba(230, 215, 224, 0.155);
+  background-size: cover;
+  transition: all .2s ease-in-out;
+}
+
 nav li:hover {
   color: rgba(240, 224, 234, 0.548);
   background-color: rgba(230, 215, 224, 0.155);

@@ -8,6 +8,7 @@ import Register from "./components/Register/Register.js";
 import Login from "./components/Login/Login.js";
 import Footer from "./components/Footer/Footer.js";
 import PostOffer from "./components/PostOffer/PostOffer.js";
+import UserProfile from "./components/UserProfile/UserProfile";
 
 const App = () => {
   return (
@@ -19,6 +20,7 @@ const App = () => {
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
         <Route path="/post" element={<PostOffer />} />
+        <Route path="/profile" element={<UserProfile />} />
       </Routes>
 
       <Footer />

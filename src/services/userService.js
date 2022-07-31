@@ -95,14 +95,13 @@ export const submitLogin = async (
       }
     }
 
-    console.log(res);
-
     localStorage.setItem("token", res.result);
     localStorage.setItem("user", res.username);
     localStorage.setItem("id", res.id);
+    localStorage.setItem("email", res.email);
 
     document.cookie = "token=" + res.result;
-    
+
     navigate("/");
   } catch (error) {
     console.log(error);

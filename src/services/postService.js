@@ -36,7 +36,7 @@ const validator = (formType) => {
 };
 
 //POST request function for creating new entries in the DB
-export const createPost = async (e, data) => {
+export const createPost = async (e, data, nav) => {
   e.preventDefault();
 
   const url = "http://localhost:5000/post";
@@ -51,7 +51,7 @@ export const createPost = async (e, data) => {
 
   let objBody = {}; //will be body of request
   setObjBody(objBody, data, currentUserId); //sets body of data based on what form is currently selected
-
+  
   try {
     const req = await fetch(url, {
       method: "POST",
@@ -62,11 +62,32 @@ export const createPost = async (e, data) => {
       body: JSON.stringify(objBody),
     });
     const res = await req.json();
-    // console.log(res);
+
+    nav("/catalog");
   } catch (error) {
     console.log(error);
   }
 };
+
+//fetch all entries by currently logged-in user
+export const getAllByCurrentUser = () => {
+  const url = "http://localhost:5000/post";
+
+  const currentUserId = localStorage.getItem("id");
+  const token = getCurrentToken();
+
+  let userInfoObj = { currentUserId, token };
+
+  return fetch(url, {
+    method: "GET",
+    headers: {
+      "Content-type": "application/json",
+      "X-Auth-Token": JSON.stringify(userInfoObj),
+    },
+  }).then((res) => res.json());
+};
+
+//validation functions ------------------------------------
 
 function validateName(str) {
   if (str.length < 5 && str.length > 0) {
@@ -119,6 +140,7 @@ function validateWattage(num) {
 function setObjBody(objBody, data, currentUserId) {
   objBody.ownerId = currentUserId;
   if (data.toPost.instrumentForm) {
+    objBody.type = "Instrument";
     objBody.instrumentForm = true;
     objBody.productName = data.toPost.productName;
     objBody.description = data.toPost.description;
@@ -126,6 +148,7 @@ function setObjBody(objBody, data, currentUserId) {
     objBody.imageUrl = data.toPost.imageUrl;
     objBody.price = data.toPost.price;
   } else if (data.toPost.ampForm) {
+    objBody.type = "Amplifier";
     objBody.ampForm = true;
     objBody.productName = data.toPost.productName;
     objBody.imageUrl = data.toPost.imageUrl;
@@ -134,6 +157,7 @@ function setObjBody(objBody, data, currentUserId) {
     objBody.valves = data.toPost.valves;
     objBody.condition = data.toPost.condition;
   } else {
+    objBody.type = "Other";
     objBody.otherForm = true;
     objBody.productName = data.toPost.productName;
     objBody.description = data.toPost.description;

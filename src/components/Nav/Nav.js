@@ -15,6 +15,7 @@ import CatalogLink from "./CatalogLink/CatalogLink";
 import RegisterLink from "./RegisterLink/RegisterLink";
 import LoginLink from "./LoginLink/LoginLink";
 import PostLink from "./PostLink/PostLink";
+import ProfileLink from "./ProfileLink/ProfileLink";
 
 const Nav = () => {
   const navigate = useNavigate();
@@ -63,9 +64,20 @@ const Nav = () => {
           <div className="navRight">
             <li>
               {loggedIn ? (
-                <a href="/logout" onClick={(e) => logOut(e, navigate)}>
-                  Logged in as [{getUsername()}], (Logout)
-                </a>
+                <>
+                  <ProfileLink
+                    getUsername={getUsername()}
+                    activeClassName={activeClassName}
+                  />
+                  <a
+                    href="/logout"
+                    className="logoutAnchor"
+                    onClick={(e) => logOut(e, navigate)}
+                  >
+                    {" "}
+                    Logout
+                  </a>
+                </>
               ) : (
                 <a>Welcome, Guest</a>
               )}
