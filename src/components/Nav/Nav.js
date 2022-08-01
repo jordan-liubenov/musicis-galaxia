@@ -6,9 +6,10 @@ import logoImg from "../../img/note.png";
 
 import { activeClassName, getUsername } from "../../utils/navUtil";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 
 import { checkIfLoggedIn, logOut } from "../../utils/loginUtil";
+import { AuthContext } from "../../context/AuthContext";
 
 import HomeLink from "./HomeLink/HomeLink";
 import CatalogLink from "./CatalogLink/CatalogLink";
@@ -16,9 +17,12 @@ import RegisterLink from "./RegisterLink/RegisterLink";
 import LoginLink from "./LoginLink/LoginLink";
 import PostLink from "./PostLink/PostLink";
 import ProfileLink from "./ProfileLink/ProfileLink";
-import { authenticateUser } from "../../services/auth";
 
 const Nav = () => {
+  const { authStatus } = useContext(AuthContext); //authStatus.username
+
+  const { logOutUser } = useContext(AuthContext);
+
   const navigate = useNavigate();
 
   const [loggedIn, setStatus] = useState(false);
@@ -73,7 +77,7 @@ const Nav = () => {
                   <a
                     href="/logout"
                     className="logoutAnchor"
-                    onClick={(e) => logOut(e, navigate)}
+                    onClick={(e) => logOut(e, logOutUser, navigate)}
                   >
                     {"| "}
                     Logout

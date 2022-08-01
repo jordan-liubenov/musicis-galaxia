@@ -10,17 +10,17 @@ export const handleValue = (e, setValue) => {
 };
 
 export const checkIfLoggedIn = () => {
-  const userToken = localStorage.getItem("user");
-  if (userToken != null) {
+  const authStatus = JSON.parse(localStorage.getItem("authStatus"));
+  if (authStatus != null) {
     return true;
   } else {
     return false;
   }
 };
 
-export const logOut = (e, navigate) => {
+export const logOut = (e, logOutUser, navigate) => {
   e.preventDefault();
-  localStorage.clear();
+  logOutUser();
   navigate("/");
 };
 

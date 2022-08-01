@@ -41,8 +41,9 @@ export const createPost = async (e, data, navigation) => {
 
   const url = "http://localhost:5000/post";
 
-  const currentUserId = localStorage.getItem("id");
-  const token = getCurrentToken();
+  const authStatus = JSON.parse(localStorage.getItem("authStatus"));
+  const currentUserId = authStatus.id;
+  const token = authStatus.token;
 
   const validate = validator(data.toPost);
   if (!validate) {
@@ -72,11 +73,11 @@ export const createPost = async (e, data, navigation) => {
 };
 
 //fetch all entries by currently logged-in user
-export const getAllByCurrentUser = () => {
+export const getAllByCurrentUser = (authStatus) => {
   const url = "http://localhost:5000/post";
-
-  const currentUserId = localStorage.getItem("id");
-  const token = getCurrentToken();
+  
+  const currentUserId = JSON.parse(localStorage.getItem("authStatus")).id;
+  const token = JSON.parse(localStorage.getItem("authStatus")).token;
 
   let userInfoObj = { currentUserId, token };
 

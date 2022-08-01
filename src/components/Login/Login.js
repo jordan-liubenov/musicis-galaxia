@@ -5,6 +5,8 @@ import { useState } from "react";
 import { ERROR_MSGS, handleValue } from "../../utils/loginUtil";
 import { submitLogin } from "../../services/userService";
 import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../../context/AuthContext";
+import { useContext } from "react";
 
 //child component imports
 import UsernameField from "./UsernameField/UsernameField";
@@ -14,6 +16,8 @@ import LoginTitle from "./LoginTitle/LoginTitle";
 import Footer from "../Footer/Footer";
 
 const Login = (props) => {
+  const { logInUser } = useContext(AuthContext);
+
   const [underscore, setUnderscore] = useState(false);
   displayUnderscore(underscore, setUnderscore);
   let title = underscore ? "Login_" : "Login";
@@ -56,7 +60,7 @@ const Login = (props) => {
                   navigate,
                   showPassErr,
                   showUserErr,
-                  props.authenticateUser
+                  logInUser
                 );
               }}
             />

@@ -61,7 +61,7 @@ export const submitLogin = async (
   navigate,
   showPassErr,
   showUserErr,
-  authenticateUser
+  logInUser
 ) => {
   e.preventDefault();
 
@@ -97,14 +97,19 @@ export const submitLogin = async (
       }
     }
 
-    localStorage.setItem("token", res.result);
-    localStorage.setItem("user", res.username);
-    localStorage.setItem("id", res.id);
-    localStorage.setItem("email", res.email);
+    const token = res.result;
+    const username = res.username;
+    const id = res.id;
+    const email = res.email;
 
-    document.cookie = "token=" + res.result;
+    let authData = {
+      token,
+      username,
+      id,
+      email,
+    };
 
-    authenticateUser();
+    logInUser(authData);
 
     navigate("/");
   } catch (error) {

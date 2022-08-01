@@ -1,9 +1,12 @@
 import "./App.css";
 
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useNavigate } from "react-router-dom";
 
 import { useState } from "react";
 import { authenticateUser } from "./services/auth";
+import { AuthContext } from "./context/AuthContext";
+
+import { useLocalStorage } from "./hooks/useLocalStorage";
 
 import Nav from "./components/Nav/Nav.js";
 import Home from "./components/Home/Home.js";
@@ -15,30 +18,35 @@ import ErrorPage from "./components/ErrorPage/ErrorPage";
 import Catalog from "./components/Catalog/Catalog";
 
 const App = () => {
-  let auth = authenticateUser();
-  useState(() => {
-    console.log(auth);
-  }, [auth]);
+  const navigator = useNavigate();
+
+  const [authStatus, setAuthStatus] = useLocalStorage("authStatus", {});
+  const logInUser = (auth) => {
+    setAuthStatus(auth);
+  };
+  const logOutUser = () => {
+    setAuthStatus({});
+  };
 
   return (
-    <div className="App">
-      <Nav />
+    //authcontext wraps around all components to provide access to the auth value context
+    <AuthContext.Provider value={{ authStatus, logInUser, logOutUser }}>
+      <div className="App">
+        <Nav />
 
-      <Routes>
-        <Route element/>
-        <Route path="/" element={<Home />} />
-        <Route path="/register" element={<Register />} />
-        <Route
-          path="/login"
-          element={<Login authenticateUser={authenticateUser} />}
-        />
-        <Route path="/post" element={<PostOffer />} />
-        <Route path="/profile" element={<UserProfile />} />
-        <Route path="/catalog" element={<Catalog />} />
+        <Routes>
+          <Route element />
+          <Route path="/" element={<Home />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/post" element={<PostOffer />} />
+          <Route path="/profile" element={<UserProfile />} />
+          <Route path="/catalog" element={<Catalog />} />
 
-        <Route path="*" element={<ErrorPage />} />
-      </Routes>
-    </div>
+          <Route path="*" element={<ErrorPage />} />
+        </Routes>
+      </div>
+    </AuthContext.Provider>
   );
 };
 

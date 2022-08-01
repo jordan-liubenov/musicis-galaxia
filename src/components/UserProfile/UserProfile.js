@@ -1,18 +1,22 @@
 import "../UserProfile/UserProfile.css";
 
 import note from "../../img/eight.jpg";
-import UserDetails from "./UserDetails/UserDetails";
-import { useEffect, useState } from "react";
 import { getAllByCurrentUser } from "../../services/postService";
+import { useEffect, useState, useContext } from "react";
+import { AuthContext } from "../../context/AuthContext";
+
+import UserDetails from "./UserDetails/UserDetails";
 import PostEntry from "./PostEntry/PostEntry";
 
 const UserProfile = () => {
-  const [userPosts, setUserPosts] = useState([]);
+  const { authStatus } = useContext(AuthContext);
 
+  const [userPosts, setUserPosts] = useState([]);
+  console.log(userPosts);
   useEffect(() => {
     //TODO add functionality that checks if the current user has NO created entries in the DB yet and render accordingly
 
-    getAllByCurrentUser().then((data) => setUserPosts(data)); //data - array of objects
+    getAllByCurrentUser(authStatus).then((data) => setUserPosts(data)); //data - array of objects
   }, []);
   return (
     <>
