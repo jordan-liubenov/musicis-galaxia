@@ -50,6 +50,7 @@ export const submitRegister = async (
     navigation("/login");
   } catch (error) {
     console.log(error);
+    navigation("/404");
   }
 };
 
@@ -59,7 +60,8 @@ export const submitLogin = async (
   pass,
   navigate,
   showPassErr,
-  showUserErr
+  showUserErr,
+  authenticateUser
 ) => {
   e.preventDefault();
 
@@ -102,10 +104,12 @@ export const submitLogin = async (
 
     document.cookie = "token=" + res.result;
 
+    authenticateUser();
+
     navigate("/");
   } catch (error) {
     console.log(error);
-    //TODO add redirect to 404 incase of something going wrong
+    navigate("/404");
   }
 };
 

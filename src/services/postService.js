@@ -36,7 +36,7 @@ const validator = (formType) => {
 };
 
 //POST request function for creating new entries in the DB
-export const createPost = async (e, data, nav) => {
+export const createPost = async (e, data, navigation) => {
   e.preventDefault();
 
   const url = "http://localhost:5000/post";
@@ -51,7 +51,7 @@ export const createPost = async (e, data, nav) => {
 
   let objBody = {}; //will be body of request
   setObjBody(objBody, data, currentUserId); //sets body of data based on what form is currently selected
-  
+
   try {
     const req = await fetch(url, {
       method: "POST",
@@ -61,11 +61,13 @@ export const createPost = async (e, data, nav) => {
       },
       body: JSON.stringify(objBody),
     });
+
     const res = await req.json();
 
-    nav("/catalog");
+    navigation("/catalog");
   } catch (error) {
     console.log(error);
+    navigation("/404");
   }
 };
 
@@ -166,6 +168,6 @@ function setObjBody(objBody, data, currentUserId) {
   }
 }
 
-function getCurrentToken() {
+export function getCurrentToken() {
   return document.cookie.split("token=")[1];
 }

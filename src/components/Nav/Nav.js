@@ -16,6 +16,7 @@ import RegisterLink from "./RegisterLink/RegisterLink";
 import LoginLink from "./LoginLink/LoginLink";
 import PostLink from "./PostLink/PostLink";
 import ProfileLink from "./ProfileLink/ProfileLink";
+import { authenticateUser } from "../../services/auth";
 
 const Nav = () => {
   const navigate = useNavigate();

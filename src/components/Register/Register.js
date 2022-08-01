@@ -20,6 +20,7 @@ import UsernameField from "./UsernameField/UsernameField";
 import PasswordField from "./PasswordField/PasswordField";
 import RePassField from "./RePassField/RePassField";
 import RegisterTitle from "./RegisterTitle/RegisterTitle";
+import Footer from "../Footer/Footer";
 
 const Register = () => {
   const navigation = useNavigate();
@@ -42,60 +43,63 @@ const Register = () => {
   const [passError, showPassErr] = useState("");
 
   return (
-    <div className="registerContainer">
-      <RegisterTitle title={title} />
-      <div className="registerFormDiv">
-        <form method="POST" action="http://localhost:5000/register">
-          <EmailField
-            handleEmail={(e) => handleEmail(e, setEmail, showEmailErr)}
-            emailError={emailError}
-          />
-          <br></br>
-          <UsernameField
-            handleUsername={(e) =>
-              handleUsername(e, setUsername, showUsernameErr)
-            }
-            usernameError={usernameError}
-          />
-          <br></br>
-          <PasswordField
-            handlePassword={(e) => handlePassword(e, setPass, showPassErr)}
-            passError={passError}
-          />
-          <br></br>
-          <RePassField
-            handleRePass={(e) =>
-              handleRePass(e, setRePass, showPassErr, password)
-            }
-            passError={passError}
-          />
-          <br></br>
-          <RegisterBtn
-            submitRegister={(e) =>
-              submitRegister(
-                e,
-                email,
-                username,
-                password,
-                rePassword,
-                showEmailErr,
-                showUsernameErr,
-                navigation
-              )
-            }
-          />
-        </form>
-        {info ? <RegisterInfo /> : <br></br>}
-        <div className="infoBtnDiv">
-          <button
-            className="infoBtn"
-            onClick={() => toggleState(info, showInfo)}
-          >
-            ?
-          </button>
+    <>
+      <div className="registerContainer">
+        <RegisterTitle title={title} />
+        <div className="registerFormDiv">
+          <form method="POST" action="http://localhost:5000/register">
+            <EmailField
+              handleEmail={(e) => handleEmail(e, setEmail, showEmailErr)}
+              emailError={emailError}
+            />
+            <br></br>
+            <UsernameField
+              handleUsername={(e) =>
+                handleUsername(e, setUsername, showUsernameErr)
+              }
+              usernameError={usernameError}
+            />
+            <br></br>
+            <PasswordField
+              handlePassword={(e) => handlePassword(e, setPass, showPassErr)}
+              passError={passError}
+            />
+            <br></br>
+            <RePassField
+              handleRePass={(e) =>
+                handleRePass(e, setRePass, showPassErr, password)
+              }
+              passError={passError}
+            />
+            <br></br>
+            <RegisterBtn
+              submitRegister={(e) =>
+                submitRegister(
+                  e,
+                  email,
+                  username,
+                  password,
+                  rePassword,
+                  showEmailErr,
+                  showUsernameErr,
+                  navigation
+                )
+              }
+            />
+          </form>
+          {info ? <RegisterInfo /> : <br></br>}
+          <div className="infoBtnDiv">
+            <button
+              className="infoBtn"
+              onClick={() => toggleState(info, showInfo)}
+            >
+              ?
+            </button>
+          </div>
         </div>
       </div>
-    </div>
+      <Footer />
+    </>
   );
 };
 
