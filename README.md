@@ -22,7 +22,9 @@ Sample music store Single Page Application made with React.
 
 Three different types of offers available to be created:
 **-Instrument**
+
 **-Amplifier**
+
 **-Other**
 
 # Dynamic profile view showing all offers created by the currently logged-in user
