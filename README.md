@@ -21,6 +21,7 @@ Sample music store Single Page Application made with React.
 ![alt text](https://i.ibb.co/mJtjcTX/image.png)
 
 Three different types of offers available to be created:
+
 **-Instrument**
 
 **-Amplifier**
