@@ -73,7 +73,7 @@ export const createPost = async (e, data, navigation) => {
 };
 
 //fetch all entries by currently logged-in user
-export const getAllByCurrentUser = (authStatus) => {
+export const getAllByCurrentUser = () => {
   const url = "http://localhost:5000/post";
   
   const currentUserId = JSON.parse(localStorage.getItem("authStatus")).id;

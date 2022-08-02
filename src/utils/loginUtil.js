@@ -11,7 +11,7 @@ export const handleValue = (e, setValue) => {
 
 export const checkIfLoggedIn = () => {
   const authStatus = JSON.parse(localStorage.getItem("authStatus"));
-  if (authStatus != null) {
+  if (authStatus.token != undefined) {
     return true;
   } else {
     return false;

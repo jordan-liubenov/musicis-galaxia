@@ -16,12 +16,15 @@ const UserProfile = () => {
   useEffect(() => {
     //TODO add functionality that checks if the current user has NO created entries in the DB yet and render accordingly
 
-    getAllByCurrentUser(authStatus).then((data) => setUserPosts(data)); //data - array of objects
+    getAllByCurrentUser().then((data) => setUserPosts(data)); //data - array of objects
   }, []);
   return (
     <>
       <div className="profileContainer">
         <UserDetails note={note} />
+        <div className="profileTitle">
+          <span className="profileTitleSpan">My posts:</span>
+        </div>
         <div className="userPosts">
           <PostEntry userPosts={userPosts} />
         </div>

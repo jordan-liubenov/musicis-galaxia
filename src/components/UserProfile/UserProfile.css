@@ -14,6 +14,19 @@
   background: linear-gradient(150deg, #664d7398 25%, #78747a 20%);
 }
 
+.profileTitle {
+  margin-top: 30px;
+}
+
+.profileTitleSpan {
+  align-items: center;
+  color: rgb(241, 220, 220);
+  font-size: 250%;
+  font-family: 'JetBrains Mono';
+  background-color: #664d7398;
+  border-radius: 10px;
+}
+
 /* 
 .userPosts {
   display: flex;

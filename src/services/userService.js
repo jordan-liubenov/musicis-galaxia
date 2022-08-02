@@ -25,7 +25,6 @@ export const submitRegister = async (
   if (!isValid) {
     return;
   }
-
   let userObj = {
     email,
     user,
@@ -40,14 +39,18 @@ export const submitRegister = async (
       body: JSON.stringify(userObj),
     });
     const res = await req.json();
-    if (res.error.usernameTaken) {
-      showUsernameErr(REGISTER_ERRORS.usernameErr);
-      return;
-    } else if (res.error.emailTaken) {
-      showEmailErr(REGISTER_ERRORS.emailErr);
-      return;
+
+    //check if response was successful or has error
+
+    if (res.msg) {
+      navigation("/login");
+    } else if (res.error) {
+      if (res.error.usernameTaken) {
+        showUsernameErr(REGISTER_ERRORS.usernameErr);
+      } else {
+        showEmailErr(REGISTER_ERRORS.emailErr);
+      }
     }
-    navigation("/login");
   } catch (error) {
     console.log(error);
     navigation("/404");

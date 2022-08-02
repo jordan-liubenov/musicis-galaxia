@@ -25,6 +25,7 @@ const App = () => {
     setAuthStatus(auth);
   };
   const logOutUser = () => {
+    localStorage.clear();
     setAuthStatus({});
   };
 
