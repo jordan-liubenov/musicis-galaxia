@@ -15,3 +15,16 @@ Sample music store Single Page Application made with React.
 # Login view:
 
 ![alt text](https://i.ibb.co/x6yMCvV/image.png)
+
+# Create new offer view:
+
+![alt text](https://i.ibb.co/mJtjcTX/image.png)
+
+Three different types of offers available to be created:
+-Instrument
+-Amplifier
+-Other
+
+# Dynamic profile view showing all offers created by the currently logged-in user
+
+![alt text](https://i.ibb.co/5KWWHzX/image.png)
