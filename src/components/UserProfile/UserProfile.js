@@ -22,11 +22,13 @@ const UserProfile = () => {
     <>
       <div className="profileContainer">
         <UserDetails note={note} />
-        <div className="profileTitle">
-          <span className="profileTitleSpan">My posts:</span>
-        </div>
-        <div className="userPosts">
-          <PostEntry userPosts={userPosts} />
+        <div className="contentBox">
+          <div className="profileTitle">
+            <span className="profileTitleSpan">My posts:</span>
+          </div>
+          <div className="userPosts">
+            <PostEntry userPosts={userPosts} />
+          </div>
         </div>
       </div>
     </>

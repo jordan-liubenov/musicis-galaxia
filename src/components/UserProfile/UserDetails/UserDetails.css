@@ -8,7 +8,7 @@
   backdrop-filter: blur(20px);
   background-color: rgba(255, 255, 255, 0.5);
   box-shadow: 0 1px 12px rgba(0, 0, 0, 0.25);
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  border: 3px solid rgba(121, 121, 121, 0.461);
 
   font-family: "Jetbrains Mono";
   font-size: 25px;

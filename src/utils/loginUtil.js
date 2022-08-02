@@ -25,6 +25,6 @@ export const logOut = (e, logOutUser, navigate) => {
 };
 
 export const getEmail = () => {
-  let email = localStorage.getItem("email");
-  if (email) return email;
+  const authStatus = JSON.parse(localStorage.getItem("authStatus"));
+  return authStatus.email;
 };

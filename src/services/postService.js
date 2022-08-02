@@ -75,7 +75,7 @@ export const createPost = async (e, data, navigation) => {
 //fetch all entries by currently logged-in user
 export const getAllByCurrentUser = () => {
   const url = "http://localhost:5000/post";
-  
+
   const currentUserId = JSON.parse(localStorage.getItem("authStatus")).id;
   const token = JSON.parse(localStorage.getItem("authStatus")).token;
 
@@ -170,5 +170,5 @@ function setObjBody(objBody, data, currentUserId) {
 }
 
 export function getCurrentToken() {
-  return document.cookie.split("token=")[1];
+  return JSON.parse(localStorage.getItem("authStatus")).token;
 }

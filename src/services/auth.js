@@ -3,12 +3,13 @@ import { getCurrentToken } from "./postService";
 export const authenticateUser = () => {
   const url = "http://localhost:5000/auth";
 
-  const user = localStorage.getItem("user");
+  const user = JSON.parse(localStorage.getItem("authStatus")).username;
   if (!user) {
-    return false; //if there is no existing user, return
+    return false; //if there is no existing user, return immediate false
   }
 
-  //if user exists, send request to rest api and check if jwt token is verified
+  //if user exists, send request to rest api and verify jwt
+
   const token = getCurrentToken();
   let toSend = { token };
 
@@ -25,8 +26,7 @@ export const authenticateUser = () => {
     .then((data) => {
       if (data.error) isAuthenticated = false;
       if (data.success) isAuthenticated = true;
-
-      console.log(isAuthenticated);
-      return isAuthenticated;
     });
+
+  return isAuthenticated;
 };
