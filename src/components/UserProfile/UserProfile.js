@@ -7,22 +7,24 @@ import { AuthContext } from "../../context/AuthContext";
 
 import UserDetails from "./UserDetails/UserDetails";
 import PostEntry from "./PostEntry/PostEntry";
+import { setContainerClassName } from "../../utils/profileUtil";
 
 const UserProfile = () => {
   const { authStatus } = useContext(AuthContext);
 
   const [userPosts, setUserPosts] = useState([]);
-  console.log(userPosts);
-  useEffect(() => {
-    //TODO add functionality that checks if the current user has NO created entries in the DB yet and render accordingly
 
-    getAllByCurrentUser().then((data) => setUserPosts(data)); //data - array of objects
-  }, []);
+  let containerClassName = setContainerClassName(userPosts);
+
+  useEffect(() => {
+    getAllByCurrentUser().then((data) => setUserPosts(data));
+  }, [userPosts.length]);
+
   return (
     <>
       <div className="profileContainer">
         <UserDetails note={note} />
-        <div className="contentBox">
+        <div className={containerClassName}>
           <div className="profileTitle">
             <span className="profileTitleSpan">My posts:</span>
           </div>

@@ -15,8 +15,8 @@
 }
 
 .postEntry:hover {
-  background-color: #78747a;
-  transition: all .2s;
+  background-color: #a19ba38d;
+  transition: 0.6s;
 }
 
 .postEntry>p:first-child {
@@ -43,15 +43,36 @@
 .offerLink {
   color: black;
   text-decoration: none;
-  border: solid 2px;
+  border: solid 1px;
   border-color: #5b585da8;
   margin: 0 auto;
-  margin-bottom: 210px;
   background-color: rgba(255, 255, 255, 0.5);
   border-radius: 10px;
+  margin-top: 210px;
 }
 
 .offerLink:hover {
   background-color: rgba(255, 255, 255, 0.214);
-  transition: 0.2s;
+  transition: 0.6s;
+}
+
+.noPosts {
+  border-style: solid 2px rgb(233, 23, 0);
+  background-color: #a09ba3;
+  border-radius: 10px;
+
+  font-family: "Jetbrains Mono";
+  margin: 0 auto;
+  text-align: center;
+  font-size: 20px;
+  padding: 50px;
+  width: 60%;
+  margin-top: 120px;
+
+  box-shadow: 0 1px 12px rgba(0, 0, 0, 0.25);
+  border: 3px solid rgba(255, 255, 255, 0.3);
+}
+
+.noPosts>p {
+  font-size: 25px;
 }

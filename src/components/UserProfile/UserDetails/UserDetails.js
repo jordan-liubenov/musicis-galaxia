@@ -10,7 +10,7 @@ const UserDetails = (props) => {
         className="profilePicture"
         src={props.note}
         height={110}
-        width={120}
+        width={110}
       ></img>
       <p className="userDetails">Logged in as:</p>
       <p className="userDetails">

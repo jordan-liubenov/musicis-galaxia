@@ -1,4 +1,5 @@
-import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { postEntryViewSetter } from "../../../utils/profileUtil";
 import "../PostEntry/PostEntry.css";
 
 const PostEntry = (props) => {
@@ -6,41 +7,15 @@ const PostEntry = (props) => {
 
   const dataArr = props.userPosts;
 
-  let toRender;
-  if (dataArr.length > 0) {
-    toRender = dataArr.map((e) =>
-      e.map((x) => (
-        <div className="postEntry" key={x._id}>
-          <p>
-            <strong>Product name:</strong> {x.productName}
-          </p>
-          <p>
-            {" "}
-            <strong> Product type:</strong> [{x.type}]
-          </p>
-          <p>
-            <strong>Price:</strong> {x.price}$
-          </p>
-          <Link className="offerLink" to={"/details/" + x._id}>
-            Open
-          </Link>
-        </div>
-      ))
-    );
-  } else {
-    toRender = (
-      <div className="postEntry">
-        <p>
-          <strong>No posts yet, create one here:</strong>
-        </p>
-        <Link className="offerLink" to={"/post"}>
-          Create New
-        </Link>
-      </div>
-    );
-  }
+  const [userPosts, setUserPosts] = useState("");
 
-  return toRender;
+  let toRender;
+  useEffect(() => {
+    toRender = postEntryViewSetter(dataArr); //sets what view the toRender-variable returns
+    setUserPosts(toRender);
+  }, [dataArr.length]);
+
+  return userPosts;
 };
 
 export default PostEntry;
