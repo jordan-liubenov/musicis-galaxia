@@ -30,6 +30,14 @@ export const postEntryViewSetter = (dataArr) => {
       toRender = dataArr.map((e) =>
         e.map((x) => (
           <div className="postEntry" key={x._id}>
+            <div>
+              <img
+                className="profilePostImage"
+                src={x.imageUrl}
+                width={92}
+                height={92}
+              ></img>
+            </div>
             <p>
               <strong>Product name:</strong> {x.productName}
             </p>
