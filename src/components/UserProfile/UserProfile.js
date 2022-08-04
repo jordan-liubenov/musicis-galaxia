@@ -20,7 +20,7 @@ const UserProfile = () => {
   useEffect(() => {
     getAllByCurrentUser().then((data) => setUserPosts(data));
   }, [userPosts.length]);
-
+  
   return (
     <div className="profileContainer">
       <UserDetails note={note} />

@@ -1,15 +1,19 @@
-.catalogHeader {
-  padding: 40px;
+.catalogHeaderContainer {
+  padding: 10px;
   text-align: center;
   /* background: #664d7398; */
   background: linear-gradient(-70deg, #664d73ef 20%, #78747ad8 80%), url('../../../img/geets.jpg');
   color: #f6e6e6;
-  font-size: 28px;
-  text-shadow: 3px 3px #47365098;
+  font-size: 35px;
+  text-shadow: 5px 5px #47365098;
   font-family: "Jetbrains Mono";
 }
 
+/* 
+.catalogHeaderContainer:hover {
+  background: linear-gradient(-70deg, #664d73fb 20%, #78747af2 80%), url('../../../img/geets.jpg');
+} */
+
 /* .catalogHeader:hover {
   background: #82639398;
-  transition: all .4s ease-in-out;
 } */
