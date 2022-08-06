@@ -9,10 +9,10 @@
   margin-top: 10px;
   margin-bottom: 10px;
 
-  padding: 4px;
-  
+  padding: 25px;
+
   opacity: 0.8;
-  background-color: #664d7343;
+  background-color: #7b6e83;
   float: left;
 }
 
@@ -24,17 +24,26 @@
 .openEntryButton {
   margin: 0 auto;
   display: block;
-  background-color: #9e9aa0bb;
+  background-color: #78747abb;
+  border-style: solid;
+  border-color: #ddd5e2bb;
   border-radius: 10px;
   color: white;
-  padding: 16px 20px;
+  /* padding: 16px 20px; */
+  padding-top: 10px;
+  padding-bottom: 10px;
+
   margin: 8px 0;
-  border: none;
   cursor: pointer;
   width: 100%;
   font-family: 'JetBrains Mono';
-  font-size: 90%;
+  font-size: 100%;
   opacity: 1;
+}
+
+.openEntryButton:hover {
+  background-color: #565357bb;
+  transition: all .5s;
 }
 
 
@@ -45,10 +54,31 @@
 .catalogProductName {
   margin: 0 auto;
   text-align: center;
-  color: rgb(241, 220, 220);
+  color: rgb(255, 255, 255);
   font-size: 120%;
   font-family: 'JetBrains Mono';
   background-color: #664d7398;
   border-radius: 10px;
+  /* padding-right: 15px;
+  padding-left: 15px; */
   padding: 5px;
+}
+
+.catalogProductPrice {
+  margin: 0 auto;
+  margin-top: 10px;
+  text-align: center;
+  color: rgb(255, 255, 255);
+  font-size: 120%;
+  font-family: 'JetBrains Mono';
+  background-color: #664d7398;
+  border-radius: 10px;
+  padding: 8px;
+  /* padding-right: 5px;
+  padding-left: 5px; */
+}
+
+.catalogEntryImg {
+  padding: 10px;
+  border-radius: 8%;
 }

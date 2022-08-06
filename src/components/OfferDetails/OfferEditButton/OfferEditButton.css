@@ -1,0 +1,15 @@
+.editBtn {
+  display: flex;
+  background-color: #9e9aa0bb;
+  border-radius: 10px;
+  color: white;
+
+  float: left;
+  padding: 25px;
+  margin: 20px;
+  border: none;
+  cursor: pointer;
+  /* width: fit-content; */
+  font-family: 'JetBrains Mono';
+  font-size: 80%;
+}

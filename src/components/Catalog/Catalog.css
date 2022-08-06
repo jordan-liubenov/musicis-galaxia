@@ -6,14 +6,21 @@
 body {
   box-sizing: border-box;
   overflow-x: hidden;
+}
 
+.catalogContainer {
+  box-sizing: border-box;
+  overflow-x: hidden;
 
   height: 100vh;
   width: 100vw;
 
-
+  background: -webkit-linear-gradient(150deg, #664d7398 45%, #78747a 20%);
+  background: -o-linear-gradient(150deg, #664d7398 45%, #78747a 20%);
+  background: -moz-linear-gradient(150deg, #664d7398 45%, #78747a 20%);
+  background: linear-gradient(150deg, #664d7398 45%, #78747a 20%);
 }
 
-.catalogContainer {
+/* .catalogContainer {
   background-color: red;
-}
+} */

@@ -8,18 +8,13 @@ export const fetchAllOffers = () => {
   }).then((res) => res.json());
 };
 
-// export const fetchAllInstruments = () => {
-//   //fetches only all of the Instrument offers in the DB
-//   const url = "http://localhost:5000/allInstruments";
+export const fetchEntryById = (id) => {
+  //fetches specific entry based on it's id
+  const url = "http://localhost:5000/fetch/specific";
 
-// };
-
-// export const fetchAllAmps = () => {
-//   //fetches only all of the Amplifier offers in the DB
-//   const url = "http://localhost:5000/allAmplifiers";
-// };
-
-// export const fetchAllOther = () => {
-//   //fetches only all of the Other offers in the DB
-//   const url = "http://localhost:5000/allOther";
-// };
+  return fetch(url, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ id }),
+  }).then((res) => res.json());
+};

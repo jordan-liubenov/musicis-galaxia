@@ -16,9 +16,12 @@ import PostOffer from "./components/PostOffer/PostOffer.js";
 import UserProfile from "./components/UserProfile/UserProfile";
 import ErrorPage from "./components/ErrorPage/ErrorPage";
 import Catalog from "./components/Catalog/Catalog";
+import OfferDetails from "./components/OfferDetails/OfferDetails";
+import EditOffer from "./components/EditOffer/EditOffer";
 
 const App = () => {
   const [authStatus, setAuthStatus] = useLocalStorage("authStatus", {});
+
   const logInUser = (auth) => {
     setAuthStatus(auth);
   };
@@ -28,7 +31,6 @@ const App = () => {
   };
 
   return (
-    //authcontext wraps around all components to provide access to the auth value context
     <AuthContext.Provider value={{ authStatus, logInUser, logOutUser }}>
       <div className="App">
         <Nav />
@@ -37,12 +39,14 @@ const App = () => {
           <Route element={<RouteGuard />}>
             <Route path="/post" element={<PostOffer />} />
             <Route path="/profile" element={<UserProfile />} />
+            <Route path="/edit/:id" element={<EditOffer />} />
           </Route>
 
           <Route path="/" element={<Home />} />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
           <Route path="/catalog" element={<Catalog />} />
+          <Route path="/details/:id" element={<OfferDetails />} />
 
           <Route path="*" element={<ErrorPage />} />
         </Routes>

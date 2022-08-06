@@ -1,6 +1,11 @@
 import { useState, useEffect } from "react";
 
-import { collectionAnchorHandler } from "../../utils/catalogUtil";
+import {
+  checkForEmptyCollection,
+  collectionAnchorHandler,
+} from "../../utils/catalogUtil";
+
+import { fetchAllOffers } from "../../services/catalogService";
 
 import "../Catalog/Catalog.css";
 
@@ -8,7 +13,7 @@ import "../Catalog/Catalog.css";
 import CatalogHeader from "./CatalogHeader/CatalogHeader";
 import CatalogNav from "./CatalogNav/CatalogNav";
 import CatalogEntries from "./CatalogEntries/CatalogEntries";
-import { fetchAllOffers } from "../../services/catalogService";
+import EmptyCatalog from "./EmptyCatalog/EmptyCatalog";
 
 const Catalog = () => {
   const [collection, setCollection] = useState("all"); //sets the type of collection to be shown to the user
@@ -29,7 +34,11 @@ const Catalog = () => {
         }
       />
       <div className="catalogContainer">
-        <CatalogEntries retrievedEntries={retrievedEntries} />
+        {checkForEmptyCollection(retrievedEntries) ? (
+          <EmptyCatalog />
+        ) : (
+          <CatalogEntries retrievedEntries={retrievedEntries} />
+        )}
       </div>
     </>
   );
