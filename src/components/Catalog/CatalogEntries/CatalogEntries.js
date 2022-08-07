@@ -24,6 +24,10 @@ const CatalogEntry = (props) => {
           width={280}
           height={250}
         ></img>
+        <div>
+          {" "}
+          <span className="catalogType">Type: {e.type}</span>
+        </div>
       </div>
     ))
   );

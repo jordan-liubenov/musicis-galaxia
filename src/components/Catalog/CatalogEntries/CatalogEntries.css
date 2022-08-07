@@ -78,6 +78,19 @@
   padding-left: 5px; */
 }
 
+.catalogType {
+  display: flex;
+  margin: 0 auto;
+  margin-top: 10px;
+  align-items: center;
+  color: rgb(255, 255, 255);
+  font-size: 120%;
+  font-family: 'JetBrains Mono';
+  background-color: #664d7398;
+  border-radius: 10px;
+  padding: 8px;
+}
+
 .catalogEntryImg {
   padding: 10px;
   border-radius: 8%;

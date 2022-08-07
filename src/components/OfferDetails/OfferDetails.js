@@ -1,5 +1,7 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+
 import { useLocation } from "react-router-dom";
+import { CurrentOfferContext } from "../../context/CurrentOfferContext";
 import { authenticateOwner } from "../../services/auth";
 import { fetchEntryById } from "../../services/catalogService";
 import { formatConditionString, trimIdFromUrl } from "../../utils/detailsUtils";
@@ -10,6 +12,8 @@ import OfferDeleteButton from "./OfferDeleteButton/OfferDeleteButton";
 import OfferEditButton from "./OfferEditButton/OfferEditButton";
 
 const OfferDetails = () => {
+  const { setCurrentOpenOffer } = useContext(CurrentOfferContext);
+
   const location = useLocation();
   const entryId = trimIdFromUrl(location); //current offer's id
 
@@ -17,7 +21,11 @@ const OfferDetails = () => {
 
   useEffect(() => {
     //fetch the current entry from the DB using its _id
-    fetchEntryById(entryId).then((data) => setCurrentOffer(data.entry));
+    fetchEntryById(entryId).then((data) => {
+      setCurrentOffer(data.entry);
+      //save currently opened offer in context so it can be accessed by the Owner Guard
+      setCurrentOpenOffer(data.entry);
+    });
   }, []);
 
   return (
