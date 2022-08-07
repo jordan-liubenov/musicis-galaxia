@@ -11,3 +11,8 @@
   font-family: 'JetBrains Mono';
   font-size: 90%;
 }
+
+.postOfferButton:hover {
+  background-color: #7e7b80bb;
+  transition: all 0.4s;
+}

@@ -16,14 +16,22 @@ import PriceField from "../PriceField/PriceField";
 import ValveRadio from "./ValveField/ValveRadio";
 import WattageField from "./WattageField/WattageField";
 
-const AmplifierForm = () => {
+const AmplifierForm = (props) => {
   //fields
-  const [productName, setProductName] = useState("");
-  const [wattage, setWattage] = useState("");
+  const [productName, setProductName] = useState(
+    props.currentOpenOffer ? props.currentOpenOffer.productName : ""
+  );
+  const [wattage, setWattage] = useState(
+    props.currentOpenOffer ? Number(props.currentOpenOffer.wattage) : 0
+  );
   const [condition, setCondition] = useState("regular");
   const [valves, setValves] = useState("yes");
-  const [imageUrl, setImageUrl] = useState("");
-  const [price, setPrice] = useState("");
+  const [imageUrl, setImageUrl] = useState(
+    props.currentOpenOffer ? props.currentOpenOffer.imageUrl : ""
+  );
+  const [price, setPrice] = useState(
+    props.currentOpenOffer ? Number(props.currentOpenOffer.price) : 0
+  );
 
   //field errors
   const [nameErr, setNameErr] = useState("");
@@ -41,6 +49,10 @@ const AmplifierForm = () => {
     imageUrl,
     price,
   };
+  if (props.currentOpenOffer != undefined) {
+    toPost.edit = true;
+    toPost.currentOffer = props.currentOpenOffer;
+  }
 
   return (
     <form method="POST" action="http://localhost:5000/post">
@@ -59,12 +71,14 @@ const AmplifierForm = () => {
       />
       <br></br>
       <ConditionRadio
+        currentOffer={props.currentOpenOffer}
         condition={condition}
         handleRadio={handleRadio}
         setCondition={setCondition}
       />
       <br></br>
       <ValveRadio
+        currentOffer={props.currentOpenOffer}
         valves={valves}
         handleRadio={handleRadio}
         setValves={setValves}
@@ -83,7 +97,7 @@ const AmplifierForm = () => {
         handlePriceField={(e) => handlePriceField(e, setPrice, setPriceErr)}
         priceErr={priceErr}
       />
-      <PostButton toPost={toPost} />
+      <PostButton toPost={toPost} currentOffer={props.currentOpenOffer} />
     </form>
   );
 };

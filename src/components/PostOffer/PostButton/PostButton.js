@@ -5,6 +5,7 @@ import "../PostButton/PostButton.css";
 
 const PostButton = (props) => {
   const navigator = useNavigate();
+
   return (
     <>
       <button
@@ -12,7 +13,7 @@ const PostButton = (props) => {
         className="postOfferButton"
         onClick={(e) => createPost(e, props, navigator)}
       >
-        Create Offer
+        {props.currentOffer != undefined ? "Update offer" : "Create Offer"}
       </button>
     </>
   );

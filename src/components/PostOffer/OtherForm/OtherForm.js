@@ -13,12 +13,20 @@ import PriceField from "../PriceField/PriceField";
 import DescriptionField from "../DescriptionField/DescriptionField";
 import PostButton from "../PostButton/PostButton";
 
-const OtherForm = () => {
+const OtherForm = (props) => {
   //fields
-  const [productName, setProductName] = useState("");
-  const [description, setDescription] = useState("");
-  const [imageUrl, setImageUrl] = useState("");
-  const [price, setPrice] = useState("");
+  const [productName, setProductName] = useState(
+    props.currentOpenOffer ? props.currentOpenOffer.productName : ""
+  );
+  const [description, setDescription] = useState(
+    props.currentOpenOffer ? props.currentOpenOffer.description : ""
+  );
+  const [imageUrl, setImageUrl] = useState(
+    props.currentOpenOffer ? props.currentOpenOffer.imageUrl : ""
+  );
+  const [price, setPrice] = useState(
+    props.currentOpenOffer ? Number(props.currentOpenOffer.price) : 0
+  );
 
   //field errors
   const [nameErr, setNameErr] = useState("");
@@ -33,6 +41,10 @@ const OtherForm = () => {
     imageUrl,
     price,
   };
+  if (props.currentOpenOffer != undefined) {
+    toPost.edit = true;
+    toPost.currentOffer = props.currentOpenOffer;
+  }
 
   return (
     <form method="POST" action="http://localhost:5000/post">

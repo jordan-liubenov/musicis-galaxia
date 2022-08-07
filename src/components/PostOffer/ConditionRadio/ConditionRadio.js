@@ -1,6 +1,11 @@
 import "../ConditionRadio/ConditionRadio.css";
 
 const ConditionRadio = (props) => {
+  let currentCondition;
+  if (props.currentOffer != undefined) {
+    currentCondition = props.currentOffer.condition;
+  }
+
   return (
     <div className="conditionContainer">
       <label htmlFor="condition" id="condition">
@@ -12,6 +17,9 @@ const ConditionRadio = (props) => {
         id="lightUse"
         name="select_condition"
         value={props.condition}
+        defaultChecked={
+          currentCondition != undefined && currentCondition == "light"
+        }
         onChange={() => props.handleRadio(props.setCondition, "light")}
       ></input>
       <label htmlFor="lightUse">Light use</label>
@@ -21,8 +29,8 @@ const ConditionRadio = (props) => {
         id="regularUse"
         name="select_condition"
         value={props.condition}
-        onChange={() => props.handleRadio(props.setCondition, "regular")}
         defaultChecked={true}
+        onChange={() => props.handleRadio(props.setCondition, "regular")}
       ></input>
       <label htmlFor="regularUse">Regular use</label>
       <input
@@ -31,6 +39,9 @@ const ConditionRadio = (props) => {
         id="heavyUse"
         name="select_condition"
         value={props.condition}
+        defaultChecked={
+          currentCondition != undefined && currentCondition == "heavy"
+        }
         onChange={() => props.handleRadio(props.setCondition, "heavy")}
       ></input>
       <label htmlFor="heavyUse">Heavy use</label>

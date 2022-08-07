@@ -13,7 +13,7 @@ const PriceField = (props) => {
           name="priceField"
           id="priceField"
           className="priceField"
-          valie={props.price}
+          value={props.price}
           onChange={props.handlePriceField}
           required
         ></input>

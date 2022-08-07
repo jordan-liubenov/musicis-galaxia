@@ -1,0 +1,14 @@
+.editTitleDiv {
+  justify-content: center;
+  display: flex;
+  padding: 20px;
+}
+
+.editTitleSpan {
+  align-items: center;
+  color: rgb(241, 220, 220);
+  font-size: 300%;
+  font-family: 'JetBrains Mono';
+  background-color: #664d73ee;
+  border-radius: 10px;
+}

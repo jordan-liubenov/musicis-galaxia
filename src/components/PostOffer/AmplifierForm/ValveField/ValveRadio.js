@@ -1,4 +1,8 @@
 const ValveRadio = (props) => {
+  let currentValves;
+  if (props.currentOffer != undefined) {
+    currentValves = props.currentOffer.valves;
+  }
   return (
     <div className="conditionContainer">
       <label>Valves:</label>
@@ -18,6 +22,7 @@ const ValveRadio = (props) => {
         id="no"
         name="select_valve"
         value={props.valves}
+        defaultChecked={currentValves != undefined && currentValves == "no"}
         onChange={() => props.handleRadio(props.setValves, "no")}
       ></input>
       <label htmlFor="no">No</label>

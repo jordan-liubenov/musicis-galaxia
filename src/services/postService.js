@@ -142,6 +142,12 @@ function validateWattage(num) {
 
 function setObjBody(objBody, data, currentUserId) {
   objBody.ownerId = currentUserId;
+
+  if (data.toPost.edit) {
+    objBody.edit = true;
+    objBody.currentOffer = data.toPost.currentOffer;
+  }
+
   if (data.toPost.instrumentForm) {
     objBody.type = "Instrument";
     objBody.instrumentForm = true;

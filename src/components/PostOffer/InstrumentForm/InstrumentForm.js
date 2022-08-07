@@ -18,13 +18,23 @@ import PriceField from "../PriceField/PriceField";
 import ImageField from "../ImageField/ImageField";
 import PostButton from "../PostButton/PostButton";
 
-const InstrumentForm = () => {
+const InstrumentForm = (props) => {
   //fields
-  const [productName, setProductName] = useState("");
-  const [condition, setCondition] = useState("regular");
-  const [description, setDescription] = useState("");
-  const [price, setPrice] = useState("");
-  const [imageUrl, setImageUrl] = useState("");
+  const [productName, setProductName] = useState(
+    props.currentOpenOffer ? props.currentOpenOffer.productName : ""
+  );
+  const [condition, setCondition] = useState(
+    props.currentOffer ? props.currentOffer.condition : "regular"
+  );
+  const [description, setDescription] = useState(
+    props.currentOpenOffer ? props.currentOpenOffer.description : ""
+  );
+  const [price, setPrice] = useState(
+    props.currentOpenOffer ? Number(props.currentOpenOffer.price) : 0
+  );
+  const [imageUrl, setImageUrl] = useState(
+    props.currentOpenOffer ? props.currentOpenOffer.imageUrl : ""
+  );
 
   //field errors
   const [nameErr, setNameErr] = useState("");
@@ -40,6 +50,10 @@ const InstrumentForm = () => {
     imageUrl,
     price,
   };
+  if (props.currentOpenOffer != undefined) {
+    toPost.edit = true;
+    toPost.currentOffer = props.currentOpenOffer;
+  }
 
   return (
     <form
@@ -61,6 +75,7 @@ const InstrumentForm = () => {
         descriptionErr={descriptionErr}
       />
       <ConditionRadio
+        currentOffer={props.currentOpenOffer}
         condition={condition}
         handleRadio={handleRadio}
         setCondition={setCondition}
