@@ -1,6 +1,13 @@
+import "../NoResults/NoResults.css";
+
 const NoResults = () => {
-  //TODO finish NoRes component
-  return <div className="noResultDiv"></div>;
+  return (
+    <div className="noResultDiv">
+      <p className="noResultMessage">
+        No results found with the searched value.
+      </p>
+    </div>
+  );
 };
 
 export default NoResults;

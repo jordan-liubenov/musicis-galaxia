@@ -21,6 +21,7 @@ import ErrorPage from "./components/ErrorPage/ErrorPage";
 import Catalog from "./components/Catalog/Catalog";
 import OfferDetails from "./components/OfferDetails/OfferDetails";
 import EditOffer from "./components/EditOffer/EditOffer";
+import UserGuard from "./components/Guard/UserGuard";
 
 const App = () => {
   const [authStatus, setAuthStatus] = useLocalStorage("authStatus", {});
@@ -54,8 +55,12 @@ const App = () => {
             </Route>
 
             <Route path="/" element={<Home />} />
-            <Route path="/register" element={<Register />} />
-            <Route path="/login" element={<Login />} />
+
+            <Route element={<UserGuard />}>
+              <Route path="/register" element={<Register />} />
+              <Route path="/login" element={<Login />} />
+            </Route>
+
             <Route path="/catalog" element={<Catalog />} />
             <Route path="/details/:id" element={<OfferDetails />} />
 

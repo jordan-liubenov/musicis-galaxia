@@ -7,7 +7,7 @@
 
   font-size: 18px;
 
-  margin-left: 37px;
+  margin-left: 33px;
   margin-top: 10px;
   margin-bottom: 10px;
 
@@ -59,7 +59,7 @@
   color: rgb(255, 255, 255);
   font-size: 120%;
   font-family: 'JetBrains Mono';
-  background-color: #664d7398;
+  background-color: #3f2e4898;
   border-radius: 10px;
   /* padding-right: 15px;
   padding-left: 15px; */
@@ -73,7 +73,7 @@
   color: rgb(255, 255, 255);
   font-size: 120%;
   font-family: 'JetBrains Mono';
-  background-color: #664d7398;
+  background-color: #664d7368;
   border-radius: 10px;
   padding: 8px;
   /* padding-right: 5px;
@@ -93,7 +93,7 @@
   color: rgb(255, 255, 255);
   font-size: 120%;
   font-family: 'JetBrains Mono';
-  background-color: #664d7398;
+  background-color: #664d7389;
   border-radius: 10px;
   padding: 8px;
 }
@@ -108,8 +108,12 @@
   display: flex;
   background-color: #aa97b63a;
   width: 80%;
+  border-style: solid;
+  border-width: 2px;
   border-radius: 10px;
+  border-color: #ddd5e2bb;
   margin: 0 auto;
+  margin-top: 5px;
   color: #e1e1e1;
 }
 
@@ -121,4 +125,13 @@
 .thumbsDown {
   display: flex;
   margin: 0 auto;
+}
+
+.arrowDown {
+  margin-top: 4px;
+}
+
+.postInfoContainer {
+  background-color: #a794b3;
+  border-radius: 10px;
 }

@@ -1,0 +1,19 @@
+.noResultDiv {
+  display: flex;
+  margin: 0 auto;
+  margin-top: 40px;
+}
+
+.noResultMessage {
+  display: flex;
+  margin: 0 auto;
+
+  font-family: "Jetbrains Mono";
+  font-size: 20px;
+
+  background-color: rgb(215, 158, 226);
+  background-color: #9e85ad;
+  color: rgba(255, 255, 255, 0.841);
+
+  padding: 20px;
+}

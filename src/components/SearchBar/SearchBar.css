@@ -6,18 +6,7 @@
   border-radius: 10px;
 }
 
-.searchButton {
-  font-family: "Jetbrains Mono";
-  border: solid;
-  border-color: rgb(227, 226, 224);
-  border-radius: 10px;
-  height: 50px;
-  margin-top: 5px;
-  margin-left: 20px;
-}
-
-.searchButton:hover {
-  cursor: pointer;
-  background-color: rgb(233, 230, 226);
-  transition: all .4s;
+.searchBar:focus {
+  border-style: solid;
+  border-color: rgba(178, 111, 193, 0.453);
 }
