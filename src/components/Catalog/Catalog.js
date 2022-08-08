@@ -3,6 +3,8 @@ import { useState, useEffect } from "react";
 import {
   checkForEmptyCollection,
   collectionAnchorHandler,
+  filterOffers,
+  handleSearchBar,
 } from "../../utils/catalogUtil";
 
 import { fetchAllOffers } from "../../services/catalogService";
@@ -14,6 +16,7 @@ import CatalogHeader from "./CatalogHeader/CatalogHeader";
 import CatalogNav from "./CatalogNav/CatalogNav";
 import CatalogEntries from "./CatalogEntries/CatalogEntries";
 import EmptyCatalog from "./EmptyCatalog/EmptyCatalog";
+import SearchBar from "../SearchBar/SearchBar";
 
 const Catalog = () => {
   const [collection, setCollection] = useState("all"); //sets the type of collection to be shown to the user
@@ -25,6 +28,8 @@ const Catalog = () => {
     fetchAllOffers().then((data) => setRetrievedEntries(data.dataArr));
   }, []);
 
+  const [searchValue, setSearchValue] = useState("");
+  let filteredEntries = filterOffers(retrievedEntries, searchValue);
   return (
     <>
       <CatalogHeader />
@@ -34,10 +39,18 @@ const Catalog = () => {
         }
       />
       <div className="catalogContainer">
+        <SearchBar
+          searchValue={searchValue}
+          handleSearchBar={(e) => handleSearchBar(e, setSearchValue)}
+        />
         {checkForEmptyCollection(retrievedEntries) ? (
           <EmptyCatalog />
         ) : (
-          <CatalogEntries retrievedEntries={retrievedEntries} />
+          <CatalogEntries
+            searchValue={searchValue}
+            retrievedEntries={retrievedEntries}
+            filteredEntries={filteredEntries}
+          />
         )}
       </div>
     </>

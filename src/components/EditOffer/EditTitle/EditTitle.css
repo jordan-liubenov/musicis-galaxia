@@ -2,6 +2,7 @@
   justify-content: center;
   display: flex;
   padding: 20px;
+  padding-bottom: 55px;
 }
 
 .editTitleSpan {

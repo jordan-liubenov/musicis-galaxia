@@ -1,10 +1,10 @@
 .catalogHeaderContainer {
-  padding: 10px;
+  padding: 5px;
   text-align: center;
   /* background: #664d7398; */
   background: linear-gradient(-70deg, #664d73ef 20%, #78747ad8 80%), url('../../../img/geets.jpg');
   color: #f6e6e6;
-  font-size: 35px;
+  font-size: 30px;
   text-shadow: 5px 5px #47365098;
   font-family: "Jetbrains Mono";
 }

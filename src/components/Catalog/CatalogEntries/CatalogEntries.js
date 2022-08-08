@@ -1,36 +1,28 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { setEntriesToRender } from "../../../utils/catalogUtil";
 import "./CatalogEntries.css";
 
 const CatalogEntry = (props) => {
+  const searchValue = props.searchValue;
+
+  const filteredArray = props.filteredEntries;
+
   const entryArray = props.retrievedEntries;
 
-  return entryArray.map((arr) =>
-    arr.map((e) => (
-      <div className="catalogEntry" key={e._id}>
-        <div className="productNameDiv">
-          <span className="catalogProductName">{e.productName}</span>
-        </div>
-        <div className="productNameDiv">
-          <span className="catalogProductPrice">{e.price}$</span>
-        </div>
-        <Link className="offerLink" to={"/details/" + e._id}>
-          <button className="openEntryButton">View</button>
-        </Link>
+  let toRender;
 
-        <img
-          className="catalogEntryImg"
-          src={e.imageUrl}
-          width={280}
-          height={250}
-        ></img>
-        <div>
-          {" "}
-          <span className="catalogType">Type: {e.type}</span>
-        </div>
-      </div>
-    ))
-  );
+  if (searchValue.length > 0) {
+    if (filteredArray != undefined && filteredArray.length > 0) {
+      toRender = setEntriesToRender(filteredArray, entryArray);
+    } else if (filteredArray != undefined && filteredArray.length == 0) {
+      toRender = <h1>Cant find</h1>;
+    }
+  } else {
+    toRender = setEntriesToRender(filteredArray, entryArray);
+  }
+
+  return toRender;
 };
 
 export default CatalogEntry;
