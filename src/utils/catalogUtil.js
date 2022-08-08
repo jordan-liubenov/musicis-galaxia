@@ -70,7 +70,7 @@ export const setEntriesToRender = (filteredEntries) => {
             <span className="catalogType">Type: {e.type}</span>
           </div>
           <div className="productNameDiv">
-            <span className="catalogProductPrice">{e.price}$</span>
+            <span className="catalogProductPrice">Price: {e.price}$</span>
           </div>
         </div>
         <Link className="offerLink" to={"/details/" + e._id}>
@@ -132,7 +132,7 @@ export const renderOneCollection = (arr) => {
           <span className="catalogType">Type: {e.type}</span>
         </div>
         <div className="productNameDiv">
-          <span className="catalogProductPrice">{e.price}$</span>
+          <span className="catalogProductPrice">Price: {e.price}$</span>
         </div>
       </div>
       <Link className="offerLink" to={"/details/" + e._id}>

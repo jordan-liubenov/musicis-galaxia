@@ -121,6 +121,8 @@ export const submitLogin = async (
   }
 };
 
+//----Validator functions-----
+
 const validateUsername = (str) => {
   let isValid = false;
   if (str.length >= 6) {

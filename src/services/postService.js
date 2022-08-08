@@ -90,6 +90,24 @@ export const getAllByCurrentUser = () => {
   }).then((res) => res.json());
 };
 
+//DELETE request for deleting an entry from the DB
+export const deleteOffer = (currentOffer, navigator) => {
+  const url = "http://localhost:5000/post/delete";
+
+  fetch(url, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(currentOffer),
+  }).catch((error) => {
+    console.log(error);
+    navigator("/404");
+  });
+
+  navigator("/catalog"); //return to catalog after deletion
+};
+
 //validation functions ------------------------------------
 
 function validateName(str) {
