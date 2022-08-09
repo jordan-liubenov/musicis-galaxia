@@ -64,7 +64,7 @@ export const createPost = async (e, data, navigation) => {
     });
 
     const res = await req.json();
-
+    //console.log(res);
     navigation("/catalog");
   } catch (error) {
     console.log(error);

@@ -4,17 +4,24 @@ import { useLocation } from "react-router-dom";
 import { CurrentOfferContext } from "../../context/CurrentOfferContext";
 import { authenticateOwner } from "../../services/auth";
 import { fetchEntryById } from "../../services/catalogService";
-import { formatConditionString, trimIdFromUrl } from "../../utils/detailsUtils";
+import {
+  formatConditionString,
+  hasRated,
+  trimIdFromUrl,
+} from "../../utils/detailsUtils";
+import { checkIfLoggedIn } from "../../utils/loginUtil";
 import "../OfferDetails/OfferDetails.css";
+import AlreadyRated from "./AlreadyRated/AlreadyRated";
 
 //child component imports
 import OfferDeleteButton from "./OfferDeleteButton/OfferDeleteButton";
 import OfferEditButton from "./OfferEditButton/OfferEditButton";
+import RatingButtons from "./RatingButtons/RatingButtons";
 
 const OfferDetails = () => {
   const { setCurrentOpenOffer } = useContext(CurrentOfferContext);
 
-  const location = useLocation();
+  const location = useLocation(); //get url
   const entryId = trimIdFromUrl(location); //current offer's id
 
   const [currentOffer, setCurrentOffer] = useState({});
@@ -27,6 +34,8 @@ const OfferDetails = () => {
       setCurrentOpenOffer(data.entry);
     });
   }, []);
+
+  let rated = hasRated(currentOffer);
 
   return (
     <div className="detailsContainer">
@@ -83,7 +92,17 @@ const OfferDetails = () => {
               <OfferDeleteButton />
             </>
           ) : (
-            <></>
+            <div>
+              {checkIfLoggedIn() ? (
+                hasRated(currentOffer) ? (
+                  <AlreadyRated />
+                ) : (
+                  <RatingButtons rated={rated} />
+                )
+              ) : (
+                <></>
+              )}
+            </div>
           )}
         </div>
       </div>
