@@ -1,32 +1,38 @@
-import { useContext } from "react";
+import { useContext, useState, useEffect } from "react";
 import { CurrentOfferContext } from "../../../context/CurrentOfferContext";
 import { handleRating } from "../../../services/ratingService";
 import { useNavigate } from "react-router-dom";
 import "../RatingButtons/RatingButtons.css";
-import { useState, useEffect } from "react";
+
+import AlreadyRated from "../AlreadyRated/AlreadyRated";
 
 const RatingButtons = (props) => {
-  const hasRated = props.rated; //true or false, based on if the user has rated this post or not
+  const hasRated = props.rated; //true/false based on if the user has rated the post yet
 
   const { currentOpenOffer } = useContext(CurrentOfferContext);
 
   const [rateStatus, setRateStatus] = useState(false);
 
-  useEffect(() => {
-    if (hasRated) setRateStatus(true);
-    if (!hasRated) setRateStatus(false);
-  }, []);
-
   const navigator = useNavigate();
 
+  useEffect(() => {
+    setRateStatus(hasRated);
+  }, [hasRated]);
+
   return rateStatus ? (
-    <></>
+    <AlreadyRated />
   ) : (
     <div className="ratingButtonsDiv">
       <button
         className="likeBtn"
         onClick={() =>
-          handleRating(hasRated, currentOpenOffer, navigator, "likes")
+          handleRating(
+            hasRated,
+            currentOpenOffer,
+            navigator,
+            "likes",
+            setRateStatus
+          )
         }
       >
         Like
@@ -34,7 +40,13 @@ const RatingButtons = (props) => {
       <button
         className="dislikeBtn"
         onClick={() =>
-          handleRating(hasRated, currentOpenOffer, navigator, "dislikes")
+          handleRating(
+            hasRated,
+            currentOpenOffer,
+            navigator,
+            "dislikes",
+            setRateStatus
+          )
         }
       >
         Dislike

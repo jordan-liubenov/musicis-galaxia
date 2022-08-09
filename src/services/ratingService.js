@@ -2,9 +2,12 @@ export const handleRating = (
   hasRated,
   currentOpenOffer,
   navigator,
-  ratingType
+  ratingType,
+  setRateStatus
 ) => {
   if (hasRated) return;
+
+  setRateStatus(true);
 
   const url = "http://localhost:5000/rate";
 

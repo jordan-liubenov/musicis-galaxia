@@ -1,5 +1,4 @@
 import { useContext, useEffect, useState } from "react";
-
 import { useLocation } from "react-router-dom";
 import { CurrentOfferContext } from "../../context/CurrentOfferContext";
 import { authenticateOwner } from "../../services/auth";
@@ -11,7 +10,7 @@ import {
 } from "../../utils/detailsUtils";
 import { checkIfLoggedIn } from "../../utils/loginUtil";
 import "../OfferDetails/OfferDetails.css";
-import AlreadyRated from "./AlreadyRated/AlreadyRated";
+
 
 //child component imports
 import OfferDeleteButton from "./OfferDeleteButton/OfferDeleteButton";
@@ -93,15 +92,7 @@ const OfferDetails = () => {
             </>
           ) : (
             <div>
-              {checkIfLoggedIn() ? (
-                hasRated(currentOffer) ? (
-                  <AlreadyRated />
-                ) : (
-                  <RatingButtons rated={rated} />
-                )
-              ) : (
-                <></>
-              )}
+              {checkIfLoggedIn() ? <RatingButtons rated={rated} /> : <></>}
             </div>
           )}
         </div>
