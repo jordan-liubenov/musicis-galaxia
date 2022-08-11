@@ -12,6 +12,33 @@ export const collectionAnchorHandler = (e, setFunc) => {
   setFunc(value);
 };
 
+export const setSpecificCollection = (
+  toRender,
+  selectedCollection,
+  searchValue,
+  entryArray
+) => {
+  //filters only the entries in the chosen collection
+  //the substring detects what collection is currently sellected
+  selectedCollection = filterSpecificCollection(
+    entryArray,
+    selectedCollection.substring(0, selectedCollection.length - 1)
+  );
+
+  //toRender's value is the mapped current collection
+  toRender = renderOneCollection(selectedCollection);
+
+  if (searchValue.length > 0) {
+    //in case the user searches for something in the search bar
+    //only search for items within the currently selected collection
+    //and re-map the new version of the component which contains results with the searched value by the user
+    toRender = filterSingleCollection(selectedCollection, searchValue);
+    toRender = setEntriesToRender(toRender);
+  }
+
+  return toRender; //return the final version of the component to be rendered
+};
+
 export const checkForEmptyCollection = (entryArray) => {
   //checks if the fetched collection array does not contain any entries at all
   if (entryArray.length > 0) {
@@ -40,6 +67,9 @@ export const filterOffers = (dataArr, str) => {
   const searchVal = str.toLowerCase();
 
   if (dataArr != undefined) {
+    //since dataArr is an array containing 3 child arrays which contain objects
+    //iterate through the parent Array(dataArr), and iterate over each child array
+    //in order to find the entries which match the Searchbar Value (if any)
     dataArr.forEach((childArr) => {
       for (let i = 0; i < childArr.length; i++) {
         const currentEntry = childArr[i];
@@ -97,16 +127,13 @@ export const setEntriesToRender = (filteredEntries) => {
   }
 };
 
-/*
-  Iterating over parent array which contains 3 child arrays
-  For each child array
-*/
-
 export const filterSpecificCollection = (dataArr, collectionType) => {
   let resArr = [];
 
   if (dataArr == undefined) return;
 
+  //iterating over the parent Array(dataArr) and for each child array
+  //iterate each child array to find entries of the currently selected collection-type
   dataArr.forEach((childArr) => {
     for (let i = 0; i < childArr.length; i++) {
       const currentItem = childArr[i];
@@ -161,6 +188,7 @@ export const renderOneCollection = (arr) => {
 export const filterSingleCollection = (collection, searchValue) => {
   if (collection == undefined) return;
   let resArr = [];
+  //filters out entries from only one selected collection which contain the searched value by the client
   for (let i = 0; i < collection.length; i++) {
     const current = collection[i];
     if (current.productName.toLowerCase().includes(searchValue)) {

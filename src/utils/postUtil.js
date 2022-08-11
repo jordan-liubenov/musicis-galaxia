@@ -3,6 +3,7 @@ import InstrumentForm from "../components/PostOffer/InstrumentForm/InstrumentFor
 import OtherForm from "../components/PostOffer/OtherForm/OtherForm";
 
 const POST_ERROR_MSGS = {
+  //errors to be displayed when fields are validated
   nameErr: <div className="errorDiv">Should be atleast 6 characters long.</div>,
   descriptionErr: (
     <div className="errorDiv">Should be atleast 12 characters long.</div>
@@ -38,7 +39,7 @@ export const handleNameField = (e, setFunc, setError) => {
   setFunc(value);
 };
 
- const validateDescription = (str, setError) => {
+const validateDescription = (str, setError) => {
   if (str.length < 8 && str.length > 0) {
     setError(POST_ERROR_MSGS.descriptionErr);
     return false;
@@ -53,7 +54,7 @@ export const handleDescriptionField = (e, setFunc, setError) => {
   setFunc(value);
 };
 
- const validatePrice = (num, setError) => {
+const validatePrice = (num, setError) => {
   num = Number(num);
   if (num < 0) {
     setError(POST_ERROR_MSGS.priceErr);
@@ -69,7 +70,7 @@ export const handlePriceField = (e, setFunc, setError) => {
   setFunc(value);
 };
 
- const validateImageField = (str, setError) => {
+const validateImageField = (str, setError) => {
   if (str.length > 0) {
     if (str.startsWith("http")) {
       setError("");
@@ -89,7 +90,7 @@ export const handleImageUrlField = (e, setFunc, setError) => {
   setFunc(value);
 };
 
- const validateWattage = (num, setError) => {
+const validateWattage = (num, setError) => {
   num = Number(num);
   if (num < 0) {
     setError(POST_ERROR_MSGS.wattageErr);

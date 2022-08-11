@@ -14,7 +14,7 @@ const PostOffer = () => {
 
   let title = underscore ? "Post New Offer_" : "Post New Offer";
 
-  const [productType, setProductType] = useState("instrument");
+  const [productType, setProductType] = useState("instrument"); //display instrument form by default
 
   let form = setFormType(productType);
 

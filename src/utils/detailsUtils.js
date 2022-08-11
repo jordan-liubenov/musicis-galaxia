@@ -15,8 +15,8 @@ export const formatConditionString = (str) => {
   return newStr;
 };
 
-//function that checks if the currently logged-in user has rated the currently opened offer
 export const hasRated = (currentOffer) => {
+  //function that checks if the currently logged-in user has rated the currently opened offer
   let rated = false;
 
   let ratedByArray = currentOffer.ratedBy;

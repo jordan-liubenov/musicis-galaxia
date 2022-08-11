@@ -95,7 +95,7 @@ const InstrumentForm = (props) => {
         handlePriceField={(e) => handlePriceField(e, setPrice, setPriceErr)}
         priceErr={priceErr}
       />
-      <PostButton toPost={toPost} />
+      <PostButton toPost={toPost} currentOffer={props.currentOpenOffer} />
     </form>
   );
 };

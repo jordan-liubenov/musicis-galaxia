@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 
 const noPostView = (
+  //will be displayed if the user has not created any posts yet
   <div className="noPostEntry">
     <div className="noPosts">
       <p>
@@ -14,6 +15,7 @@ const noPostView = (
 );
 
 export const postEntryViewSetter = (dataArr) => {
+  //checks if the user has 0 entries or more, renders elements accordingly
   let toRender;
   if (dataArr.length == 0) {
     toRender = noPostView;
@@ -60,6 +62,7 @@ export const postEntryViewSetter = (dataArr) => {
 };
 
 export const setContainerClassName = (dataArr) => {
+  //sets the className for the container in case of empty collection
   if (dataArr.length > 0) {
     if (
       dataArr[0].length == 0 &&

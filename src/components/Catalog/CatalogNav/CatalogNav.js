@@ -14,7 +14,7 @@ const CatalogNav = (props) => {
           <a>Amplifiers</a>
         </li>
         <li onClick={props.collectionAnchorHandler}>
-          <a>Other</a>
+          <a>Others</a>
         </li>
       </ul>
     </nav>

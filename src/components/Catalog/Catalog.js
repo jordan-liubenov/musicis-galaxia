@@ -19,7 +19,7 @@ import EmptyCatalog from "./EmptyCatalog/EmptyCatalog";
 import SearchBar from "../SearchBar/SearchBar";
 
 const Catalog = () => {
-  const [collection, setCollection] = useState("all"); //state of the type of collection to be shown to the user
+  const [collection, setCollection] = useState("All"); //state of the type of collection to be shown to the user
 
   const [retrievedEntries, setRetrievedEntries] = useState([]);
 

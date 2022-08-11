@@ -75,7 +75,7 @@ const OtherForm = (props) => {
         priceErr={priceErr}
       />
       <br></br>
-      <PostButton toPost={toPost} />
+      <PostButton toPost={toPost} currentOffer={props.currentOpenOffer} />
     </form>
   );
 };

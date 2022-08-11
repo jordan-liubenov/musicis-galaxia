@@ -5,12 +5,13 @@ import {
   filterSpecificCollection,
   setEntriesToRender,
   filterSingleCollection,
+  setSpecificCollection,
 } from "../../../utils/catalogUtil";
 import NoResults from "../NoResults/NoResults";
 import "./CatalogEntries.css";
 
 const CatalogEntry = (props) => {
-  const collectionToRender = props.collection; //the type of the collection currently being rendered
+  const selectedCollection = props.collection; //the type of the collection currently being rendered
 
   const searchValue = props.searchValue; //the currently searched-for string of text
 
@@ -18,7 +19,7 @@ const CatalogEntry = (props) => {
 
   const filteredArray = props.filteredEntries; //if there is text in the search bar, the results are stored in this variable
 
-  let toRender;
+  let toRender; //will contain the component to be rendered
 
   if (searchValue.length > 0) {
     if (filteredArray != undefined && filteredArray.length > 0) {
@@ -30,31 +31,18 @@ const CatalogEntry = (props) => {
     toRender = setEntriesToRender(filteredArray, entryArray);
   }
 
-  //temp will store the current collection to be rendered (if the user selects a choice other than "All")
-  let temp;
-  if (collectionToRender == "Instruments") {
-    temp = filterSpecificCollection(entryArray, "Instrument");
-    toRender = renderOneCollection(temp);
-    if (searchValue.length > 0) {
-      toRender = filterSingleCollection(temp, searchValue);
-      toRender = setEntriesToRender(toRender);
-    }
-  } else if (collectionToRender == "Amplifiers") {
-    temp = filterSpecificCollection(entryArray, "Amplifier");
-    toRender = renderOneCollection(temp);
-    if (searchValue.length > 0) {
-      toRender = filterSingleCollection(temp, searchValue);
-      toRender = setEntriesToRender(toRender);
-    }
-  } else if (collectionToRender == "Other") {
-    temp = filterSpecificCollection(entryArray, "Other");
-    toRender = renderOneCollection(temp);
-    if (searchValue.length > 0) {
-      toRender = filterSingleCollection(temp, searchValue);
-      toRender = setEntriesToRender(toRender);
-    }
+  if (selectedCollection != "All") {
+    //if user selects specific collection they want to view, filter only the offers it contains
+    toRender = setSpecificCollection(
+      toRender,
+      selectedCollection,
+      searchValue,
+      entryArray
+    );
   }
+
   if (filteredArray != undefined && filteredArray.length == 0) {
+    //if no results exist with the searched Value, display <NoResults /> component
     toRender = <NoResults />;
   }
 
