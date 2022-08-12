@@ -1,13 +1,20 @@
 # Musicis Galaxia
 
-Musicis Galaxia is a sample music store Single Page Application made using React, Express and MongoDB.
+Musicis Galaxia is a music store Single Page Application made using React, Express and MongoDB.
 
 ## About
 
 Features user authentication using JWT, data storage in MongoDB and communication to the database
 through a Rest API written in Node.js (https://github.com/jordan-liubenov/musicis-rest).
 
-Every user is able to post offers on instruments, amplifiers or miscellanious items such as strings, guitar picks, etc.
+Every user is able to register and log in their profile. They are then able to post offers on instruments, amplifiers or miscellanious items such as strings, guitar picks, etc.
+
+## How to run it
+
+-Clone repository and run `npm install`
+-Clone repository for the backend and run `npm install` 
+-In the backend create a `.env` file and create a `db` variable which holds the connection string to MongoDB
+-Run frontend and backend with `npm start`
 
 # Homepage view:
 
