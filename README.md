@@ -49,6 +49,16 @@ Three different types of offers available to be created:
 
 **-Other**
 
-### Dynamic profile view showing all offers created by the currently logged-in user
+### Dynamic catalog
 
-![alt text](https://i.ibb.co/5KWWHzX/image.png)
+![alt text](https://i.ibb.co/17KjjvH/image.png)
+
+Renders either all offers that exist, or renders only offers of one of the three categories based on what the client has selected.
+
+Features a search bar in which the client may type in a value and search through either all offers or only the currently-selected category of offers.
+
+### Dynamic profile view 
+
+![alt text](https://i.ibb.co/SvBQNjS/image.png)
+
+Shows all offers posted by the currently logged-in user.
