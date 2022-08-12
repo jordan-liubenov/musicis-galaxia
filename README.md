@@ -12,8 +12,11 @@ Every user is able to register and log in their profile. They are then able to p
 ## How to run it
 
 -Clone repository and run `npm install`
+
 -Clone repository for the backend and run `npm install` 
+
 -In the backend create a `.env` file and create a `db` variable which holds the connection string to MongoDB
+
 -Run frontend and backend with `npm start`
 
 # Homepage view:
