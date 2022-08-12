@@ -26,7 +26,8 @@ export const hasRated = (currentOffer) => {
 
   if (ratedByArray.includes(currentUserId)) {
     //if the user's id is in the RatedBy array
-    rated = true;
+    //meaning the user has already rated the post
+    return true;
   }
 
   return rated;

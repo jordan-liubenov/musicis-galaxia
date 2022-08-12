@@ -94,7 +94,9 @@ const AmplifierForm = (props) => {
       <br></br>
       <PriceField
         price={price}
-        handlePriceField={(e) => handlePriceField(e, setPrice, setPriceErr)}
+        handlePriceField={(e) =>
+          handlePriceField(e, setPrice, setPriceErr, props.currentOpenOffer)
+        }
         priceErr={priceErr}
       />
       <PostButton toPost={toPost} currentOffer={props.currentOpenOffer} />

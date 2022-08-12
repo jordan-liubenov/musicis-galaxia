@@ -51,7 +51,9 @@ export const createPost = async (e, data, navigation) => {
   }
 
   let objBody = {}; //will be body of request
-  setObjBody(objBody, data, currentUserId); //sets body of data based on what form is currently selected
+
+  //function thatsets body of data based on what form is currently selected
+  setObjBody(objBody, data, currentUserId);
 
   try {
     const req = await fetch(url, {
@@ -65,6 +67,7 @@ export const createPost = async (e, data, navigation) => {
 
     const res = await req.json();
     //console.log(res);
+
     navigation("/catalog");
   } catch (error) {
     console.log(error);
@@ -72,8 +75,8 @@ export const createPost = async (e, data, navigation) => {
   }
 };
 
-//fetch all entries by currently logged-in user
 export const getAllByCurrentUser = () => {
+  //fetch all entries by currently logged-in user
   const url = "http://localhost:5000/post";
 
   const currentUserId = JSON.parse(localStorage.getItem("authStatus")).id;
@@ -108,7 +111,7 @@ export const deleteOffer = (currentOffer, navigator) => {
   navigator("/catalog"); //return to catalog after deletion
 };
 
-//validation functions ------------------------------------
+//---field validation functions ------------------------------------
 
 function validateName(str) {
   if (str.length < 5 && str.length > 0) {

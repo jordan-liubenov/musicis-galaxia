@@ -11,6 +11,11 @@
   font-size: 90%;
 }
 
+.submitBtn:hover {
+  background-color: #7b777cbb;
+  transition: all .4s;
+}
+
 .logRedirect {
   background-color: #9671aa68;
   color: #cfbdbd;

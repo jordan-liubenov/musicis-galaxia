@@ -6,3 +6,17 @@
   margin-bottom: 10px;
   font-family: "Jetbrains Mono"
 }
+/* 
+@media all and (max-width:1600px) {
+  .nameField {
+    box-sizing: border-box;
+    border-radius: 15px;
+    width: 20px;
+    width: auto;
+    padding: 5px;
+    resize: none;
+    font-size: 80%;
+    margin-bottom: 10px;
+    font-family: "Jetbrains Mono"
+  }
+} */

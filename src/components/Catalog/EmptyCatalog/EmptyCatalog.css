@@ -1,12 +1,13 @@
 .emptyCatalogDiv {
-  position: fixed;
+  /* position: fixed; */
   height: 100vh;
   width: 100vw;
 
-  background: -webkit-linear-gradient(150deg, #664d7398 45%, #78747a 20%);
+  overflow-x: hidden;
+  /* background: -webkit-linear-gradient(150deg, #664d7398 45%, #78747a 20%);
   background: -o-linear-gradient(150deg, #664d7398 45%, #78747a 20%);
   background: -moz-linear-gradient(150deg, #664d7398 45%, #78747a 20%);
-  background: linear-gradient(150deg, #664d7398 45%, #78747a 20%);
+  background: linear-gradient(150deg, #664d7398 45%, #78747a 20%); */
 }
 
 .emptyCatalogText {
@@ -20,7 +21,7 @@
   width: fit-content;
   border-radius: 10px;
 
-  background-color: #9b7bac89;
+  background-color: #9b7bac;
 
   font-family: "Jetbrains Mono";
   font-size: 20px;
@@ -39,7 +40,7 @@
   text-decoration: none;
   text-align: center;
   color: #f6e6e6;
-  background-color: #9b7bac89;
+  background-color: #9b7bac;
   border-style: solid;
   border-color: #5f536598;
   border-radius: 10px;
@@ -48,6 +49,6 @@
 }
 
 .redirectToPostBtn:hover {
-  background-color: #765e8389;
+  background-color: #7a6288;
   transition: all .5s;
 }

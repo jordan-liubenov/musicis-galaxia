@@ -36,8 +36,8 @@ export const postEntryViewSetter = (dataArr) => {
               <img
                 className="profilePostImage"
                 src={x.imageUrl}
-                width={92}
-                height={92}
+                width={142}
+                height={122}
               ></img>
             </div>
             <p>

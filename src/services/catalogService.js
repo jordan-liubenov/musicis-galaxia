@@ -9,7 +9,7 @@ export const fetchAllOffers = () => {
 };
 
 export const fetchEntryById = (id) => {
-  //fetches specific entry based on it's id
+  //fetches specific entry based on it's id (used for details view)
   const url = "http://localhost:5000/fetch/specific";
 
   return fetch(url, {

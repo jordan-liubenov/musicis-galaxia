@@ -11,7 +11,6 @@ import {
 import { checkIfLoggedIn } from "../../utils/loginUtil";
 import "../OfferDetails/OfferDetails.css";
 
-
 //child component imports
 import OfferDeleteButton from "./OfferDeleteButton/OfferDeleteButton";
 import OfferEditButton from "./OfferEditButton/OfferEditButton";
@@ -34,8 +33,15 @@ const OfferDetails = () => {
     });
   }, []);
 
-  let rated = hasRated(currentOffer);
-
+  const [ratingStatus, setRatingStatus] = useState("");
+  let isRated = hasRated(currentOffer);
+  useEffect(() => {
+    //upon the change of the isRated value(true if rated/false if not)
+    //set the state accordinlgy
+    if (isRated != undefined) {
+      setRatingStatus(isRated);
+    }
+  }, [isRated]);
   return (
     <div className="detailsContainer">
       <div className="detailsDataDiv">
@@ -92,7 +98,14 @@ const OfferDetails = () => {
             </>
           ) : (
             <div>
-              {checkIfLoggedIn() ? <RatingButtons rated={rated} /> : <></>}
+              {checkIfLoggedIn() ? (
+                <RatingButtons
+                  ratingStatus={ratingStatus}
+                  setRatingStatus={setRatingStatus}
+                />
+              ) : (
+                <></>
+              )}
             </div>
           )}
         </div>

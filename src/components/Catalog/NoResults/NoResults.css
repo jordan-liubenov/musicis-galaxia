@@ -13,6 +13,9 @@
 
   background-color: rgb(215, 158, 226);
   background-color: #9e85ad;
+  border-style: solid;
+  border-radius: 10px;
+  border-color: #cac1cf;
   color: rgba(255, 255, 255, 0.841);
 
   padding: 20px;

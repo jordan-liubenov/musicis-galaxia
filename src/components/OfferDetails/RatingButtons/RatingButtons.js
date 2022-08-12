@@ -7,19 +7,13 @@ import "../RatingButtons/RatingButtons.css";
 import AlreadyRated from "../AlreadyRated/AlreadyRated";
 
 const RatingButtons = (props) => {
-  const hasRated = props.rated; //true/false based on if the user has rated the post yet
+  const ratingStatus = props.ratingStatus; //state storing true or false if the post has been rated
 
   const { currentOpenOffer } = useContext(CurrentOfferContext);
 
-  const [rateStatus, setRateStatus] = useState(false);
-
   const navigator = useNavigate();
 
-  useEffect(() => {
-    setRateStatus(hasRated);
-  }, [hasRated]);
-
-  return rateStatus ? (
+  return ratingStatus ? (
     <AlreadyRated />
   ) : (
     <div className="ratingButtonsDiv">
@@ -27,11 +21,11 @@ const RatingButtons = (props) => {
         className="likeBtn"
         onClick={() =>
           handleRating(
-            hasRated,
+            ratingStatus,
             currentOpenOffer,
             navigator,
             "likes",
-            setRateStatus
+            props.setRatingStatus
           )
         }
       >
@@ -41,11 +35,11 @@ const RatingButtons = (props) => {
         className="dislikeBtn"
         onClick={() =>
           handleRating(
-            hasRated,
+            ratingStatus,
             currentOpenOffer,
             navigator,
             "dislikes",
-            setRateStatus
+            props.setRatingStatus
           )
         }
       >

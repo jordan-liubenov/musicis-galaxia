@@ -1,6 +1,6 @@
 .postEntry {
   border-style: solid 2px rgb(233, 23, 0);
-  background-color: #a09ba3;
+  background-color: #b1adb384;
   border-radius: 10px;
   font-family: "Jetbrains Mono";
   margin: 0 auto;
@@ -15,8 +15,10 @@
 }
 
 .profilePostImage {
-  border-style: solid 2px;
-  border-color: red;
+  margin-top: 20px;
+  border-style: solid;
+  border-radius: 10px;
+  border-color: rgb(192, 185, 185);
 }
 
 .postEntry:hover {
@@ -26,7 +28,7 @@
 
 .postEntry>p:first-child {
   backdrop-filter: blur(20px);
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255, 0.233);
   background-size: 50%;
 }
 
