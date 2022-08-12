@@ -57,8 +57,16 @@ Renders either all offers that exist, or renders only offers of one of the three
 
 Features a search bar in which the client may type in a value and search through either all offers or only the currently-selected category of offers.
 
-### Dynamic profile view 
+### Dynamic profile view
 
 ![alt text](https://i.ibb.co/SvBQNjS/image.png)
 
 Shows all offers posted by the currently logged-in user.
+
+### Detail view for each offer
+
+![alt text](https://i.ibb.co/7RdRcKm/image.png)
+
+If the owner opens their own offer, they have access to the Edit and Delete options, but are not able to rate their own posts.
+
+If a user other than the owner of the currently opened post opens the offer, they have the option to rate an offer with a `like` or `dislike`.
