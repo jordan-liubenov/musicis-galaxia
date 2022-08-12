@@ -25,19 +25,19 @@ Every user is able to register and log in their profile. They are then able to p
 
 Welcomes clients and explains the basic idea of the application.
 
-### Register view:
+### Register:
 
 ![alt text](https://i.ibb.co/cKBQMFy/image.png)
 
 Features field validation on the frontend and data validation on the backend, if a user tries creating an account with an already in-use email or username they will be shown an error received from the server.
 
-### Login view:
+### Login:
 
 ![alt text](https://i.ibb.co/x6yMCvV/image.png)
 
 Features error handling when a user tries sending a login request with incorrect data.
 
-### Create new offer view:
+### Create new offer form:
 
 ![alt text](https://i.ibb.co/mJtjcTX/image.png)
 
@@ -57,7 +57,7 @@ Renders either all offers that exist, or renders only offers of one of the three
 
 Features a search bar in which the client may type in a value and search through either all offers or only the currently-selected category of offers.
 
-### Dynamic profile view
+### Dynamic profile
 
 ![alt text](https://i.ibb.co/SvBQNjS/image.png)
 
