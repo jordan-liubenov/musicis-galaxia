@@ -15,6 +15,10 @@ import PostButton from "../PostButton/PostButton";
 
 const OtherForm = (props) => {
   //fields
+  //if props.currentOpenOffer is NOT undefined
+  //that means that the client is currently in the Edit form which was opened
+  //through the details view where the props.currentOpenOffer is saved in context
+
   const [productName, setProductName] = useState(
     props.currentOpenOffer ? props.currentOpenOffer.productName : ""
   );
@@ -41,13 +45,17 @@ const OtherForm = (props) => {
     imageUrl,
     price,
   };
+
   if (props.currentOpenOffer != undefined) {
+    //if props.currentOpenOffer exists, it means the client is currently in the Edit form
+    //in which case an edit=true flag gets set in the body of the POST request
+    //which gets checked and modified in the server
     toPost.edit = true;
     toPost.currentOffer = props.currentOpenOffer;
   }
 
   return (
-    <form method="POST" action="http://localhost:5000/post">
+    <form>
       <NameField
         productName={productName}
         handleNameField={(e) => handleNameField(e, setProductName, setNameErr)}

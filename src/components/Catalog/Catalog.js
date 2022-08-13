@@ -16,19 +16,23 @@ import CatalogHeader from "./CatalogHeader/CatalogHeader";
 import CatalogNav from "./CatalogNav/CatalogNav";
 import CatalogEntries from "./CatalogEntries/CatalogEntries";
 import EmptyCatalog from "./EmptyCatalog/EmptyCatalog";
-import SearchBar from "../SearchBar/SearchBar";
+import SearchBar from "./SearchBar/SearchBar";
 
 const Catalog = () => {
-  const [collection, setCollection] = useState("All"); //state of the type of collection to be shown to the user
+  //state of the type of collection to be currently shown to the user
+  const [collection, setCollectionType] = useState("All");
 
+  //state that holds all the entries from the DB
   const [retrievedEntries, setRetrievedEntries] = useState([]);
 
   useEffect(() => {
     //fetches the entries from the DB
     fetchAllOffers().then((data) => setRetrievedEntries(data.dataArr));
-  }, []);
+  }, [retrievedEntries]);
 
   const [searchValue, setSearchValue] = useState("");
+  //upon search, filter the whole collection of entries
+  //if any are found that match the search value, store in filteredEntries array
   let filteredEntries = filterOffers(retrievedEntries, searchValue);
 
   return (
@@ -36,7 +40,7 @@ const Catalog = () => {
       <CatalogHeader />
       <CatalogNav
         collectionAnchorHandler={(e) =>
-          collectionAnchorHandler(e, setCollection)
+          collectionAnchorHandler(e, setCollectionType)
         }
       />
       <div className="catalogContainer">

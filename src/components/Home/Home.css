@@ -69,3 +69,31 @@ body {
   background-color: #664d73d5;
   transition: all .2s ease-in-out;
 }
+
+@media all and (max-width:1500px) {
+  .instructMsg {
+    font-size: 150%;
+  }
+
+  .welcomeMsg {
+    font-size: 150%;
+  }
+
+  .titleSpan {
+    font-size: 380%;
+  }
+}
+
+@media all and (max-width:900px) {
+  .instructMsg {
+    font-size: 120%;
+  }
+
+  .welcomeMsg {
+    font-size: 120%;
+  }
+
+  .titleSpan {
+    font-size: 220%;
+  }
+}

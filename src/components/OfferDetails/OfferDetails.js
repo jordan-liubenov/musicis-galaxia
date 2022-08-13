@@ -9,6 +9,7 @@ import {
   trimIdFromUrl,
 } from "../../utils/detailsUtils";
 import { checkIfLoggedIn } from "../../utils/loginUtil";
+
 import "../OfferDetails/OfferDetails.css";
 
 //child component imports
@@ -17,6 +18,8 @@ import OfferEditButton from "./OfferEditButton/OfferEditButton";
 import RatingButtons from "./RatingButtons/RatingButtons";
 
 const OfferDetails = () => {
+  //set the currently opened offer in the Current Offer Context
+  //so it's data can be accessed and rendered when opening the Edit Form
   const { setCurrentOpenOffer } = useContext(CurrentOfferContext);
 
   const location = useLocation(); //get url
@@ -37,11 +40,12 @@ const OfferDetails = () => {
   let isRated = hasRated(currentOffer);
   useEffect(() => {
     //upon the change of the isRated value(true if rated/false if not)
-    //set the state accordinlgy
+
     if (isRated != undefined) {
       setRatingStatus(isRated);
     }
   }, [isRated]);
+
   return (
     <div className="detailsContainer">
       <div className="detailsDataDiv">
@@ -54,6 +58,9 @@ const OfferDetails = () => {
               width={310}
               height={270}
             />
+            <p className="detailsParagraph">
+              Created by: {currentOffer.ownerUsername}
+            </p>
           </div>
           <span className="detailsTitle">{currentOffer.productName}</span>
           {currentOffer.description ? (

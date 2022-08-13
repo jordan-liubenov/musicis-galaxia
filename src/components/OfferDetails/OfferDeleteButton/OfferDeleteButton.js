@@ -5,6 +5,7 @@ import { CurrentOfferContext } from "../../../context/CurrentOfferContext";
 
 import "../OfferDeleteButton/OfferDeleteButton.css";
 const OfferDeleteButton = () => {
+  //takes the currently opened offer
   const { currentOpenOffer } = useContext(CurrentOfferContext);
 
   const navigator = useNavigate();

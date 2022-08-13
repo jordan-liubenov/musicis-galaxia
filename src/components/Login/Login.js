@@ -1,12 +1,11 @@
 import "../Login/Login.css";
 
 import { displayUnderscore } from "../../utils/homeUtil";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { ERROR_MSGS, handleValue } from "../../utils/loginUtil";
 import { submitLogin } from "../../services/userService";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
-import { useContext } from "react";
 
 //child component imports
 import UsernameField from "./UsernameField/UsernameField";
@@ -37,7 +36,7 @@ const Login = (props) => {
       <div className="loginContainer">
         <LoginTitle title={title} />
         <div className="loginFormDiv">
-          <form method="POST" action="http://localhost:5000/login">
+          <form>
             {userErr ? ERROR_MSGS.username : <></>}
             <UsernameField
               username={username}

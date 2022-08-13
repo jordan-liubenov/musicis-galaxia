@@ -5,6 +5,7 @@ import { displayUnderscore, redirectHome } from "../../utils/homeUtil";
 import "../ErrorPage/ErrorPage.css";
 
 const ErrorPage = () => {
+  //displayed on server errors or when an un-authorized user tries accessing guarded routes
   const navigator = useNavigate();
 
   const [underscore, setUnderscore] = useState(false);

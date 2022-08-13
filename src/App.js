@@ -40,7 +40,7 @@ const App = () => {
     <CurrentOfferContext.Provider
       value={{ currentOpenOffer, setCurrentOpenOffer }}
     >
-      <AuthContext.Provider value={{ authStatus, logInUser, logOutUser }}>
+      <AuthContext.Provider value={{ logInUser, logOutUser }}>
         <div className="App">
           <Nav />
 

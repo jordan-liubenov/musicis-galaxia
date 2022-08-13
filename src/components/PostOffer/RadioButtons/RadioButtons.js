@@ -1,6 +1,7 @@
 import "../RadioButtons/RadioButtons.css";
 
 const RadioButtons = (props) => {
+  //radio buttons used for setting the type of form to be rendered
   return (
     <div className="radioDiv">
       <input

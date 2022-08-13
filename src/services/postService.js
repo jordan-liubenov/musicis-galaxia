@@ -164,6 +164,10 @@ function validateWattage(num) {
 function setObjBody(objBody, data, currentUserId) {
   objBody.ownerId = currentUserId;
 
+  objBody.ownerUsername = JSON.parse(
+    localStorage.getItem("authStatus")
+  ).username;
+
   if (data.toPost.edit) {
     objBody.edit = true;
     objBody.currentOffer = data.toPost.currentOffer;

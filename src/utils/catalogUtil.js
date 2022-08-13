@@ -20,12 +20,13 @@ export const setSpecificCollection = (
 ) => {
   //filters only the entries in the chosen collection
   //the substring detects what collection is currently sellected
+  //InstrumentS, AmplifierS, OtherS
   selectedCollection = filterSpecificCollection(
     entryArray,
     selectedCollection.substring(0, selectedCollection.length - 1)
   );
 
-  //toRender's value is the mapped current collection
+  //renderOneCollection returns the mapped current collection to a React element
   toRender = renderOneCollection(selectedCollection);
 
   if (searchValue.length > 0) {
@@ -85,6 +86,7 @@ export const filterOffers = (dataArr, str) => {
 };
 
 export const setEntriesToRender = (filteredEntries) => {
+  //takes filteredArray from function above and maps it out to React elements
   if (filteredEntries == undefined) return;
 
   if (filteredEntries.length > 0) {
@@ -128,6 +130,7 @@ export const setEntriesToRender = (filteredEntries) => {
 };
 
 export const filterSpecificCollection = (dataArr, collectionType) => {
+  //filters out entries only from specific collection type
   let resArr = [];
 
   if (dataArr == undefined) return;
@@ -147,6 +150,7 @@ export const filterSpecificCollection = (dataArr, collectionType) => {
 };
 
 export const renderOneCollection = (arr) => {
+  //render function for when the user has selected only one collection to be rendered
   return arr.map((e) => (
     <div className="catalogEntry" key={e._id}>
       <div className="postInfoContainer">
@@ -186,9 +190,9 @@ export const renderOneCollection = (arr) => {
 };
 
 export const filterSingleCollection = (collection, searchValue) => {
+  //filters out entries from only one selected collection which contain the searched value by the client
   if (collection == undefined) return;
   let resArr = [];
-  //filters out entries from only one selected collection which contain the searched value by the client
   for (let i = 0; i < collection.length; i++) {
     const current = collection[i];
     if (current.productName.toLowerCase().includes(searchValue)) {

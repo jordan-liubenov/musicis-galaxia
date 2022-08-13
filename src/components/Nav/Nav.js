@@ -19,8 +19,6 @@ import PostLink from "./PostLink/PostLink";
 import ProfileLink from "./ProfileLink/ProfileLink";
 
 const Nav = () => {
-  const { authStatus } = useContext(AuthContext); //authStatus.username
-
   const { logOutUser } = useContext(AuthContext);
 
   const navigate = useNavigate();

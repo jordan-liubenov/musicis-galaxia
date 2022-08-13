@@ -13,22 +13,23 @@ import "./CatalogEntries.css";
 const CatalogEntry = (props) => {
   const selectedCollection = props.collection; //the type of the collection currently being rendered
 
-  const searchValue = props.searchValue; //the currently searched-for string of text
-
   const entryArray = props.retrievedEntries; //the raw array of data after being fetched
 
+  const searchValue = props.searchValue; //the currently searched-for string of text
   const filteredArray = props.filteredEntries; //if there is text in the search bar, the results are stored in this variable
 
   let toRender; //will contain the component to be rendered
 
   if (searchValue.length > 0) {
+    //check if user has searched for anything in the search bar
     if (filteredArray != undefined && filteredArray.length > 0) {
-      toRender = setEntriesToRender(filteredArray, entryArray);
+      toRender = setEntriesToRender(filteredArray);
     } else if (filteredArray != undefined && filteredArray.length == 0) {
+      //if no results have been found, render the NoRes component
       toRender = <NoResults />;
     }
   } else {
-    toRender = setEntriesToRender(filteredArray, entryArray);
+    toRender = setEntriesToRender(filteredArray);
   }
 
   if (selectedCollection != "All") {
@@ -39,11 +40,6 @@ const CatalogEntry = (props) => {
       searchValue,
       entryArray
     );
-  }
-
-  if (filteredArray != undefined && filteredArray.length == 0) {
-    //if no results exist with the searched Value, display <NoResults /> component
-    toRender = <NoResults />;
   }
 
   return toRender;

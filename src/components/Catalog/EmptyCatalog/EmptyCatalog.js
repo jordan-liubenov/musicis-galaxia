@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import "../EmptyCatalog/EmptyCatalog.css";
 
 const EmptyCatalog = () => {
+  //component which gets rendered when the catalog is empty
   return (
     <div className="emptyCatalogDiv">
       <div className="emptyCatalogText">
