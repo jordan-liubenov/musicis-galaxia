@@ -1,6 +1,6 @@
 # Musicis Galaxia
 
-Musicis Galaxia is a music store Single Page Application made using React, Express and MongoDB.
+Musicis Galaxia is a music store Single Page Application made using React, Express and MongoDB (The MERN stack).
 
 ## About
 
